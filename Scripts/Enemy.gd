@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends CharacterBody2D
 class_name Enemy
 
 
@@ -14,9 +14,12 @@ func die():
 	# emitir som de morte
 	Main.coins += Main.bonus
 	#queue_free()
-	trace1()
+	move_and_collide(Vector2(0, 1)) 
 
 func trace1():
 	motion.x = 700
 	#move_and_slide(motion, Vector2.UP)
 	
+	
+#func _physics_process(delta):
+#	move_and_collide(Vector2(0, 1)) 
