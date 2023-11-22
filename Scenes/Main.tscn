@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cxqn0oe1ro2jr" path="res://Scenes/Mango.tscn" id="3_2y6ee"]
 [ext_resource type="PackedScene" uid="uid://ccxm33epmvuly" path="res://Scenes/Pope.tscn" id="3_g64tc"]
 [ext_resource type="PackedScene" path="res://Scenes/ChoppingStation.tscn" id="4_j3oar"]
-[ext_resource type="PackedScene" path="res://Scenes/CookingStation.tscn" id="5_foikj"]
+[ext_resource type="PackedScene" uid="uid://du7im5p8o7b3h" path="res://Scenes/CookingStation.tscn" id="5_foikj"]
 [ext_resource type="PackedScene" uid="uid://cgl5igvuaa1wh" path="res://Scenes/Papi.tscn" id="6_nihsa"]
 [ext_resource type="PackedScene" uid="uid://cshuu7j0vxe2r" path="res://Scenes/Tonhao.tscn" id="7_61vq5"]
 [ext_resource type="PackedScene" path="res://Scenes/WashingStation.tscn" id="7_ly4hi"]

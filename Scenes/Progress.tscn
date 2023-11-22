@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dp5rgv4c3dcxl"]
+[gd_scene load_steps=10 format=3 uid="uid://dp5rgv4c3dcxl"]
 
 [ext_resource type="Texture2D" uid="uid://dme4sfwpcymq0" path="res://Assets/Sprites/UI/loading/loading-0.png" id="1_m1lyl"]
+[ext_resource type="Script" path="res://Scenes/Progress.gd" id="1_o31to"]
 [ext_resource type="Texture2D" uid="uid://tk7kx6w3u0ln" path="res://Assets/Sprites/UI/loading/loading-1.png" id="2_muw53"]
 [ext_resource type="Texture2D" uid="uid://dncx2jmvdnjov" path="res://Assets/Sprites/UI/loading/loading-2.png" id="3_e3mw8"]
 [ext_resource type="Texture2D" uid="uid://cmkwwr07hh3bb" path="res://Assets/Sprites/UI/loading/loading-3.png" id="4_agcs1"]
@@ -38,10 +39,11 @@ size = Vector2(52, 4)
 
 [node name="Progress" type="Area2D"]
 scale = Vector2(2, 2)
+script = ExtResource("1_o31to")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_iw64b")
-frame_progress = 0.839501
+frame_progress = 0.45438
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -24)
