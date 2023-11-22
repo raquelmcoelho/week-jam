@@ -1,14 +1,14 @@
 [gd_scene load_steps=12 format=3 uid="uid://cgl5igvuaa1wh"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_t7sda"]
-[ext_resource type="Texture2D" uid="uid://bs8mnsb4kvqgv" path="res://Assets/Sprites/Papi/Chopping/papi_chopping-0.png" id="2_khnuj"]
-[ext_resource type="Texture2D" uid="uid://bcapjvyk3206t" path="res://Assets/Sprites/Papi/Chopping/papi_chopping-1.png" id="3_x6i3r"]
-[ext_resource type="Texture2D" uid="uid://cgfmmf5lu35oh" path="res://Assets/Sprites/Papi/Cooking/papi_cooking-0.png" id="4_75jcy"]
-[ext_resource type="Texture2D" uid="uid://dt01xb23mhvvh" path="res://Assets/Sprites/Papi/Cooking/papi_cooking-1.png" id="5_pega8"]
-[ext_resource type="Texture2D" uid="uid://cs0huyf2v5c52" path="res://Assets/Sprites/Papi/Idle/papi_idle-0.png" id="6_ms15w"]
-[ext_resource type="Texture2D" uid="uid://8cfoh0wd6gu6" path="res://Assets/Sprites/Papi/Idle/papi_idle-1.png" id="7_72r12"]
-[ext_resource type="Texture2D" uid="uid://cmkqqfjhj20l1" path="res://Assets/Sprites/Papi/Washing/papi_washing-0.png" id="8_70u3i"]
-[ext_resource type="Texture2D" uid="uid://cwsaj4imwakmh" path="res://Assets/Sprites/Papi/Washing/papi_washing-1.png" id="9_aj7kv"]
+[ext_resource type="Texture2D" uid="uid://bs8mnsb4kvqgv" path="res://Assets/Sprites/Papi/Chopping/papi_chopping-0.png" id="2_a7nft"]
+[ext_resource type="Texture2D" uid="uid://bcapjvyk3206t" path="res://Assets/Sprites/Papi/Chopping/papi_chopping-1.png" id="3_whskj"]
+[ext_resource type="Texture2D" uid="uid://cgfmmf5lu35oh" path="res://Assets/Sprites/Papi/Cooking/papi_cooking-0.png" id="4_wec3l"]
+[ext_resource type="Texture2D" uid="uid://dt01xb23mhvvh" path="res://Assets/Sprites/Papi/Cooking/papi_cooking-1.png" id="5_5a652"]
+[ext_resource type="Texture2D" uid="uid://cs0huyf2v5c52" path="res://Assets/Sprites/Papi/Idle/papi_idle-0.png" id="6_5b7sh"]
+[ext_resource type="Texture2D" uid="uid://8cfoh0wd6gu6" path="res://Assets/Sprites/Papi/Idle/papi_idle-1.png" id="7_lp0wx"]
+[ext_resource type="Texture2D" uid="uid://cmkqqfjhj20l1" path="res://Assets/Sprites/Papi/Washing/papi_washing-0.png" id="8_0oade"]
+[ext_resource type="Texture2D" uid="uid://cwsaj4imwakmh" path="res://Assets/Sprites/Papi/Washing/papi_washing-1.png" id="9_py7kw"]
 
 [sub_resource type="CapsuleShape2D" id="2"]
 radius = 18.5
@@ -18,10 +18,10 @@ height = 48.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_khnuj")
+"texture": ExtResource("2_a7nft")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_x6i3r")
+"texture": ExtResource("3_whskj")
 }],
 "loop": true,
 "name": &"chopping",
@@ -29,10 +29,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_75jcy")
+"texture": ExtResource("4_wec3l")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_pega8")
+"texture": ExtResource("5_5a652")
 }],
 "loop": true,
 "name": &"cooking",
@@ -40,10 +40,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_ms15w")
+"texture": ExtResource("6_5b7sh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_72r12")
+"texture": ExtResource("7_lp0wx")
 }],
 "loop": true,
 "name": &"idle",
@@ -51,17 +51,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_70u3i")
+"texture": ExtResource("8_0oade")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_aj7kv")
+"texture": ExtResource("9_py7kw")
 }],
 "loop": true,
 "name": &"washing",
 "speed": 5.0
 }]
 
-[node name="Player" type="Area2D"]
+[node name="Papi" type="Area2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_t7sda")
 

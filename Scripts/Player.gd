@@ -39,7 +39,7 @@ func _on_Player_input_event(_viewport, _event, _shape_idx):
 			on_station.station_full = true
 			on_station.player_above_station = false
 			var tween = get_tree().create_tween()
-			tween.tween_property(self, "position", Vector2(on_station.position.x, on_station.position.y-60) , 0.2).set_ease(Tween.EASE_OUT)
+			tween.tween_property(self, "position", Vector2(on_station.position.x, on_station.position.y - on_station.offset_value) , 0.2).set_ease(Tween.EASE_OUT)
 			$AnimatedSprite2D.play(on_station.station_action)
 
 func _on_body_entered(body: StaticBody2D):

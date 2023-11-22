@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca67iebth04pv"]
+[gd_scene load_steps=9 format=3 uid="uid://ca67iebth04pv"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://cxqn0oe1ro2jr" path="res://Scenes/Mango.tscn" id="3_2y6ee"]
 [ext_resource type="PackedScene" uid="uid://ccxm33epmvuly" path="res://Scenes/Pope.tscn" id="3_g64tc"]
-[ext_resource type="PackedScene" uid="uid://chwffanio3ppv" path="res://Scenes/Station.tscn" id="4_hq5xd"]
+[ext_resource type="PackedScene" uid="uid://chwffanio3ppv" path="res://Scenes/ChoppingStation.tscn" id="4_j3oar"]
+[ext_resource type="PackedScene" uid="uid://dbnh577s8cf0x" path="res://Scenes/CookingStation.tscn" id="5_foikj"]
+[ext_resource type="PackedScene" uid="uid://cgl5igvuaa1wh" path="res://Scenes/Papi.tscn" id="6_nihsa"]
+[ext_resource type="PackedScene" uid="uid://cshuu7j0vxe2r" path="res://Scenes/Tonhao.tscn" id="7_61vq5"]
+[ext_resource type="PackedScene" uid="uid://bnlk76341c6dc" path="res://Scenes/WashingStation.tscn" id="7_ly4hi"]
 
 [node name="Main" type="Node"]
 script = ExtResource("2")
@@ -14,5 +18,17 @@ position = Vector2(280, 237)
 [node name="Pope" parent="." instance=ExtResource("3_g64tc")]
 position = Vector2(537, 246)
 
-[node name="Station" parent="." instance=ExtResource("4_hq5xd")]
-position = Vector2(381, 380)
+[node name="ChoppingStation" parent="." instance=ExtResource("4_j3oar")]
+position = Vector2(412, 515)
+
+[node name="CookingStation" parent="." instance=ExtResource("5_foikj")]
+position = Vector2(178, 495)
+
+[node name="Papi" parent="." instance=ExtResource("6_nihsa")]
+position = Vector2(498, 86)
+
+[node name="Tonhao" parent="." instance=ExtResource("7_61vq5")]
+position = Vector2(720, 250)
+
+[node name="WashingStation" parent="." instance=ExtResource("7_ly4hi")]
+position = Vector2(646, 462)

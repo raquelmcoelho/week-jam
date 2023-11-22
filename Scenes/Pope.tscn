@@ -61,7 +61,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="Area2D"]
+[node name="Pope" type="Area2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_3qpb3")
 
@@ -72,7 +72,8 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("5")
-animation = &"idle"
+animation = &"chopping"
+frame_progress = 0.0103831
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

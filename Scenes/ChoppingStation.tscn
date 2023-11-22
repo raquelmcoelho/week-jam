@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://chwffanio3ppv"]
 
-[ext_resource type="Script" path="res://Scripts/Station.gd" id="1_xyole"]
+[ext_resource type="Script" path="res://Scripts/ChoppingStation.gd" id="1_flyvb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_831ek"]
 size = Vector2(37, 24)
 
-[node name="Station" type="StaticBody2D" groups=["station"]]
+[node name="ChoppingStation" type="StaticBody2D" groups=["station"]]
 scale = Vector2(2, 2)
-script = ExtResource("1_xyole")
+script = ExtResource("1_flyvb")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -18.5
