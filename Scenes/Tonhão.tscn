@@ -1,14 +1,14 @@
 [gd_scene load_steps=12 format=3 uid="uid://cshuu7j0vxe2r"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_t6m30"]
-[ext_resource type="Texture2D" uid="uid://c7l3504uhubyy" path="res://Assets/Sprites/Pope/Chopping/pope_chopping_0.png" id="2_mft7a"]
-[ext_resource type="Texture2D" uid="uid://bhfb58h00uqlw" path="res://Assets/Sprites/Pope/Chopping/pope_chopping_1.png" id="3_fttkd"]
-[ext_resource type="Texture2D" uid="uid://w5rgb0s65ywq" path="res://Assets/Sprites/Pope/Cooking/pope_cooking-0.png" id="4_ngnsq"]
-[ext_resource type="Texture2D" uid="uid://dew304bq2wk2y" path="res://Assets/Sprites/Pope/Cooking/pope_cooking-1.png" id="5_fg6v5"]
-[ext_resource type="Texture2D" uid="uid://mtocqpixerxm" path="res://Assets/Sprites/Pope/Idle/pope_idle-0.png" id="6_3v6jt"]
-[ext_resource type="Texture2D" uid="uid://dj3kn8n30l1x7" path="res://Assets/Sprites/Pope/Idle/pope_idle-1.png" id="7_4w3ry"]
-[ext_resource type="Texture2D" uid="uid://d2qcdchvkmu6n" path="res://Assets/Sprites/Pope/Washing/pope_washing-0.png" id="8_de1mf"]
-[ext_resource type="Texture2D" uid="uid://c3gvpi6h1bv4a" path="res://Assets/Sprites/Pope/Washing/pope_washing-1.png" id="9_aidxh"]
+[ext_resource type="Texture2D" uid="uid://d24vf4nov2yo8" path="res://Assets/Sprites/Tonhão/Chopping/tonhao_chopping-0.png" id="2_plf36"]
+[ext_resource type="Texture2D" uid="uid://xgvd2v5cty2r" path="res://Assets/Sprites/Tonhão/Chopping/tonhao_chopping-1.png" id="3_of443"]
+[ext_resource type="Texture2D" uid="uid://cw5yl3iyiwpkv" path="res://Assets/Sprites/Tonhão/Cooking/tonhao_cooking-0.png" id="4_n2ba8"]
+[ext_resource type="Texture2D" uid="uid://c7jonuyks8ali" path="res://Assets/Sprites/Tonhão/Cooking/tonhao_cooking-1.png" id="5_vdxm6"]
+[ext_resource type="Texture2D" uid="uid://04tk6mg7dvx2" path="res://Assets/Sprites/Tonhão/Idle/tonhao_idle-0.png" id="6_roywy"]
+[ext_resource type="Texture2D" uid="uid://y4ui51el0y8o" path="res://Assets/Sprites/Tonhão/Idle/tonhao_idle-1.png" id="7_8qsin"]
+[ext_resource type="Texture2D" uid="uid://8rvjqqci8ggr" path="res://Assets/Sprites/Tonhão/Washing/tonhao_washing-0.png" id="8_o33oq"]
+[ext_resource type="Texture2D" uid="uid://c2ao1k0kabxkk" path="res://Assets/Sprites/Tonhão/Washing/tonhao_washing-1.png" id="9_3tral"]
 
 [sub_resource type="CapsuleShape2D" id="2"]
 radius = 18.5
@@ -18,10 +18,10 @@ height = 48.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_mft7a")
+"texture": ExtResource("2_plf36")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_fttkd")
+"texture": ExtResource("3_of443")
 }],
 "loop": true,
 "name": &"chopping",
@@ -29,10 +29,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_ngnsq")
+"texture": ExtResource("4_n2ba8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_fg6v5")
+"texture": ExtResource("5_vdxm6")
 }],
 "loop": true,
 "name": &"cooking",
@@ -40,10 +40,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_3v6jt")
+"texture": ExtResource("6_roywy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_4w3ry")
+"texture": ExtResource("7_8qsin")
 }],
 "loop": true,
 "name": &"idle",
@@ -51,10 +51,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_de1mf")
+"texture": ExtResource("8_o33oq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_aidxh")
+"texture": ExtResource("9_3tral")
 }],
 "loop": true,
 "name": &"washing",
@@ -73,6 +73,7 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("5")
 animation = &"idle"
+frame_progress = 0.247337
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
