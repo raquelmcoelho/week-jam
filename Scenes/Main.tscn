@@ -1,14 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://ca67iebth04pv"]
+[gd_scene load_steps=5 format=3 uid="uid://ca67iebth04pv"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://cxqn0oe1ro2jr" path="res://Scenes/Mango.tscn" id="3_2y6ee"]
 [ext_resource type="PackedScene" uid="uid://ccxm33epmvuly" path="res://Scenes/Pope.tscn" id="3_g64tc"]
+[ext_resource type="PackedScene" uid="uid://chwffanio3ppv" path="res://Scenes/Station.tscn" id="4_hq5xd"]
 
 [node name="Main" type="Node"]
 script = ExtResource("2")
 
+[node name="Mango" parent="." instance=ExtResource("3_2y6ee")]
+position = Vector2(280, 237)
+
 [node name="Pope" parent="." instance=ExtResource("3_g64tc")]
 position = Vector2(537, 246)
 
-[node name="Mango" parent="." instance=ExtResource("3_2y6ee")]
-position = Vector2(215, 283)
+[node name="Station" parent="." instance=ExtResource("4_hq5xd")]
+position = Vector2(381, 380)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxqn0oe1ro2jr"]
+[gd_scene load_steps=12 format=3 uid="uid://cxqn0oe1ro2jr"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_dj4hl"]
 [ext_resource type="Texture2D" uid="uid://dhg0taco5x1pq" path="res://Assets/Sprites/Mango/Chopping/chef_chopping-0.png" id="2_vq6bs"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cg5pkqyd8hmo2" path="res://Assets/Sprites/Mango/Cooking/chef_cooking-1.png" id="5_t0w0b"]
 [ext_resource type="Texture2D" uid="uid://f2csfycju1aa" path="res://Assets/Sprites/Mango/Idle/chef_idle-0.png" id="6_blidv"]
 [ext_resource type="Texture2D" uid="uid://cpfrhj33drq3w" path="res://Assets/Sprites/Mango/Idle/chef_idle-1.png" id="7_nx3d4"]
+[ext_resource type="Texture2D" uid="uid://crbwilul8w44r" path="res://Assets/Sprites/Mango/Washing/chef_washing-0.png" id="8_vvuth"]
+[ext_resource type="Texture2D" uid="uid://b6t3uutt2rbw1" path="res://Assets/Sprites/Mango/Washing/chef_washing-1.png" id="9_qqwy3"]
 
 [sub_resource type="CapsuleShape2D" id="2"]
 radius = 18.5
@@ -46,10 +48,20 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_vvuth")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qqwy3")
+}],
+"loop": true,
+"name": &"washing",
+"speed": 5.0
 }]
 
 [node name="Player" type="Area2D"]
-position = Vector2(22, 0)
 scale = Vector2(2, 2)
 script = ExtResource("1_dj4hl")
 
@@ -60,6 +72,10 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("5")
-animation = &"chopping"
+animation = &"washing"
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="input_event" from="." to="." method="_on_Player_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
