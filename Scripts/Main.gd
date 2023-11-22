@@ -10,8 +10,6 @@ var is_dragging = false
 func receiveMoney():
 	pass
 
-
-
 func spawnEnemy():
 	var instance = rat_scene.instantiate()
 	add_child(instance)
