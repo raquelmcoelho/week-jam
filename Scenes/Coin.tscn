@@ -32,7 +32,7 @@ script = ExtResource("1_cyidh")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7w3dw")
 animation = &"idle"
-frame_progress = 0.279955
+frame_progress = 0.3348
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)
