@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ca67iebth04pv"]
+[gd_scene load_steps=11 format=3 uid="uid://ca67iebth04pv"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://cxqn0oe1ro2jr" path="res://Scenes/Mango.tscn" id="3_2y6ee"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cshuu7j0vxe2r" path="res://Scenes/Tonhao.tscn" id="7_61vq5"]
 [ext_resource type="PackedScene" path="res://Scenes/WashingStation.tscn" id="7_ly4hi"]
 [ext_resource type="PackedScene" uid="uid://b0rqvdvija3f" path="res://Scenes/Coin.tscn" id="9_rdg5b"]
+[ext_resource type="PackedScene" uid="uid://cy6qck4q6st7r" path="res://Scenes/Rat.tscn" id="10_vhve3"]
 
 [node name="Main" type="Node"]
 script = ExtResource("2")
@@ -36,3 +37,6 @@ position = Vector2(646, 462)
 
 [node name="Coin" parent="." instance=ExtResource("9_rdg5b")]
 position = Vector2(84, 88)
+
+[node name="Rat" parent="." instance=ExtResource("10_vhve3")]
+position = Vector2(349, 70)

@@ -49,7 +49,9 @@ func _adjust_player(offset_value, object):
 	tween.tween_property(self, "position", Vector2(object.position.x, object.position.y - offset_value) , 0.2).set_ease(Tween.EASE_OUT)
 	
 func _on_body_entered(body: StaticBody2D):
-	if body.is_in_group('station'):
+	if body.is_in_group('enemy'):
+		body.die()
+	elif body.is_in_group('station'):
 		is_inside_dropable = true
 		body.player_above_station = true
 		station_ref = body

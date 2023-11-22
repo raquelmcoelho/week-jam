@@ -48,7 +48,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fksjj"]
 size = Vector2(23, 23)
 
-[node name="Rat" type="Area2D"]
+[node name="Rat" type="StaticBody2D" groups=["enemy"]]
+scale = Vector2(2, 2)
 script = ExtResource("1_er7bk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
