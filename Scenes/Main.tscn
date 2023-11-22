@@ -14,29 +14,37 @@
 [node name="Main" type="Node"]
 script = ExtResource("2")
 
-[node name="Mango" parent="." instance=ExtResource("3_2y6ee")]
-position = Vector2(280, 237)
+[node name="enemies" type="Node2D" parent="."]
 
-[node name="Pope" parent="." instance=ExtResource("3_g64tc")]
-position = Vector2(537, 246)
+[node name="Rat" parent="enemies" instance=ExtResource("10_vhve3")]
+position = Vector2(349, 70)
 
-[node name="ChoppingStation" parent="." instance=ExtResource("4_j3oar")]
-position = Vector2(412, 515)
+[node name="players" type="Node2D" parent="."]
 
-[node name="CookingStation" parent="." instance=ExtResource("5_foikj")]
-position = Vector2(178, 495)
-
-[node name="Papi" parent="." instance=ExtResource("6_nihsa")]
+[node name="Papi" parent="players" instance=ExtResource("6_nihsa")]
 position = Vector2(498, 86)
 
-[node name="Tonhao" parent="." instance=ExtResource("7_61vq5")]
+[node name="Tonhao" parent="players" instance=ExtResource("7_61vq5")]
 position = Vector2(720, 250)
 
-[node name="WashingStation" parent="." instance=ExtResource("7_ly4hi")]
+[node name="Pope" parent="players" instance=ExtResource("3_g64tc")]
+position = Vector2(537, 246)
+
+[node name="Mango" parent="players" instance=ExtResource("3_2y6ee")]
+position = Vector2(280, 237)
+
+[node name="stations" type="Node2D" parent="."]
+
+[node name="WashingStation" parent="stations" instance=ExtResource("7_ly4hi")]
 position = Vector2(646, 462)
 
-[node name="Coin" parent="." instance=ExtResource("9_rdg5b")]
-position = Vector2(84, 88)
+[node name="CookingStation" parent="stations" instance=ExtResource("5_foikj")]
+position = Vector2(178, 495)
 
-[node name="Rat" parent="." instance=ExtResource("10_vhve3")]
-position = Vector2(349, 70)
+[node name="ChoppingStation" parent="stations" instance=ExtResource("4_j3oar")]
+position = Vector2(412, 515)
+
+[node name="hud" type="Node2D" parent="."]
+
+[node name="Coin" parent="hud" instance=ExtResource("9_rdg5b")]
+position = Vector2(64, 22)
