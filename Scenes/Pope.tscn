@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://ccxm33epmvuly"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_3qpb3"]
+[ext_resource type="Texture2D" uid="uid://c7l3504uhubyy" path="res://Assets/Sprites/Pope/Chopping/pope_chopping_0.png" id="2_cb1rb"]
+[ext_resource type="Texture2D" uid="uid://bhfb58h00uqlw" path="res://Assets/Sprites/Pope/Chopping/pope_chopping_1.png" id="3_djrxv"]
+[ext_resource type="Texture2D" uid="uid://mr5u53l5rgw3" path="res://Assets/Sprites/Mango/Cooking/chef_cooking-0.png" id="4_cjq64"]
+[ext_resource type="Texture2D" uid="uid://cg5pkqyd8hmo2" path="res://Assets/Sprites/Mango/Cooking/chef_cooking-1.png" id="5_55bug"]
+[ext_resource type="Texture2D" uid="uid://f2csfycju1aa" path="res://Assets/Sprites/Mango/Idle/chef_idle-0.png" id="6_thecd"]
+[ext_resource type="Texture2D" uid="uid://cpfrhj33drq3w" path="res://Assets/Sprites/Mango/Idle/chef_idle-1.png" id="7_u2owe"]
+
+[sub_resource type="CapsuleShape2D" id="2"]
+radius = 18.5
+height = 69.0
+
+[sub_resource type="SpriteFrames" id="5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cb1rb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_djrxv")
+}],
+"loop": true,
+"name": &"chopping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_cjq64")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_55bug")
+}],
+"loop": true,
+"name": &"cooking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_thecd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_u2owe")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Player" type="Area2D"]
+position = Vector2(22, 0)
+scale = Vector2(2, 2)
+script = ExtResource("1_3qpb3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+shape = SubResource("2")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("5")
+animation = &"cooking"
+
+[connection signal="input_event" from="." to="." method="_on_Player_input_event"]

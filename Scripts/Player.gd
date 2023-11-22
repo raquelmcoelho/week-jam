@@ -6,7 +6,7 @@ signal player_dropped(player)
 var _dragging: bool = false
 
 func _ready() -> void:
-	$AnimatedSprite2D.play("cooking")
+	$AnimatedSprite2D.play("chopping")
 
 func _process(_delta: float) -> void:
 	if _dragging:
