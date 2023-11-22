@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cshuu7j0vxe2r"]
+[gd_scene load_steps=13 format=3 uid="uid://cshuu7j0vxe2r"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_vxgqu"]
 [ext_resource type="Texture2D" uid="uid://d24vf4nov2yo8" path="res://Assets/Sprites/Tonhao/Chopping/tonhao_chopping-0.png" id="2_vrqsh"]
@@ -9,10 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://04tk6mg7dvx2" path="res://Assets/Sprites/Tonhao/Idle/tonhao_idle-0.png" id="6_lfve5"]
 [ext_resource type="Texture2D" uid="uid://c2ao1k0kabxkk" path="res://Assets/Sprites/Tonhao/Washing/tonhao_washing-1.png" id="7_3xwv4"]
 [ext_resource type="Texture2D" uid="uid://y4ui51el0y8o" path="res://Assets/Sprites/Tonhao/Idle/tonhao_idle-1.png" id="7_qwec6"]
+[ext_resource type="PackedScene" uid="uid://bhljwpn6s2gu0" path="res://Scenes/Progress.tscn" id="10_8ww1g"]
 
 [sub_resource type="CapsuleShape2D" id="2"]
 radius = 18.5
-height = 51.0
+height = 57.0
 
 [sub_resource type="SpriteFrames" id="5"]
 animations = [{
@@ -73,6 +74,9 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("5")
 animation = &"idle"
+
+[node name="Progress" parent="." instance=ExtResource("10_8ww1g")]
+position = Vector2(0, -1)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

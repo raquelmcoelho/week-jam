@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cxqn0oe1ro2jr"]
+[gd_scene load_steps=13 format=3 uid="uid://cxqn0oe1ro2jr"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_dj4hl"]
 [ext_resource type="Texture2D" uid="uid://dhg0taco5x1pq" path="res://Assets/Sprites/Mango/Chopping/chef_chopping-0.png" id="2_vq6bs"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cpfrhj33drq3w" path="res://Assets/Sprites/Mango/Idle/chef_idle-1.png" id="7_nx3d4"]
 [ext_resource type="Texture2D" uid="uid://crbwilul8w44r" path="res://Assets/Sprites/Mango/Washing/chef_washing-0.png" id="8_vvuth"]
 [ext_resource type="Texture2D" uid="uid://b6t3uutt2rbw1" path="res://Assets/Sprites/Mango/Washing/chef_washing-1.png" id="9_qqwy3"]
+[ext_resource type="PackedScene" uid="uid://bhljwpn6s2gu0" path="res://Scenes/Progress.tscn" id="10_j0o2l"]
 
 [sub_resource type="CapsuleShape2D" id="2"]
 radius = 18.5
@@ -72,7 +73,10 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("5")
-animation = &"idle"
+animation = &"washing"
+
+[node name="Progress" parent="." instance=ExtResource("10_j0o2l")]
+position = Vector2(0, -12)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ccxm33epmvuly"]
+[gd_scene load_steps=13 format=3 uid="uid://ccxm33epmvuly"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_3qpb3"]
 [ext_resource type="Texture2D" uid="uid://c7l3504uhubyy" path="res://Assets/Sprites/Pope/Chopping/pope_chopping_0.png" id="2_cb1rb"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dj3kn8n30l1x7" path="res://Assets/Sprites/Pope/Idle/pope_idle-1.png" id="7_cj42g"]
 [ext_resource type="Texture2D" uid="uid://d2qcdchvkmu6n" path="res://Assets/Sprites/Pope/Washing/pope_washing-0.png" id="8_08afs"]
 [ext_resource type="Texture2D" uid="uid://c3gvpi6h1bv4a" path="res://Assets/Sprites/Pope/Washing/pope_washing-1.png" id="9_24gbi"]
+[ext_resource type="PackedScene" uid="uid://bhljwpn6s2gu0" path="res://Scenes/Progress.tscn" id="10_nwo63"]
 
 [sub_resource type="CapsuleShape2D" id="2"]
 radius = 18.5
@@ -72,8 +73,10 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("5")
-animation = &"chopping"
-frame_progress = 0.0103831
+animation = &"idle"
+
+[node name="Progress" parent="." instance=ExtResource("10_nwo63")]
+position = Vector2(0, 11)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
