@@ -44,15 +44,14 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fksjj"]
-size = Vector2(24, 24)
+size = Vector2(23, 23)
 
 [node name="Rat" type="Area2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_psvt5")
-animation = &"side"
-frame_progress = 0.0377262
+animation = &"back"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D"]
-position = Vector2(0, 19)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 19.5)
 shape = SubResource("RectangleShape2D_fksjj")
