@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8rvjqqci8ggr"
-path="res://.godot/imported/tonhao_washing-0.png-5e97ca477c1e3df73c98f3de2d7e5df7.ctex"
+uid="uid://d24vf4nov2yo8"
+path="res://.godot/imported/tonhao_chopping-0.png-96fed8b986ab241777c55bc17dfb60da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Tonhão/Washing/tonhao_washing-0.png"
-dest_files=["res://.godot/imported/tonhao_washing-0.png-5e97ca477c1e3df73c98f3de2d7e5df7.ctex"]
+source_file="res://Assets/Sprites/Tonhao/Chopping/tonhao_chopping-0.png"
+dest_files=["res://.godot/imported/tonhao_chopping-0.png-96fed8b986ab241777c55bc17dfb60da.ctex"]
 
 [params]
 

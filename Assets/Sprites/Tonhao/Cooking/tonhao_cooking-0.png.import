@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d24vf4nov2yo8"
-path="res://.godot/imported/tonhao_chopping-0.png-bf2aeafe9b80652e25f73d6e1117c32a.ctex"
+uid="uid://cw5yl3iyiwpkv"
+path="res://.godot/imported/tonhao_cooking-0.png-ab4eb1e62299255d836f6475187c4447.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Tonhão/Chopping/tonhao_chopping-0.png"
-dest_files=["res://.godot/imported/tonhao_chopping-0.png-bf2aeafe9b80652e25f73d6e1117c32a.ctex"]
+source_file="res://Assets/Sprites/Tonhao/Cooking/tonhao_cooking-0.png"
+dest_files=["res://.godot/imported/tonhao_cooking-0.png-ab4eb1e62299255d836f6475187c4447.ctex"]
 
 [params]
 

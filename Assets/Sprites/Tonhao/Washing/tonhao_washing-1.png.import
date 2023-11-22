@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2ao1k0kabxkk"
-path="res://.godot/imported/tonhao_washing-1.png-7998f63980c233bc578f9c29d1173061.ctex"
+path="res://.godot/imported/tonhao_washing-1.png-e3793b4e1489f49307cf99e42c14ca5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Tonhão/Washing/tonhao_washing-1.png"
-dest_files=["res://.godot/imported/tonhao_washing-1.png-7998f63980c233bc578f9c29d1173061.ctex"]
+source_file="res://Assets/Sprites/Tonhao/Washing/tonhao_washing-1.png"
+dest_files=["res://.godot/imported/tonhao_washing-1.png-e3793b4e1489f49307cf99e42c14ca5b.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://xgvd2v5cty2r"
-path="res://.godot/imported/tonhao_chopping-1.png-0d226a7e25b983c94637774bfac11462.ctex"
+path="res://.godot/imported/tonhao_chopping-1.png-89965ebd78a776ff2127966a28eebf6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Tonhão/Chopping/tonhao_chopping-1.png"
-dest_files=["res://.godot/imported/tonhao_chopping-1.png-0d226a7e25b983c94637774bfac11462.ctex"]
+source_file="res://Assets/Sprites/Tonhao/Chopping/tonhao_chopping-1.png"
+dest_files=["res://.godot/imported/tonhao_chopping-1.png-89965ebd78a776ff2127966a28eebf6d.ctex"]
 
 [params]
 
