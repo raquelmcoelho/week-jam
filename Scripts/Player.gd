@@ -50,6 +50,7 @@ func _adjust_player(offset_value, object):
 	
 func _on_body_entered(body: StaticBody2D):
 	if body.is_in_group('enemy'):
+		print("rato")
 		body.die()
 	elif body.is_in_group('station'):
 		is_inside_dropable = true

@@ -1,6 +1,9 @@
 extends StaticBody2D
 class_name Enemy
 
+
+var motion = Vector2.ZERO
+
 func _ready():
 	$AnimatedSprite2D.play("front")
 
@@ -10,10 +13,10 @@ func _process(_delta):
 func die():
 	# emitir som de morte
 	Main.coins += Main.bonus
-	queue_free()
+	#queue_free()
+	trace1()
 
-func _on_body_entered(body):
-	print("entrou")
-	print(body.get_name())
-	if body.get_name() == "Player":
-		die()
+func trace1():
+	motion.x = 700
+	#move_and_slide(motion, Vector2.UP)
+	

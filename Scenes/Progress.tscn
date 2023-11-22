@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dp5rgv4c3dcxl"]
+[gd_scene load_steps=10 format=3 uid="uid://bhljwpn6s2gu0"]
 
 [ext_resource type="Script" path="res://Scripts/Progress.gd" id="1_lt2do"]
 [ext_resource type="Texture2D" uid="uid://dme4sfwpcymq0" path="res://Assets/Sprites/UI/loading/loading-0.png" id="1_m1lyl"]
@@ -43,13 +43,11 @@ animations = [{
 size = Vector2(52, 4)
 
 [node name="Progress" type="Area2D"]
-scale = Vector2(2, 2)
-script = SubResource("GDScript_kl81i")
+script = ExtResource("1_lt2do")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_iw64b")
-animation = &"run"
-frame_progress = 0.45438
+animation = &"stop"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -24)
