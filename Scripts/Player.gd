@@ -9,6 +9,7 @@ signal game_piece_dropped(piece)
 func _ready() -> void:
 	# Need to be above game board (at z=0)
 	z_index = 1
+	$AnimatedSprite2D.play("cooking")
 
 
 func _process(_delta: float) -> void:
