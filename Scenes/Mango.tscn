@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cxqn0oe1ro2jr"]
+[gd_scene load_steps=13 format=3 uid="uid://cxqn0oe1ro2jr"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_dj4hl"]
 [ext_resource type="Texture2D" uid="uid://dhg0taco5x1pq" path="res://Assets/Sprites/Mango/Chopping/chef_chopping-0.png" id="2_vq6bs"]
@@ -72,7 +72,10 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("5")
-animation = &"idle"
+animation = &"washing"
+
+[node name="Progress" parent="." instance=ExtResource("10_j0o2l")]
+position = Vector2(0, -12)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

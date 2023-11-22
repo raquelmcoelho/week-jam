@@ -30,8 +30,13 @@ animations = [{
 "texture": ExtResource("6_o0t0e")
 }],
 "loop": true,
-"name": &"default",
+"name": &"run",
 "speed": 1.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"stop",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1wft8"]
