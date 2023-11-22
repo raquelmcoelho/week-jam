@@ -9,13 +9,15 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
-# timer randomico pra quando aparecer (máx 3 sec variância)
-# spawn lugar aleatório quando timer for triggado (min 10 sec intervalo)
-# fica som de rato
-# 3 rotas fixas
-# se houver colisão rato muda pra som de morte e some
-# personagem respawna pro início
+func _on_Aread2D_body_entered(body):
+	if body.get_name() == "Player":
+		die()
+		
+func die():
+	# emitir som de morte
+	Main.coins += Main.bonus
+	queue_free()

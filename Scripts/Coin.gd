@@ -7,12 +7,11 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
-
-
 # animação de coin sendo recebida
-func receiveMoney():
+func jump():
+	pass
 	# 3 objetos coins que diminuem o eixo y e dão fade out até a opacidade ser 0
 	# quando atingido o 0 deletar objeto
