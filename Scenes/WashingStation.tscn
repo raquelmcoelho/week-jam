@@ -1,28 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnlk76341c6dc"]
+[gd_scene load_steps=5 format=3 uid="uid://bnlk76341c6dc"]
 
 [ext_resource type="Script" path="res://Scripts/WashingStation.gd" id="1_h87rk"]
+[ext_resource type="Texture2D" uid="uid://cenla8u7pnf33" path="res://Assets/Sprites/Work_spots/washing_table.png" id="2_ksboy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_831ek"]
-size = Vector2(37, 24)
+size = Vector2(52, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u0bht"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ksboy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="WashingStation" type="StaticBody2D" groups=["station"]]
 scale = Vector2(2, 2)
 script = ExtResource("1_h87rk")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -18.5
-offset_top = -12.0
-offset_right = 18.5
-offset_bottom = 12.0
-color = Color(0.101961, 0.313726, 0.788235, 1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_831ek")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_u0bht")
+animation = &"idle"
 
 [node name="Filter" type="ColorRect" parent="."]
-offset_left = -18.5
-offset_top = -12.0
-offset_right = 18.5
-offset_bottom = 12.0
-color = Color(1, 1, 1, 0.196078)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_831ek")
+offset_left = -26.0
+offset_top = -10.0
+offset_right = 26.0
+offset_bottom = 23.0
+color = Color(1, 1, 1, 0.0588235)

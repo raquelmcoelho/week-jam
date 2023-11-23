@@ -34,16 +34,30 @@ func interacts_with_stations():
 			on_station.station_full = false
 			on_station = null
 	elif station_ref.station_full and station_ref != on_station:
-		_adjust_player(200, station_ref)
+		adjust_player(200, station_ref)
 	else:
 		on_station = station_ref
+		if on_station.station_action == "cooking":
+			self.z_index = -1
+			on_station.cook()
 		on_station.station_full = true
-		on_station.player_above_station = false
-		_adjust_player(on_station.offset_value, on_station)
+		on_station.object_above_station = false
+		adjust_player(on_station.offset_value, on_station)
 		$AnimatedSprite2D.play(on_station.station_action)
-		$Progress.start_timer()
+		$Progress.start_timer(self)
+		$CollisionShape2D.disabled = true
 
-func _adjust_player(offset_value, object):
+func finish_station():
+	adjust_player(150, station_ref)
+	on_station.station_full = false
+	if on_station.station_action == "cooking":
+		self.z_index = 1
+		on_station.cooked()
+	on_station = null
+	$AnimatedSprite2D.play("idle")
+	$CollisionShape2D.disabled = false
+	
+func adjust_player(offset_value, object):
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "position", Vector2(object.position.x, object.position.y - offset_value) , 0.2).set_ease(Tween.EASE_OUT)
 	
@@ -53,14 +67,13 @@ func _on_body_entered(body):
 		body.die()
 	elif body.is_in_group('station'):
 		is_inside_dropable = true
-		body.player_above_station = true
+		body.object_above_station = true
 		station_ref = body
-		
-	
+
 func _on_body_exited(body):
 	if body.is_in_group('station'):
 		is_inside_dropable = false
-		body.player_above_station = false
+		body.object_above_station = false
 
 func _on_mouse_entered():
 	if not Main.is_dragging:

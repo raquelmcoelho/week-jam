@@ -1,9 +1,18 @@
 extends StaticBody2D
 
-var player_above_station = false
+var food_scene = load("res://Scenes/Rat.tscn")
+var object_above_station = false
 var station_full = false
 var station_action = "cooking"
-var offset_value = 58
+var offset_value = 54
 
 func _process(_delta):
-	$Filter.visible = player_above_station and not station_full
+	$Filter.visible = object_above_station and not station_full
+
+func cook():
+	$AnimatedSprite2D.play("cooking")
+
+func cooked():
+	self.station_full = true
+	Main.spawn_food(self)
+	$AnimatedSprite2D.play("idle")

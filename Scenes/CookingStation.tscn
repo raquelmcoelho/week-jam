@@ -1,28 +1,51 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbnh577s8cf0x"]
+[gd_scene load_steps=7 format=3 uid="uid://dbnh577s8cf0x"]
 
 [ext_resource type="Script" path="res://Scripts/CookingStation.gd" id="1_4y0eh"]
+[ext_resource type="Texture2D" uid="uid://fi64dsmajneg" path="res://Assets/Sprites/Work_spots/cooking_table-1.png" id="2_fytac"]
+[ext_resource type="Texture2D" uid="uid://ddlvuhviw6k61" path="res://Assets/Sprites/Work_spots/cooking_table-2.png" id="3_e5fau"]
+[ext_resource type="Texture2D" uid="uid://7wf2vu61p7gw" path="res://Assets/Sprites/Work_spots/cooking_table-0.png" id="4_vbikj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_smgur"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fytac")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_e5fau")
+}],
+"loop": true,
+"name": &"cooking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_vbikj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_831ek"]
-size = Vector2(37, 24)
+size = Vector2(52, 33)
 
 [node name="CookingStation" type="StaticBody2D" groups=["station"]]
 scale = Vector2(2, 2)
 script = ExtResource("1_4y0eh")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -18.5
-offset_top = -12.0
-offset_right = 18.5
-offset_bottom = 12.0
-color = Color(0.572549, 0.454902, 0.101961, 1)
-
-[node name="Filter" type="ColorRect" parent="."]
-offset_left = -18.5
-offset_top = -12.0
-offset_right = 18.5
-offset_bottom = 12.0
-color = Color(1, 1, 1, 0.196078)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_smgur")
+animation = &"idle"
+frame_progress = 0.218111
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
+position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_831ek")
+
+[node name="Filter" type="ColorRect" parent="."]
+offset_left = -26.0
+offset_top = -10.0
+offset_right = 26.0
+offset_bottom = 23.0
+color = Color(1, 1, 1, 0.0588235)
