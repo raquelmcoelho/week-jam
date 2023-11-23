@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://chwffanio3ppv"]
+[gd_scene load_steps=6 format=3 uid="uid://chwffanio3ppv"]
 
 [ext_resource type="Script" path="res://Scripts/ChoppingStation.gd" id="1_flyvb"]
 [ext_resource type="Texture2D" uid="uid://i8sina8bsjq6" path="res://Assets/Sprites/Work_spots/chopping_table.png" id="2_eqdi4"]
+[ext_resource type="AudioStream" uid="uid://bsqg5760t0jkc" path="res://Sounds/som_tabua_cortar.wav" id="3_kccue"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_831ek"]
 size = Vector2(52.5, 32.5)
@@ -35,3 +36,7 @@ offset_top = -10.0
 offset_right = 26.0
 offset_bottom = 23.0
 color = Color(1, 1, 1, 0.0588235)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_kccue")
+volume_db = 10.0

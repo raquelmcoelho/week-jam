@@ -12,9 +12,10 @@ func _process(_delta):
 	$Filter.visible = object_above_station and not station_full
 
 func do():
-	pass
+	$AudioStreamPlayer2D.play()
 
 func done():
+	$AudioStreamPlayer2D.stop()
 	self.station_full = true
 	self.empty = true
 	var sprite

@@ -80,6 +80,7 @@ position = Vector2(412, 39)
 
 [node name="Background" type="AudioStreamPlayer2D" parent="sound"]
 stream = ExtResource("11_2vogo")
+volume_db = -10.0
 autoplay = true
 
 [node name="CreationTimer" type="Timer" parent="."]

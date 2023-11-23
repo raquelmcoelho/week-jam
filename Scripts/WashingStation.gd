@@ -10,8 +10,10 @@ func _process(_delta):
 	$Filter.visible = object_above_station and not station_full
 
 func do():
+	$AudioStreamPlayer2D.play()
 	pass
 
 func done():
+	$AudioStreamPlayer2D.stop()
 	self.station_full = true
 	$AnimatedSprite2D.play("idle")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnlk76341c6dc"]
+[gd_scene load_steps=6 format=3 uid="uid://bnlk76341c6dc"]
 
 [ext_resource type="Script" path="res://Scripts/WashingStation.gd" id="1_h87rk"]
 [ext_resource type="Texture2D" uid="uid://cenla8u7pnf33" path="res://Assets/Sprites/Work_spots/washing_table.png" id="2_ksboy"]
+[ext_resource type="AudioStream" uid="uid://c2k4k8nsr8h4r" path="res://Sounds/som_esponja_lavando.wav" id="3_ibwen"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_831ek"]
 size = Vector2(52, 33)
@@ -35,3 +36,6 @@ offset_top = -10.0
 offset_right = 26.0
 offset_bottom = 23.0
 color = Color(1, 1, 1, 0.0588235)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ibwen")

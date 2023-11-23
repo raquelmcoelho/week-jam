@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbnh577s8cf0x"]
+[gd_scene load_steps=8 format=3 uid="uid://dbnh577s8cf0x"]
 
 [ext_resource type="Script" path="res://Scripts/CookingStation.gd" id="1_4y0eh"]
 [ext_resource type="Texture2D" uid="uid://fi64dsmajneg" path="res://Assets/Sprites/Work_spots/cooking_table-1.png" id="2_fytac"]
 [ext_resource type="Texture2D" uid="uid://ddlvuhviw6k61" path="res://Assets/Sprites/Work_spots/cooking_table-2.png" id="3_e5fau"]
 [ext_resource type="Texture2D" uid="uid://7wf2vu61p7gw" path="res://Assets/Sprites/Work_spots/cooking_table-0.png" id="4_vbikj"]
+[ext_resource type="AudioStream" uid="uid://bmonoi28tvfdi" path="res://Sounds/som_sopa_fervendo.wav" id="5_0t3vg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_smgur"]
 animations = [{
@@ -49,3 +50,6 @@ offset_top = -10.0
 offset_right = 26.0
 offset_bottom = 23.0
 color = Color(1, 1, 1, 0.0588235)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_0t3vg")
