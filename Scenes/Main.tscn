@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ca67iebth04pv"]
+[gd_scene load_steps=12 format=3 uid="uid://ca67iebth04pv"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://cxqn0oe1ro2jr" path="res://Scenes/Mango.tscn" id="3_2y6ee"]
@@ -11,13 +11,29 @@
 [ext_resource type="PackedScene" uid="uid://b0rqvdvija3f" path="res://Scenes/Coin.tscn" id="9_rdg5b"]
 [ext_resource type="PackedScene" uid="uid://cy6qck4q6st7r" path="res://Scenes/Rat.tscn" id="10_vhve3"]
 
+[sub_resource type="Curve2D" id="Curve2D_wv745"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 460, 414, 0, 0, 0, 0, 446, 76, 0, 0, 0, 0, 763, 71, 0, 0, 0, 0, 725, 389, 0, 0, 0, 0, 460, 414)
+}
+point_count = 5
+
 [node name="Main" type="Node"]
 script = ExtResource("2")
 
 [node name="enemies" type="Node2D" parent="."]
 
-[node name="Rat" parent="enemies" instance=ExtResource("10_vhve3")]
-position = Vector2(349, 70)
+[node name="EnemyTimer" type="Timer" parent="enemies"]
+wait_time = 1.279
+
+[node name="Path2D" type="Path2D" parent="enemies"]
+position = Vector2(-15, -15)
+curve = SubResource("Curve2D_wv745")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="enemies/Path2D"]
+position = Vector2(460, 414)
+rotates = false
+
+[node name="Rat" parent="enemies/Path2D/PathFollow2D" instance=ExtResource("10_vhve3")]
 
 [node name="players" type="Node2D" parent="."]
 
@@ -48,3 +64,5 @@ position = Vector2(218, 465)
 
 [node name="Coin" parent="hud" instance=ExtResource("9_rdg5b")]
 position = Vector2(64, 22)
+
+[connection signal="timeout" from="enemies/EnemyTimer" to="." method="_on_enemy_timer_timeout"]

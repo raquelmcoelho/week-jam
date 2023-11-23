@@ -11,11 +11,15 @@ func receiveMoney():
 	pass
 
 func spawnEnemy():
-	var instance = rat_scene.instantiate()
-	add_child(instance)
+	var rat = rat_scene.instantiate()
+	add_child(rat)
 
 func spawn_food(station):
 	var food = food_scene.instantiate()
 	food.sprite_str = "pasta"
 	food.on_station = station
 	add_child(food)
+
+func _on_enemy_timer_timeout():
+	pass
+	#spawnEnemy()

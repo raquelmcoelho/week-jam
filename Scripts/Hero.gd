@@ -18,10 +18,9 @@ func get_input():
 		velocity.x = Input.get_axis("ui_left", "ui_right") * speed
 		velocity.y = Input.get_axis("ui_up", "ui_down") * speed
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	get_input()
 	move_and_slide()
-	
 
 func interacts_with_stations():
 	if(get_last_slide_collision()):

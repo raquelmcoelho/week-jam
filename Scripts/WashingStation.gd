@@ -9,7 +9,7 @@ func _process(_delta):
 	$Filter.visible = object_above_station and not station_full
 
 func do():
-	$AnimatedSprite2D.play(station_action)
+	pass
 
 func done():
 	self.station_full = true

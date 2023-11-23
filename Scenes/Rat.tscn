@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=3 uid="uid://cy6qck4q6st7r"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_er7bk"]
-[ext_resource type="Texture2D" uid="uid://dghlrq33mp3py" path="res://Assets/Sprites/Rato/rrat_U-0.png" id="1_v8cxb"]
-[ext_resource type="Texture2D" uid="uid://7aofxrkhtrqk" path="res://Assets/Sprites/Rato/rrat_U-1.png" id="2_44l0j"]
-[ext_resource type="Texture2D" uid="uid://benon3yu11nv1" path="res://Assets/Sprites/Rato/rrat_D-0.png" id="3_5tcq5"]
-[ext_resource type="Texture2D" uid="uid://d2n2wme8dh6xx" path="res://Assets/Sprites/Rato/rrat_D-1.png" id="4_n64ag"]
-[ext_resource type="Texture2D" uid="uid://bqryio3ryju5l" path="res://Assets/Sprites/Rato/rrat_L_R-0.png" id="5_12dkb"]
-[ext_resource type="Texture2D" uid="uid://0wkxyhnjw8ah" path="res://Assets/Sprites/Rato/rrat_L_R-1.png" id="6_lwbqo"]
+[ext_resource type="Texture2D" uid="uid://onqb15scq8js" path="res://Assets/Sprites/Rato/rrat_U-0.png" id="1_v8cxb"]
+[ext_resource type="Texture2D" uid="uid://dtsc3e0bhcsir" path="res://Assets/Sprites/Rato/rrat_U-1.png" id="2_44l0j"]
+[ext_resource type="Texture2D" uid="uid://crekg3be64kqh" path="res://Assets/Sprites/Rato/rrat_D-0.png" id="3_5tcq5"]
+[ext_resource type="Texture2D" uid="uid://dr3dxavqw2gd3" path="res://Assets/Sprites/Rato/rrat_D-1.png" id="4_n64ag"]
+[ext_resource type="Texture2D" uid="uid://dfodh3702axj8" path="res://Assets/Sprites/Rato/rrat_L_R-0.png" id="5_12dkb"]
+[ext_resource type="Texture2D" uid="uid://c5pwkl3n4ywax" path="res://Assets/Sprites/Rato/rrat_L_R-1.png" id="6_lwbqo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_psvt5"]
 animations = [{

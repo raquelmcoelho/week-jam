@@ -1,50 +1,39 @@
 extends CharacterBody2D
 class_name Enemy
 
-@onready var motion = Vector2.ZERO
+@onready var path_follow = get_parent()
 
-func _ready():
-	$AnimatedSprite2D.play("front")
-		
+var speed = 500
+var move_direction = 0
+
+func _physics_process(delta):
+	MovementLoop(delta)
+
 func _process(_delta):
-	move_and_collide(motion)
-	#pass
+	AnimationLoop()
+
+func MovementLoop(delta):
+	var prepos = path_follow.get_global_position()
+	path_follow.set_progress(path_follow.get_progress() + speed * delta)
+	var pos = path_follow.get_global_position()
+	move_direction = (pos.angle_to_point(prepos) / 3.14) * 180
+
+func AnimationLoop():
+	var animation = "back"
+	var flip = false
+	if move_direction < -135 or move_direction >= 135:
+		animation = "side"
+		flip = true
+	elif move_direction < 135 and move_direction >= 45:
+		animation = "back"
+	elif move_direction < 45 and move_direction >= -45:
+		animation = "side"
+	elif move_direction < -45 and move_direction >= -135:
+		animation = "front"
+	$AnimatedSprite2D.flip_h = flip
+	$AnimatedSprite2D.play(animation)
 
 func die():
 	# emitir som de morte
 	Main.coins += Main.bonus
 	#queue_free()
-	if(motion == Vector2.ZERO):
-		trace1()
-	
-func turn_up(value=1):
-	move(0, -value)
-	$AnimatedSprite2D.play("back")
-	
-func turn_down(value=1):
-	$AnimatedSprite2D.play("front")
-	move(0, value) 
-	
-func turn_right(value=1):
-	$AnimatedSprite2D.play("side")
-	$AnimatedSprite2D.flip_h = true
-	move(value, 0)
-	
-func turn_left(value=1):
-	$AnimatedSprite2D.play("side")
-	$AnimatedSprite2D.flip_h = false
-	move(-value, 0)
-	
-func move(x, y):
-	# var tween = get_tree().create_tween()
-	# tween.tween_property(self, "position", Vector2(self.position.x + x, self.position.y + y) , 0.2).set_ease(Tween.EASE_OUT)
-	motion = Vector2(x, y)
-	print("espera timeout")
-	await get_tree().create_timer(1).timeout
-	print("acabou timeout")
-	motion = Vector2.ZERO
-
-func trace1():
-	turn_right()
-	turn_down()
-	

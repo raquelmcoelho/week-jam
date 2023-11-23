@@ -1,6 +1,5 @@
 extends StaticBody2D
 
-var food_scene = load("res://Scenes/Rat.tscn")
 var object_above_station = false
 var station_full = false
 var station_action = "cooking"
