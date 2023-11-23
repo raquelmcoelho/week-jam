@@ -40,5 +40,4 @@ func AnimationLoop():
 
 func die():
 	$sounds/Idle.stop()
-	Main.coins += Main.bonus
 	queue_free()

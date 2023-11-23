@@ -11,12 +11,23 @@ var line = []
 var spots_positions = [Vector2(855, 270), Vector2(860, 360), Vector2(865, 450)]
 var spots_num = 3
 var bonus = 10
-var coins = 1000
+var coins = 0
 var lifes = []
 var is_dragging = false
 
-func receive_money():
-	pass
+@onready var coins_animation = []
+
+func _ready():
+	create_coins()
+
+func spawn_coins():
+	for coin in coins_animation:
+		coin.position = Vector2(600 + randi_range(-100,100),400)
+		var tween = get_tree().create_tween().set_parallel(true)
+		tween.tween_property(coin, "position", Vector2(1100, -10) , 1).set_ease(Tween.EASE_OUT)
+		tween.play()
+	Main.coins += Main.bonus
+
 
 func spawn_enemy():
 	var rat = rat_scene.instantiate()
@@ -65,6 +76,14 @@ func spawn_lifes():
 		life.position = Vector2(1100 + i * 35, 25)
 		lifes.append(life)
 		add_child(life)
+
+func create_coins():
+	coins_animation = []
+	for i in range(3):
+		var coin = coin_scene.instantiate()
+		coin.position = Vector2(1100,-10)
+		coins_animation.append(coin)
+		add_child(coin)
 
 func _on_enemy_timer_timeout():
 	spawn_enemy()

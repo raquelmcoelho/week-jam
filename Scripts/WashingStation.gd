@@ -17,3 +17,8 @@ func done():
 	$AudioStreamPlayer2D.stop()
 	self.station_full = true
 	$AnimatedSprite2D.play("idle")
+	self.station_full = false
+	self.empty = true
+	var sprite = "dirty_dish"
+	Main.spawn_coins()
+	$AnimatedSprite2D.play("idle")

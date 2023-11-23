@@ -67,6 +67,7 @@ func _on_body_entered(body):
 	if body.is_in_group('enemy'):
 		print("rato")
 		body.die()
+		Main.spawn_coins()
 	elif body.is_in_group('station'):
 		is_inside_dropable = true
 		body.object_above_station = true
