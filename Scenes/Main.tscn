@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ca67iebth04pv"]
+[gd_scene load_steps=16 format=3 uid="uid://ca67iebth04pv"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://cxqn0oe1ro2jr" path="res://Scenes/Mango.tscn" id="3_2y6ee"]
@@ -8,11 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://cgl5igvuaa1wh" path="res://Scenes/Papi.tscn" id="6_nihsa"]
 [ext_resource type="PackedScene" uid="uid://cshuu7j0vxe2r" path="res://Scenes/Tonhao.tscn" id="7_61vq5"]
 [ext_resource type="PackedScene" uid="uid://bnlk76341c6dc" path="res://Scenes/WashingStation.tscn" id="7_ly4hi"]
-[ext_resource type="PackedScene" uid="uid://ltuprfh77nkm" path="res://Scenes/Hud.tscn" id="9_mkq2c"]
+[ext_resource type="PackedScene" uid="uid://dodko8gfhg11n" path="res://Scenes/Hud.tscn" id="9_mkq2c"]
 [ext_resource type="PackedScene" uid="uid://b0rqvdvija3f" path="res://Scenes/Coin.tscn" id="10_073ps"]
 [ext_resource type="AudioStream" uid="uid://bap52hmjns3jw" path="res://Sounds/pressure.mp3" id="11_2vogo"]
 [ext_resource type="PackedScene" uid="uid://6i31l4ktxdus" path="res://Scenes/Trash.tscn" id="11_3vor6"]
-[ext_resource type="Texture2D" uid="uid://cb5vqrea06vr5" path="res://Assets/Sprites/background/background.png" id="13_xjfva"]
 
 [sub_resource type="Curve2D" id="Curve2D_wv745"]
 _data = {
@@ -28,29 +27,17 @@ point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_wiryk"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1100, 620, 0, 0, 0, 0, 1094, 271, 0, 0, 0, 0, 1095, 196, 0, 0, 0, 0, 1265, 199)
+"points": PackedVector2Array(0, 0, 0, 0, 1100, 620, 0, 0, 0, 0, 1094, 271, 0, 0, 0, 0, 1026, 273, 0, 0, 0, 0, 747, 279, 0, 0, 0, 0, 741, 643)
 }
-point_count = 4
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_gke6l"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("13_xjfva")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+point_count = 5
 
 [node name="Main" type="Node"]
 script = ExtResource("2")
 
 [node name="enemies" type="Node2D" parent="."]
-position = Vector2(0, 200)
 
 [node name="EnemyTimer" type="Timer" parent="enemies"]
-wait_time = 10.0
+wait_time = 1.279
 autostart = true
 
 [node name="Path2D1" type="Path2D" parent="enemies"]
@@ -81,7 +68,6 @@ rotates = false
 loop = false
 
 [node name="players" type="Node2D" parent="."]
-position = Vector2(0, 200)
 
 [node name="Papi" parent="players" instance=ExtResource("6_nihsa")]
 position = Vector2(167, 186)
@@ -96,7 +82,6 @@ position = Vector2(61, 183)
 position = Vector2(385, 201)
 
 [node name="stations" type="Node2D" parent="."]
-position = Vector2(0, 200)
 
 [node name="WashingStation" parent="stations" instance=ExtResource("7_ly4hi")]
 position = Vector2(440, 540)
@@ -117,45 +102,32 @@ position = Vector2(60, 320)
 position = Vector2(250, 320)
 
 [node name="hud" type="Node2D" parent="."]
-position = Vector2(0, 200)
 
 [node name="Hud" parent="hud" instance=ExtResource("9_mkq2c")]
-metadata/_edit_use_anchors_ = true
 
 [node name="Coin" parent="hud" instance=ExtResource("10_073ps")]
-position = Vector2(1150, -100)
+position = Vector2(981, 28)
 
 [node name="sound" type="Node2D" parent="."]
-position = Vector2(0, 200)
 
 [node name="Background" type="AudioStreamPlayer2D" parent="sound"]
 stream = ExtResource("11_2vogo")
 volume_db = -10.0
 autoplay = true
 
-[node name="others" type="Node2D" parent="."]
-position = Vector2(0, 200)
-
-[node name="Trash" parent="others" instance=ExtResource("11_3vor6")]
-position = Vector2(655, 30)
-
 [node name="CreationTimer" type="Timer" parent="."]
 wait_time = 0.05
 one_shot = true
 autostart = true
 
-[node name="others2" type="Node2D" parent="."]
-position = Vector2(0, 200)
+[node name="others" type="Node2D" parent="."]
+
+[node name="Trash" parent="others" instance=ExtResource("11_3vor6")]
+position = Vector2(532, 48)
 
 [node name="CustomerTimer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
-
-[node name="Background" type="AnimatedSprite2D" parent="."]
-z_index = -1
-position = Vector2(600, 400)
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_gke6l")
 
 [connection signal="timeout" from="enemies/EnemyTimer" to="." method="_on_enemy_timer_timeout"]
 [connection signal="finished" from="sound/Background" to="." method="_on_audio_stream_player_2d_finished"]
