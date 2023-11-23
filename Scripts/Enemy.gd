@@ -7,6 +7,7 @@ var pre_progress
 var speed = 500
 var move_direction = 0
 
+	
 func _physics_process(delta):
 	MovementLoop(delta)
 
@@ -39,6 +40,6 @@ func AnimationLoop():
 	$AnimatedSprite2D.play(animation)
 
 func die():
-	# emitir som de morte
+	$sounds/Idle.stop()
 	Main.coins += Main.bonus
 	queue_free()

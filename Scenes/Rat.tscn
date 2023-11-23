@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cy6qck4q6st7r"]
+[gd_scene load_steps=11 format=3 uid="uid://cy6qck4q6st7r"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_er7bk"]
 [ext_resource type="Texture2D" uid="uid://dghlrq33mp3py" path="res://Assets/Sprites/Rato/rrat_U-0.png" id="1_v8cxb"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d2n2wme8dh6xx" path="res://Assets/Sprites/Rato/rrat_D-1.png" id="4_n64ag"]
 [ext_resource type="Texture2D" uid="uid://bqryio3ryju5l" path="res://Assets/Sprites/Rato/rrat_L_R-0.png" id="5_12dkb"]
 [ext_resource type="Texture2D" uid="uid://0wkxyhnjw8ah" path="res://Assets/Sprites/Rato/rrat_L_R-1.png" id="6_lwbqo"]
+[ext_resource type="AudioStream" uid="uid://cno0ftvqb5oq0" path="res://Sounds/som_rato.wav" id="9_eo7ck"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_psvt5"]
 animations = [{
@@ -58,3 +59,10 @@ animation = &"back"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 19.5)
 shape = SubResource("RectangleShape2D_fksjj")
+
+[node name="sounds" type="Node2D" parent="."]
+
+[node name="Idle" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("9_eo7ck")
+volume_db = 13.595
+autoplay = true
