@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cso3takfjcfbv"]
+[gd_scene load_steps=3 format=3 uid="uid://cso3takfjcfbv"]
 
-[ext_resource type="FontFile" uid="uid://ccfj0kqpkwihr" path="res://Font/PixelifySans-Regular.ttf" id="1_xs7db"]
+[ext_resource type="FontFile" uid="uid://e72bgarhntsx" path="res://Font/PixelifySans-Regular.ttf" id="1_xs7db"]
+[ext_resource type="Script" path="res://Scenes/Guide.gd" id="2_2drgw"]
 
 [node name="Guide" type="Control"]
 layout_mode = 3
@@ -12,10 +13,34 @@ grow_vertical = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 551.0
+offset_left = 539.0
 offset_top = 54.0
-offset_right = 657.0
+offset_right = 645.0
 offset_bottom = 117.0
 theme_override_fonts/normal_font = ExtResource("1_xs7db")
 theme_override_font_sizes/normal_font_size = 50
 text = "Guia"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 389.0
+offset_top = 62.0
+offset_right = 440.0
+offset_bottom = 116.0
+theme_override_fonts/font = ExtResource("1_xs7db")
+theme_override_font_sizes/font_size = 38
+text = "<"
+flat = true
+script = ExtResource("2_2drgw")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 389.0
+offset_top = 130.0
+offset_right = 822.0
+offset_bottom = 555.0
+theme_override_fonts/normal_font = ExtResource("1_xs7db")
+theme_override_font_sizes/normal_font_size = 46
+text = "Aqui vem o Texto sobre o jogo"
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
