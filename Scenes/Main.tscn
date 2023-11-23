@@ -40,32 +40,41 @@ loop = false
 [node name="players" type="Node2D" parent="."]
 
 [node name="Papi" parent="players" instance=ExtResource("6_nihsa")]
-position = Vector2(66, 296)
+position = Vector2(167, 186)
 
 [node name="Tonhao" parent="players" instance=ExtResource("7_61vq5")]
-position = Vector2(335, 422)
+position = Vector2(271, 191)
 
 [node name="Pope" parent="players" instance=ExtResource("3_g64tc")]
-position = Vector2(134, 181)
+position = Vector2(61, 183)
 
 [node name="Mango" parent="players" instance=ExtResource("3_2y6ee")]
-position = Vector2(280, 237)
+position = Vector2(385, 201)
 
 [node name="stations" type="Node2D" parent="."]
 
 [node name="WashingStation" parent="stations" instance=ExtResource("7_ly4hi")]
-position = Vector2(428, 462)
+position = Vector2(440, 540)
 
 [node name="CookingStation" parent="stations" instance=ExtResource("5_foikj")]
-position = Vector2(56, 466)
+position = Vector2(60, 540)
 
 [node name="ChoppingStation" parent="stations" instance=ExtResource("4_j3oar")]
-position = Vector2(242, 463)
+position = Vector2(250, 540)
+
+[node name="WashingStation2" parent="stations" instance=ExtResource("7_ly4hi")]
+position = Vector2(440, 320)
+
+[node name="CookingStation2" parent="stations" instance=ExtResource("5_foikj")]
+position = Vector2(60, 320)
+
+[node name="ChoppingStation2" parent="stations" instance=ExtResource("4_j3oar")]
+position = Vector2(250, 320)
 
 [node name="hud" type="Node2D" parent="."]
 
 [node name="Coin" parent="hud" instance=ExtResource("9_rdg5b")]
-position = Vector2(64, 22)
+position = Vector2(412, 39)
 
 [node name="sound" type="Node2D" parent="."]
 

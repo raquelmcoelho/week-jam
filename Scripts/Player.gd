@@ -33,8 +33,8 @@ func interacts_with_stations():
 		if on_station != null:
 			on_station.station_full = false
 			on_station = null
-	elif station_ref.station_full and station_ref != on_station:
-		adjust_player(200, station_ref)
+	elif (station_ref.station_full and station_ref != on_station) or station_ref.empty:
+		adjust_player(150, station_ref)
 	else:
 		on_station = station_ref
 		if on_station.station_action == "cooking":
@@ -48,7 +48,7 @@ func interacts_with_stations():
 		$CollisionShape2D.disabled = true
 
 func finish_station():
-	adjust_player(150, station_ref)
+	adjust_player(120, station_ref)
 	on_station.station_full = false
 	self.z_index = 1
 	on_station.done()

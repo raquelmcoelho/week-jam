@@ -18,7 +18,23 @@ animations = [{
 "texture": ExtResource("1_4uwtq")
 }],
 "loop": true,
-"name": &"green_food",
+"name": &"food_pasta",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_5s3xa")
+}],
+"loop": true,
+"name": &"food_sandwich",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pj7md")
+}],
+"loop": true,
+"name": &"food_soup",
 "speed": 5.0
 }, {
 "frames": [{
@@ -26,7 +42,7 @@ animations = [{
 "texture": ExtResource("3_go7qk")
 }],
 "loop": true,
-"name": &"ingredient_1",
+"name": &"ingredient_pasta",
 "speed": 5.0
 }, {
 "frames": [{
@@ -34,7 +50,7 @@ animations = [{
 "texture": ExtResource("4_al4r2")
 }],
 "loop": true,
-"name": &"ingredient_2",
+"name": &"ingredient_sandwich",
 "speed": 5.0
 }, {
 "frames": [{
@@ -42,7 +58,7 @@ animations = [{
 "texture": ExtResource("5_svnxl")
 }],
 "loop": true,
-"name": &"ingredient_3",
+"name": &"ingredient_soup",
 "speed": 5.0
 }, {
 "frames": [{
@@ -51,14 +67,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"pasta",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_pj7md")
-}],
-"loop": true,
-"name": &"red_food",
 "speed": 5.0
 }, {
 "frames": [{
@@ -76,14 +84,6 @@ animations = [{
 "loop": true,
 "name": &"soup",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_5s3xa")
-}],
-"loop": true,
-"name": &"yellow_food",
-"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kkgth"]
@@ -97,7 +97,7 @@ script = ExtResource("1_1boul")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_cbjju")
-animation = &"ingredient_3"
+animation = &"soup"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_kkgth")

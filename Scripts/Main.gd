@@ -10,7 +10,7 @@ var bonus = 10
 var coins = 0
 var is_dragging = false
 
-func receiveMoney():
+func receive_money():
 	pass
 
 func spawn_enemy():
@@ -25,11 +25,10 @@ func spawn_food(station, sprite):
 	food.on_station = station
 	add_child(food)
 
-func spawn_ingredient(sprite):
+func spawn_ingredient(sprite, position):
 	var food = food_scene.instantiate()
 	food.sprite_str = sprite
-	food.position.x = 20
-	food.position.y = 20
+	food.position = position
 	add_child(food)
 
 func spawn_barrel(sprite, position):
@@ -38,11 +37,6 @@ func spawn_barrel(sprite, position):
 	barrel.position = position
 	add_child(barrel)
 
-func _on_enemy_timer_timeout():
-	pass
-	#spawn_enemy()
-	
-	
 func spawn_clients():
 	var line = []
 	for i in range(5):
@@ -51,6 +45,10 @@ func spawn_clients():
 		costumer.position_in_line = i
 		line.append(costumer)
 		add_child(costumer)
+
+func _on_enemy_timer_timeout():
+	pass
+	#spawn_enemy()
 
 func _on_creation_timer_timeout():
 	spawn_clients()
