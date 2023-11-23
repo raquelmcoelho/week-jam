@@ -1,16 +1,71 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5pxvm1x282br"]
+[gd_scene load_steps=17 format=3 uid="uid://b5pxvm1x282br"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_hrrpa"]
 [ext_resource type="FontFile" uid="uid://e72bgarhntsx" path="res://Font/PixelifySans-Regular.ttf" id="2_3qx6m"]
 [ext_resource type="PackedScene" uid="uid://cxqn0oe1ro2jr" path="res://Scenes/Mango.tscn" id="3_7q1ou"]
 [ext_resource type="Script" path="res://Scripts/MangoMenu.gd" id="4_jfmjf"]
 [ext_resource type="PackedScene" uid="uid://cy6qck4q6st7r" path="res://Scenes/Rat.tscn" id="5_lgsuy"]
+[ext_resource type="Texture2D" uid="uid://bhgbudd4oriti" path="res://Assets/Sprites/UI/work_menu/work_menu-0.png" id="6_24prg"]
+[ext_resource type="Texture2D" uid="uid://c4k2xmutiykhj" path="res://Assets/Sprites/UI/logo.png" id="6_cgcg5"]
+[ext_resource type="Texture2D" uid="uid://cb5vqrea06vr5" path="res://Assets/Sprites/background/background.png" id="6_ineqa"]
+[ext_resource type="Texture2D" uid="uid://d2dk3hy0h1jlt" path="res://Assets/Sprites/UI/work_menu/work_menu-1.png" id="7_rt62l"]
+[ext_resource type="Texture2D" uid="uid://b06taee5fcet3" path="res://Assets/Sprites/UI/work_menu/work_menu-4.png" id="8_jqk4i"]
+[ext_resource type="Texture2D" uid="uid://ds8vrg3mu4rcl" path="res://Assets/Sprites/UI/work_menu/work_menu-5.png" id="9_fmywv"]
+[ext_resource type="Texture2D" uid="uid://d3jf10tukt5xy" path="res://Assets/Sprites/UI/work_menu/work_menu-2.png" id="10_ex4rt"]
+[ext_resource type="Texture2D" uid="uid://derv4f8aysfhw" path="res://Assets/Sprites/UI/work_menu/work_menu-3.png" id="11_mg7dr"]
 
 [sub_resource type="Curve2D" id="Curve2D_jl66f"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 1054, 226, 0.231148, -1.63251, -0.231148, 1.63251, 1055, 503, -1.00295, -2.74496, 1.00295, 2.74496, 790, 505, -2.10194, -3.20797, 2.10194, 3.20797, 791, 226, 0, 0, 0, 0, 1054, 226)
 }
 point_count = 5
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lyqww"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_24prg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rt62l")
+}],
+"loop": true,
+"name": &"papimenu",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_jqk4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fmywv")
+}],
+"loop": true,
+"name": &"popemenu",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_ex4rt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mg7dr")
+}],
+"loop": true,
+"name": &"tonhaomenu",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e8eu2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ineqa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -29,9 +84,9 @@ metadata/_edit_lock_ = true
 [node name="Start" type="Button" parent="."]
 layout_mode = 0
 offset_left = 512.0
-offset_top = 378.0
+offset_top = 519.0
 offset_right = 704.0
-offset_bottom = 433.0
+offset_bottom = 574.0
 theme_override_fonts/font = ExtResource("2_3qx6m")
 theme_override_font_sizes/font_size = 21
 text = "Começar"
@@ -39,9 +94,9 @@ text = "Começar"
 [node name="Leave" type="Button" parent="."]
 layout_mode = 0
 offset_left = 512.0
-offset_top = 507.0
+offset_top = 648.0
 offset_right = 704.0
-offset_bottom = 563.0
+offset_bottom = 704.0
 theme_override_fonts/font = ExtResource("2_3qx6m")
 theme_override_font_sizes/font_size = 21
 text = "Sair"
@@ -49,15 +104,15 @@ text = "Sair"
 [node name="Instruction" type="Button" parent="."]
 layout_mode = 0
 offset_left = 512.0
-offset_top = 442.0
+offset_top = 583.0
 offset_right = 704.0
-offset_bottom = 497.0
+offset_bottom = 638.0
 theme_override_fonts/font = ExtResource("2_3qx6m")
 theme_override_font_sizes/font_size = 21
 text = "Como Jogar"
 
 [node name="Path2D2" type="Path2D" parent="."]
-position = Vector2(0, 53)
+position = Vector2(25, 228)
 curve = SubResource("Curve2D_jl66f")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
@@ -68,8 +123,50 @@ rotates = false
 position = Vector2(0, -46)
 
 [node name="Mango" parent="." instance=ExtResource("3_7q1ou")]
-position = Vector2(928, 422)
+position = Vector2(953, 597)
 script = ExtResource("4_jfmjf")
+
+[node name="Papimenu" type="AnimatedSprite2D" parent="."]
+position = Vector2(106, 463)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_lyqww")
+animation = &"papimenu"
+autoplay = "papimenu"
+frame = 1
+frame_progress = 1.0
+
+[node name="Popemenu" type="AnimatedSprite2D" parent="."]
+position = Vector2(333, 458)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_lyqww")
+animation = &"popemenu"
+autoplay = "popemenu"
+frame_progress = 0.350008
+
+[node name="Tonhaomenu" type="AnimatedSprite2D" parent="."]
+position = Vector2(220, 625)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_lyqww")
+animation = &"tonhaomenu"
+autoplay = "tonhaomenu"
+frame_progress = 0.749693
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0.294118, 0.176471, 0.168627, 1)
+position = Vector2(592, 268)
+scale = Vector2(2, 2)
+texture = ExtResource("6_cgcg5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(584, 260)
+scale = Vector2(2, 2)
+texture = ExtResource("6_cgcg5")
+
+[node name="Background" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(600, 400)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_e8eu2")
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Leave" to="." method="_on_leave_pressed"]
