@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://q86tgpy1ebjp"]
+
+[ext_resource type="Script" path="res://Scripts/Hud.gd" id="1_onmgo"]
+[ext_resource type="FontFile" uid="uid://bcr7ehs87gt6l" path="res://Font/PixelifySans-Regular.ttf" id="2_d6p3y"]
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_onmgo")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_scale = 0.61
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 998.0
+offset_top = 19.0
+offset_right = 1075.0
+offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("2_d6p3y")
