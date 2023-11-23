@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5pxvm1x282br"]
+[gd_scene load_steps=7 format=3 uid="uid://b5pxvm1x282br"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_hrrpa"]
 [ext_resource type="FontFile" uid="uid://e72bgarhntsx" path="res://Font/PixelifySans-Regular.ttf" id="2_3qx6m"]
@@ -6,15 +6,9 @@
 [ext_resource type="Script" path="res://Scripts/MangoMenu.gd" id="4_jfmjf"]
 [ext_resource type="PackedScene" uid="uid://cy6qck4q6st7r" path="res://Scenes/Rat.tscn" id="5_lgsuy"]
 
-[sub_resource type="Curve2D" id="Curve2D_ouufs"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1014, 353, 0, 0, 0, 0, 835, 355, 0, 0, 0, 0, 1014, 353)
-}
-point_count = 3
-
 [sub_resource type="Curve2D" id="Curve2D_jl66f"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1054, 226, 80.8661, -78.4877, -80.8661, 78.4877, 1055, 503, 38.0546, 24.9733, -38.0546, -24.9733, 790, 505, -112.975, 96.3258, 112.975, -96.3258, 791, 226, 0, 0, 0, 0, 1054, 226)
+"points": PackedVector2Array(0, 0, 0, 0, 1054, 226, 0.231148, -1.63251, -0.231148, 1.63251, 1055, 503, -1.00295, -2.74496, 1.00295, 2.74496, 790, 505, -2.10194, -3.20797, 2.10194, 3.20797, 791, 226, 0, 0, 0, 0, 1054, 226)
 }
 point_count = 5
 
@@ -65,17 +59,6 @@ theme_override_font_sizes/font_size = 21
 text = "Como Jogar"
 metadata/_edit_lock_ = true
 
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_ouufs")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(1014, 353)
-rotates = false
-
-[node name="Mango" parent="Path2D/PathFollow2D" instance=ExtResource("3_7q1ou")]
-position = Vector2(0, 10)
-script = ExtResource("4_jfmjf")
-
 [node name="Path2D2" type="Path2D" parent="."]
 curve = SubResource("Curve2D_jl66f")
 
@@ -85,6 +68,10 @@ rotates = false
 
 [node name="Rat" parent="Path2D2/PathFollow2D" instance=ExtResource("5_lgsuy")]
 position = Vector2(0, -46)
+
+[node name="Mango" parent="." instance=ExtResource("3_7q1ou")]
+position = Vector2(928, 369)
+script = ExtResource("4_jfmjf")
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Leave" to="." method="_on_leave_pressed"]

@@ -13,7 +13,7 @@ func _ready():
 
 func _physics_process(_delta):
 	adjust_position_line()
-	
+
 func adjust_position_line():
 	var place_offset = 80
 	var screen_size = get_viewport().get_visible_rect().size

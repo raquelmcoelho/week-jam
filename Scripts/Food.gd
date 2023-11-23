@@ -64,7 +64,7 @@ func adjust_position(offset_value, object):
 	tween.tween_property(self, "position", Vector2(object.position.x, object.position.y - offset_value) , 0.2).set_ease(Tween.EASE_OUT)
 
 func _on_body_entered(body):
-	if body.name == "Trash":
+	if body.is_in_group('trash'):
 		is_at_trash = true
 	elif body.is_in_group('station'):
 		is_inside_dropable = true
@@ -72,11 +72,11 @@ func _on_body_entered(body):
 		station_ref = body
 
 func _on_body_exited(body):
-	if body.is_in_group('station'):
+	if body.is_in_group('trash'):
+		is_at_trash = false
+	elif body.is_in_group('station'):
 		is_inside_dropable = false
 		body.object_above_station = false
-	if body.name == "Trash":
-		is_at_trash = false
 
 func _on_mouse_entered():
 	if not Main.is_dragging:

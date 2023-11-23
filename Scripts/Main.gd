@@ -8,6 +8,7 @@ var barrel_scene = load("res://Scenes/Barrel.tscn")
 var life_scene = load("res://Scenes/Life.tscn")
 
 var line = []
+var spots = [Vector2()]
 var bonus = 10
 var coins = 0
 var lifes = []
@@ -74,6 +75,8 @@ func spawn_lifes():
 		lifes.append(life)
 		add_child(life)
 
+func _on_customer_timer_timeout():
+	spawn_clients()
 func die():
 	for i in range(2,0,-1):
 		if(lifes[i].is_alive):
