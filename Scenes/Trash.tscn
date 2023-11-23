@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0qepdlhm643n"]
+
+[ext_resource type="Texture2D" uid="uid://c6hua05qbmbg3" path="res://Assets/Sprites/Work_spots/garbage.png" id="1_uhuy6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_88mhc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_uhuy6")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6smqf"]
+size = Vector2(23, 32.5)
+
+[node name="Trash" type="StaticBody2D"]
+scale = Vector2(2, 2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_88mhc")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 6.25)
+shape = SubResource("RectangleShape2D_6smqf")

@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://cgl5igvuaa1wh" path="res://Scenes/Papi.tscn" id="6_nihsa"]
 [ext_resource type="PackedScene" uid="uid://cshuu7j0vxe2r" path="res://Scenes/Tonhao.tscn" id="7_61vq5"]
 [ext_resource type="PackedScene" uid="uid://bnlk76341c6dc" path="res://Scenes/WashingStation.tscn" id="7_ly4hi"]
-[ext_resource type="PackedScene" uid="uid://b0rqvdvija3f" path="res://Scenes/Coin.tscn" id="9_rdg5b"]
 [ext_resource type="PackedScene" uid="uid://cy6qck4q6st7r" path="res://Scenes/Rat.tscn" id="10_vhve3"]
 [ext_resource type="AudioStream" uid="uid://bap52hmjns3jw" path="res://Sounds/pressure.mp3" id="11_2vogo"]
+[ext_resource type="PackedScene" uid="uid://d0qepdlhm643n" path="res://Scenes/Trash.tscn" id="11_3vor6"]
 
 [sub_resource type="Curve2D" id="Curve2D_wv745"]
 _data = {
@@ -73,9 +73,6 @@ position = Vector2(250, 320)
 
 [node name="hud" type="Node2D" parent="."]
 
-[node name="Coin" parent="hud" instance=ExtResource("9_rdg5b")]
-position = Vector2(412, 39)
-
 [node name="sound" type="Node2D" parent="."]
 
 [node name="Background" type="AudioStreamPlayer2D" parent="sound"]
@@ -87,6 +84,11 @@ autoplay = true
 wait_time = 0.05
 one_shot = true
 autostart = true
+
+[node name="others" type="Node2D" parent="."]
+
+[node name="Trash" parent="others" instance=ExtResource("11_3vor6")]
+position = Vector2(814, 63)
 
 [connection signal="timeout" from="enemies/EnemyTimer" to="." method="_on_enemy_timer_timeout"]
 [connection signal="finished" from="sound/Background" to="." method="_on_audio_stream_player_2d_finished"]
