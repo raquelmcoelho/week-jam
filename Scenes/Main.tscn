@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ca67iebth04pv"]
+[gd_scene load_steps=13 format=3 uid="uid://ca67iebth04pv"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://cxqn0oe1ro2jr" path="res://Scenes/Mango.tscn" id="3_2y6ee"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bnlk76341c6dc" path="res://Scenes/WashingStation.tscn" id="7_ly4hi"]
 [ext_resource type="PackedScene" uid="uid://b0rqvdvija3f" path="res://Scenes/Coin.tscn" id="9_rdg5b"]
 [ext_resource type="PackedScene" uid="uid://cy6qck4q6st7r" path="res://Scenes/Rat.tscn" id="10_vhve3"]
+[ext_resource type="PackedScene" uid="uid://dj73otyatp13s" path="res://Scenes/Costumer.tscn" id="11_3p15h"]
 
 [sub_resource type="Curve2D" id="Curve2D_wv745"]
 _data = {
@@ -65,5 +66,10 @@ position = Vector2(242, 463)
 
 [node name="Coin" parent="hud" instance=ExtResource("9_rdg5b")]
 position = Vector2(64, 22)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Costumer" parent="Node2D" instance=ExtResource("11_3p15h")]
+position = Vector2(753, 451)
 
 [connection signal="timeout" from="enemies/EnemyTimer" to="." method="_on_enemy_timer_timeout"]
