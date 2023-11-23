@@ -53,7 +53,12 @@ func spawn_clients():
 		add_child(costumer)
 
 func _on_creation_timer_timeout():
+	$sound/AudioStreamPlayer2D.play()
 	spawn_clients()
 	spawn_barrel("pasta", Vector2(50,30))
 	spawn_barrel("sandwich", Vector2(120,30))
 	spawn_barrel("soup", Vector2(190,30))
+
+
+func _on_audio_stream_player_2d_finished():
+	$sound/AudioStreamPlayer2D.play()
