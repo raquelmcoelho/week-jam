@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-@export var speed = 350
+var speed = 350
+
 var dragging: bool = false
 var is_inside_dropable: bool = false
 var on_station
