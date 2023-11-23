@@ -4,7 +4,7 @@ class_name Enemy
 @onready var path_follow = get_parent()
 
 var pre_progress
-var speed = 500
+var speed = 300
 var move_direction = 0
 
 	

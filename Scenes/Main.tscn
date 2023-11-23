@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ca67iebth04pv"]
+[gd_scene load_steps=14 format=3 uid="uid://ca67iebth04pv"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://cxqn0oe1ro2jr" path="res://Scenes/Mango.tscn" id="3_2y6ee"]
@@ -8,15 +8,26 @@
 [ext_resource type="PackedScene" uid="uid://cgl5igvuaa1wh" path="res://Scenes/Papi.tscn" id="6_nihsa"]
 [ext_resource type="PackedScene" uid="uid://cshuu7j0vxe2r" path="res://Scenes/Tonhao.tscn" id="7_61vq5"]
 [ext_resource type="PackedScene" uid="uid://bnlk76341c6dc" path="res://Scenes/WashingStation.tscn" id="7_ly4hi"]
-[ext_resource type="PackedScene" uid="uid://cy6qck4q6st7r" path="res://Scenes/Rat.tscn" id="10_vhve3"]
 [ext_resource type="AudioStream" uid="uid://bap52hmjns3jw" path="res://Sounds/pressure.mp3" id="11_2vogo"]
-[ext_resource type="PackedScene" path="res://Scenes/Trash.tscn" id="11_3vor6"]
+[ext_resource type="PackedScene" uid="uid://d0qepdlhm643n" path="res://Scenes/Trash.tscn" id="11_3vor6"]
 
 [sub_resource type="Curve2D" id="Curve2D_wv745"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 460, 414, 0, 0, 0, 0, 446, 76, 0, 0, 0, 0, 763, 71, 0, 0, 0, 0, 725, 389, 0, 0, 0, 0, 460, 414)
+"points": PackedVector2Array(0, 0, 0, 0, 1225, 27, 0, 0, 0, 0, 1217, 443, 0, 0, 0, 0, 860, 453, 0, 0, 0, 0, 852, 396, 0, 0, 0, 0, 401, 397)
 }
 point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_p5h4d"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1061.47, -75.8312, 0, 0, 0, 0, 1064.49, 278.016, 0, 0, 0, 0, 1237.81, 278.016)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_wiryk"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 947, -38, 0, 0, 0, 0, 945, 253, 0, 0, 0, 0, 726, 235, 0, 0, 0, 0, 721, 635)
+}
+point_count = 4
 
 [node name="Main" type="Node"]
 script = ExtResource("2")
@@ -25,17 +36,34 @@ script = ExtResource("2")
 
 [node name="EnemyTimer" type="Timer" parent="enemies"]
 wait_time = 1.279
+autostart = true
 
-[node name="Path2D" type="Path2D" parent="enemies"]
-position = Vector2(-15, -15)
+[node name="Path2D1" type="Path2D" parent="enemies"]
+position = Vector2(-509, -35)
 curve = SubResource("Curve2D_wv745")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="enemies/Path2D"]
-position = Vector2(460, 414)
+[node name="PathFollow2D" type="PathFollow2D" parent="enemies/Path2D1"]
+position = Vector2(1225, 27)
 rotates = false
 loop = false
 
-[node name="Rat" parent="enemies/Path2D/PathFollow2D" instance=ExtResource("10_vhve3")]
+[node name="Path2D2" type="Path2D" parent="enemies"]
+position = Vector2(14.595, -8.92182)
+scale = Vector2(0.992405, 1.00326)
+curve = SubResource("Curve2D_p5h4d")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="enemies/Path2D2"]
+position = Vector2(1061.47, -75.8312)
+rotates = false
+loop = false
+
+[node name="Path2D3" type="Path2D" parent="enemies"]
+curve = SubResource("Curve2D_wiryk")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="enemies/Path2D3"]
+position = Vector2(947, -38)
+rotates = false
+loop = false
 
 [node name="players" type="Node2D" parent="."]
 

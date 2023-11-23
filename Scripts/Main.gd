@@ -15,7 +15,16 @@ func receive_money():
 
 func spawn_enemy():
 	var rat = rat_scene.instantiate()
-	add_child(rat)
+	print("enemies/Path2D%s/PathFollow2D" % [randi_range(1, 3)])
+	var rat_spawn_location = get_node("enemies/Path2D%s/PathFollow2D" % [randi_range(1, 3)])
+	if(not len(rat_spawn_location.get_children())):
+		rat_spawn_location.progress_ratio = 0
+		rat_spawn_location.add_child(rat)
+	else:
+		rat.queue_free()
+	$enemies/EnemyTimer.wait_time = float(randi_range(20, 30))
+	$enemies/EnemyTimer.start()
+
 
 func spawn_food(station, sprite):
 	var food = food_scene.instantiate()
@@ -47,8 +56,7 @@ func spawn_clients():
 		add_child(costumer)
 
 func _on_enemy_timer_timeout():
-	pass
-	#spawn_enemy()
+	spawn_enemy()
 
 func _on_creation_timer_timeout():
 	spawn_clients()
