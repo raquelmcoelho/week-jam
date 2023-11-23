@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpnjkx60iyknu"]
+
+[ext_resource type="FontFile" uid="uid://e72bgarhntsx" path="res://Font/PixelifySans-Regular.ttf" id="1_ac765"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 419.0
+offset_top = 57.0
+offset_right = 861.0
+offset_bottom = 182.0
+theme_override_fonts/normal_font = ExtResource("1_ac765")
+theme_override_font_sizes/normal_font_size = 81
+text = "Fim de jogo"
+
+[node name="Start" type="Button" parent="."]
+offset_left = 512.0
+offset_top = 488.0
+offset_right = 704.0
+offset_bottom = 543.0
+theme_override_fonts/font = ExtResource("1_ac765")
+theme_override_font_sizes/font_size = 21
+text = "Jogar denovo"
+
+[node name="Leave" type="Button" parent="."]
+offset_left = 512.0
+offset_top = 563.0
+offset_right = 704.0
+offset_bottom = 619.0
+theme_override_fonts/font = ExtResource("1_ac765")
+theme_override_font_sizes/font_size = 21
+text = "Sair"

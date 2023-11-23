@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cso3takfjcfbv"]
+[gd_scene load_steps=4 format=3 uid="uid://cso3takfjcfbv"]
 
 [ext_resource type="FontFile" uid="uid://e72bgarhntsx" path="res://Font/PixelifySans-Regular.ttf" id="1_xs7db"]
 [ext_resource type="Script" path="res://Scenes/Guide.gd" id="2_2drgw"]
+[ext_resource type="PackedScene" uid="uid://cshuu7j0vxe2r" path="res://Scenes/Tonhao.tscn" id="3_61id2"]
 
 [node name="Guide" type="Control"]
 layout_mode = 3
@@ -10,23 +11,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 539.0
-offset_top = 54.0
-offset_right = 645.0
-offset_bottom = 117.0
+offset_left = 448.0
+offset_top = 31.0
+offset_right = 768.0
+offset_bottom = 94.0
 theme_override_fonts/normal_font = ExtResource("1_xs7db")
 theme_override_font_sizes/normal_font_size = 50
-text = "Guia"
+text = "Guia de jogo"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 389.0
-offset_top = 62.0
-offset_right = 440.0
-offset_bottom = 116.0
+offset_top = 31.0
+offset_right = 64.0
+offset_bottom = 93.0
 theme_override_fonts/font = ExtResource("1_xs7db")
 theme_override_font_sizes/font_size = 38
 text = "<"
@@ -35,12 +36,25 @@ script = ExtResource("2_2drgw")
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 389.0
-offset_top = 130.0
-offset_right = 822.0
-offset_bottom = 555.0
+offset_left = 22.0
+offset_top = 125.0
+offset_right = 1150.0
+offset_bottom = 709.0
 theme_override_fonts/normal_font = ExtResource("1_xs7db")
 theme_override_font_sizes/normal_font_size = 46
-text = "Aqui vem o Texto sobre o jogo"
+text = "Use W A S D para agir como Mango o chef.
+Use o MOUSE para mover ingredientes e auxiliares 
+
+Pegue os ingredientes nos barris e para fazer a comida certa
+
+Corte e Cozinhe os alimentos nas mesas de trabalho para servir ao cliente
+
+Capture o rato antes que seja tarde
+
+"
+
+[node name="Tonhao" parent="." instance=ExtResource("3_61id2")]
+position = Vector2(1064, 632)
+scale = Vector2(-2, 2)
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

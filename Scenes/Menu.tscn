@@ -29,37 +29,35 @@ metadata/_edit_lock_ = true
 [node name="Start" type="Button" parent="."]
 layout_mode = 0
 offset_left = 512.0
-offset_top = 325.0
+offset_top = 378.0
 offset_right = 704.0
-offset_bottom = 380.0
+offset_bottom = 433.0
 theme_override_fonts/font = ExtResource("2_3qx6m")
 theme_override_font_sizes/font_size = 21
 text = "Começar"
-metadata/_edit_lock_ = true
 
 [node name="Leave" type="Button" parent="."]
 layout_mode = 0
 offset_left = 512.0
-offset_top = 454.0
+offset_top = 507.0
 offset_right = 704.0
-offset_bottom = 510.0
+offset_bottom = 563.0
 theme_override_fonts/font = ExtResource("2_3qx6m")
 theme_override_font_sizes/font_size = 21
 text = "Sair"
-metadata/_edit_lock_ = true
 
 [node name="Instruction" type="Button" parent="."]
 layout_mode = 0
 offset_left = 512.0
-offset_top = 389.0
+offset_top = 442.0
 offset_right = 704.0
-offset_bottom = 444.0
+offset_bottom = 497.0
 theme_override_fonts/font = ExtResource("2_3qx6m")
 theme_override_font_sizes/font_size = 21
 text = "Como Jogar"
-metadata/_edit_lock_ = true
 
 [node name="Path2D2" type="Path2D" parent="."]
+position = Vector2(0, 53)
 curve = SubResource("Curve2D_jl66f")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
@@ -70,7 +68,7 @@ rotates = false
 position = Vector2(0, -46)
 
 [node name="Mango" parent="." instance=ExtResource("3_7q1ou")]
-position = Vector2(928, 369)
+position = Vector2(928, 422)
 script = ExtResource("4_jfmjf")
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
