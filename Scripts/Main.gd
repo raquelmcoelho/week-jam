@@ -71,9 +71,9 @@ func _on_enemy_timer_timeout():
 
 func _on_creation_timer_timeout():
 	spawn_lifes()
-	spawn_barrel("pasta", Vector2(50,30))
-	spawn_barrel("sandwich", Vector2(120,30))
-	spawn_barrel("soup", Vector2(190,30))
+	spawn_barrel("pasta", Vector2(50,225))
+	spawn_barrel("sandwich", Vector2(120,200))
+	spawn_barrel("soup", Vector2(190,175))
 
 func _on_customer_timer_timeout():
 	spawn_clients()
