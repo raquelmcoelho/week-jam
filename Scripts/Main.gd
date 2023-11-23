@@ -19,10 +19,3 @@ func spawn_food(station):
 	food.sprite_str = "pasta"
 	food.on_station = station
 	add_child(food)
-
-# timer randomico pra quando aparecer (máx 3 sec variância)
-# spawn lugar aleatório quando timer for triggado (min 10 sec intervalo)
-# fica som de rato
-# 3 rotas fixas
-# se houver colisão rato muda pra som de morte e some
-# personagem respawna pro início

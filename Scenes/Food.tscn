@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1yru781h1jgf"]
+[gd_scene load_steps=10 format=3 uid="uid://bsjqv43fr5age"]
 
 [ext_resource type="Script" path="res://Scripts/Food.gd" id="1_1boul"]
 [ext_resource type="Texture2D" uid="uid://uby4ecx4oivq" path="res://Assets/Sprites/UI/food/ingredients_ready-1.png" id="1_4uwtq"]
@@ -70,7 +70,7 @@ script = ExtResource("1_1boul")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_cbjju")
-animation = &"yellow_food"
+animation = &"green_food"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_kkgth")
