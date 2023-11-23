@@ -8,8 +8,6 @@ var on_station
 
 func _ready():
 	self.z_index = 1
-	self.position.x = on_station.position.x + 47
-	self.position.y = on_station.position.y - 30
 	$AnimatedSprite2D.play(sprite_str)
 
 func _process(_delta: float) -> void:
@@ -27,17 +25,23 @@ func _on_input_event(_viewport, _event, _shape_idx):
 	elif Input.is_action_just_released("click"):
 		Main.is_dragging = false
 		dragging = false
-		interacts_with_stations()
+		dropped()
 
-func interacts_with_stations():
+func dropped():
 	if is_inside_dropable:
-		adjust_position(200, station_ref)
+		if station_ref.ingredient:
+			adjust_position(200, station_ref)
+		elif "food".is_subsequence_of(sprite_str) and station_ref.station_action == "cooking":
+			station_ref.ingredient = self
+			adjust_position(station_ref.offset_ingredient, station_ref)
+			$CollisionShape2D.disabled = true
+
 	if on_station != null:
 		on_station.station_full = false
 		on_station.object_above_station = false
 		on_station = null
 		station_ref = null
-	
+
 func adjust_position(offset_value, object):
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "position", Vector2(object.position.x, object.position.y - offset_value) , 0.2).set_ease(Tween.EASE_OUT)

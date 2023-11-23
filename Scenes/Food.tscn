@@ -1,11 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1yru781h1jgf"]
+[gd_scene load_steps=13 format=3 uid="uid://d1yru781h1jgf"]
 
 [ext_resource type="Script" path="res://Scripts/Food.gd" id="1_1boul"]
 [ext_resource type="Texture2D" uid="uid://uby4ecx4oivq" path="res://Assets/Sprites/UI/food/ingredients_ready-1.png" id="1_4uwtq"]
 [ext_resource type="Texture2D" uid="uid://dewhsmwccvchx" path="res://Assets/Sprites/UI/food/soup.png" id="1_wv16g"]
 [ext_resource type="Texture2D" uid="uid://h8yx3dlmslxj" path="res://Assets/Sprites/UI/food/pasta.png" id="2_3kdgc"]
+[ext_resource type="Texture2D" uid="uid://b7mxfkgh7x3ax" path="res://Assets/Sprites/UI/food/ingredients_raw-1.png" id="3_go7qk"]
 [ext_resource type="Texture2D" uid="uid://b53msd0ry85m6" path="res://Assets/Sprites/UI/food/ingredients_ready-3.png" id="3_pj7md"]
+[ext_resource type="Texture2D" uid="uid://blbxb4feyye4b" path="res://Assets/Sprites/UI/food/ingredients_raw-2.png" id="4_al4r2"]
 [ext_resource type="Texture2D" uid="uid://d2owvbb1wnkwg" path="res://Assets/Sprites/UI/food/sandwich.png" id="4_l27lw"]
+[ext_resource type="Texture2D" uid="uid://bflvdmej81ole" path="res://Assets/Sprites/UI/food/ingredients_raw-3.png" id="5_svnxl"]
 [ext_resource type="Texture2D" uid="uid://pqhfsig1jeey" path="res://Assets/Sprites/UI/food/ingredients_ready-2.png" id="6_5s3xa"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cbjju"]
@@ -16,6 +19,30 @@ animations = [{
 }],
 "loop": true,
 "name": &"green_food",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_go7qk")
+}],
+"loop": true,
+"name": &"ingredient_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_al4r2")
+}],
+"loop": true,
+"name": &"ingredient_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_svnxl")
+}],
+"loop": true,
+"name": &"ingredient_3",
 "speed": 5.0
 }, {
 "frames": [{
@@ -70,7 +97,7 @@ script = ExtResource("1_1boul")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_cbjju")
-animation = &"green_food"
+animation = &"ingredient_3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_kkgth")

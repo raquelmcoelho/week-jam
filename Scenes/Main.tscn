@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bnlk76341c6dc" path="res://Scenes/WashingStation.tscn" id="7_ly4hi"]
 [ext_resource type="PackedScene" uid="uid://b0rqvdvija3f" path="res://Scenes/Coin.tscn" id="9_rdg5b"]
 [ext_resource type="PackedScene" uid="uid://cy6qck4q6st7r" path="res://Scenes/Rat.tscn" id="10_vhve3"]
-[ext_resource type="PackedScene" uid="uid://dj73otyatp13s" path="res://Scenes/Costumer.tscn" id="11_3p15h"]
+[ext_resource type="PackedScene" path="res://Scenes/Costumer.tscn" id="11_3p15h"]
 
 [sub_resource type="Curve2D" id="Curve2D_wv745"]
 _data = {
@@ -40,7 +40,7 @@ loop = false
 [node name="players" type="Node2D" parent="."]
 
 [node name="Papi" parent="players" instance=ExtResource("6_nihsa")]
-position = Vector2(158, 85)
+position = Vector2(66, 296)
 
 [node name="Tonhao" parent="players" instance=ExtResource("7_61vq5")]
 position = Vector2(335, 422)
@@ -72,4 +72,10 @@ position = Vector2(64, 22)
 [node name="Costumer" parent="Node2D" instance=ExtResource("11_3p15h")]
 position = Vector2(753, 451)
 
+[node name="CreationTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="enemies/EnemyTimer" to="." method="_on_enemy_timer_timeout"]
+[connection signal="timeout" from="CreationTimer" to="." method="_on_creation_timer_timeout"]

@@ -13,5 +13,5 @@ func do():
 
 func done():
 	self.station_full = true
-	Main.spawn_food(self) # todo: change to plates
+	Main.spawn_food(self, "yellow_food") # todo: change to plates
 	$AnimatedSprite2D.play("idle")

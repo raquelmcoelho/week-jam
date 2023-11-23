@@ -10,7 +10,7 @@ var skins = [
 func _ready():
 	$AnimatedSprite2D.play(skins[position_in_line])
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	adjust_position_line()
 	
 func adjust_position_line():
