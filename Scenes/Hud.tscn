@@ -12,8 +12,11 @@ script = ExtResource("1_onmgo")
 follow_viewport_scale = 0.61
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 998.0
-offset_top = 19.0
-offset_right = 1075.0
-offset_bottom = 42.0
+offset_left = 937.0
+offset_top = 16.0
+offset_right = 1014.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_d6p3y")
+horizontal_alignment = 2
+vertical_alignment = 1

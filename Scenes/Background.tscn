@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv5bjve3pkl03"]
+
+[ext_resource type="Texture2D" uid="uid://cb5vqrea06vr5" path="res://Assets/Sprites/background/background.png" id="1_yjop5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xmfb3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yjop5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Background" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xmfb3")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ca67iebth04pv"]
+[gd_scene load_steps=17 format=3 uid="uid://ca67iebth04pv"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://cxqn0oe1ro2jr" path="res://Scenes/Mango.tscn" id="3_2y6ee"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b0rqvdvija3f" path="res://Scenes/Coin.tscn" id="10_073ps"]
 [ext_resource type="AudioStream" uid="uid://bap52hmjns3jw" path="res://Sounds/pressure.mp3" id="11_2vogo"]
 [ext_resource type="PackedScene" uid="uid://6i31l4ktxdus" path="res://Scenes/Trash.tscn" id="11_3vor6"]
+[ext_resource type="Texture2D" uid="uid://cb5vqrea06vr5" path="res://Assets/Sprites/background/background.png" id="13_xjfva"]
 
 [sub_resource type="Curve2D" id="Curve2D_wv745"]
 _data = {
@@ -35,6 +36,7 @@ point_count = 5
 script = ExtResource("2")
 
 [node name="enemies" type="Node2D" parent="."]
+position = Vector2(27, 144)
 
 [node name="EnemyTimer" type="Timer" parent="enemies"]
 wait_time = 1.279
@@ -68,20 +70,22 @@ rotates = false
 loop = false
 
 [node name="players" type="Node2D" parent="."]
+position = Vector2(27, 144)
 
 [node name="Papi" parent="players" instance=ExtResource("6_nihsa")]
-position = Vector2(167, 186)
+position = Vector2(163, 192)
 
 [node name="Tonhao" parent="players" instance=ExtResource("7_61vq5")]
 position = Vector2(271, 191)
 
 [node name="Pope" parent="players" instance=ExtResource("3_g64tc")]
-position = Vector2(61, 183)
+position = Vector2(63, 193)
 
 [node name="Mango" parent="players" instance=ExtResource("3_2y6ee")]
-position = Vector2(385, 201)
+position = Vector2(464, 195)
 
 [node name="stations" type="Node2D" parent="."]
+position = Vector2(27, 144)
 
 [node name="WashingStation" parent="stations" instance=ExtResource("7_ly4hi")]
 position = Vector2(440, 540)
@@ -102,13 +106,17 @@ position = Vector2(60, 320)
 position = Vector2(250, 320)
 
 [node name="hud" type="Node2D" parent="."]
+position = Vector2(27, 144)
 
 [node name="Hud" parent="hud" instance=ExtResource("9_mkq2c")]
+metadata/_edit_use_anchors_ = true
 
 [node name="Coin" parent="hud" instance=ExtResource("10_073ps")]
-position = Vector2(981, 28)
+position = Vector2(1030, -119)
+scale = Vector2(2.2, 2.2)
 
 [node name="sound" type="Node2D" parent="."]
+position = Vector2(27, 144)
 
 [node name="Background" type="AudioStreamPlayer2D" parent="sound"]
 stream = ExtResource("11_2vogo")
@@ -121,6 +129,7 @@ one_shot = true
 autostart = true
 
 [node name="others" type="Node2D" parent="."]
+position = Vector2(27, 144)
 
 [node name="Trash" parent="others" instance=ExtResource("11_3vor6")]
 position = Vector2(532, 48)
@@ -128,6 +137,12 @@ position = Vector2(532, 48)
 [node name="CustomerTimer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -2
+offset_right = 1200.0
+offset_bottom = 800.0
+texture = ExtResource("13_xjfva")
 
 [connection signal="timeout" from="enemies/EnemyTimer" to="." method="_on_enemy_timer_timeout"]
 [connection signal="finished" from="sound/Background" to="." method="_on_audio_stream_player_2d_finished"]
