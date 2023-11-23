@@ -1,7 +1,7 @@
 extends Area2D
 class_name Progress
 
-var current_player: Player
+var current_player = null
 
 func _ready():
 	self.visible = false
