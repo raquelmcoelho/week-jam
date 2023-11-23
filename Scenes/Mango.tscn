@@ -73,7 +73,7 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("5")
-animation = &"washing"
+animation = &"idle"
 
 [node name="Progress" parent="." instance=ExtResource("10_j0o2l")]
 position = Vector2(0, -12)

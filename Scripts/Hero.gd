@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 300
+@export var speed = 350
 var dragging: bool = false
 var is_inside_dropable: bool = false
 var on_station
@@ -18,6 +18,10 @@ func get_input():
 		interact()
 
 func _physics_process(_delta):
+	if velocity.x != 0 or velocity.y != 0:
+		$AnimatedSprite2D.set_speed_scale(2.5)
+	else:
+		$AnimatedSprite2D.set_speed_scale(1)
 	get_input()
 	move_and_slide()
 
@@ -33,9 +37,9 @@ func interact():
 
 	if not is_inside_dropable:
 		return
-	elif on_station.station_full:
+	elif on_station.station_full or on_station.empty:
 		is_inside_dropable = false
-		adjust_player(200, on_station)
+		adjust_player(120, on_station)
 		on_station = null
 	else:
 		if on_station.station_action == "cooking":
@@ -48,7 +52,7 @@ func interact():
 		$CollisionShape2D.disabled = true
 
 func finish_station():
-	adjust_player(150, on_station)
+	adjust_player(120, on_station)
 	on_station.station_full = false
 	self.z_index = 1
 	on_station.done()
