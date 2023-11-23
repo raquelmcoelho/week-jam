@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dbnh577s8cf0x" path="res://Scenes/CookingStation.tscn" id="5_foikj"]
 [ext_resource type="PackedScene" uid="uid://cgl5igvuaa1wh" path="res://Scenes/Papi.tscn" id="6_nihsa"]
 [ext_resource type="PackedScene" uid="uid://cshuu7j0vxe2r" path="res://Scenes/Tonhao.tscn" id="7_61vq5"]
-[ext_resource type="PackedScene" path="res://Scenes/WashingStation.tscn" id="7_ly4hi"]
+[ext_resource type="PackedScene" uid="uid://bnlk76341c6dc" path="res://Scenes/WashingStation.tscn" id="7_ly4hi"]
 [ext_resource type="PackedScene" uid="uid://b0rqvdvija3f" path="res://Scenes/Coin.tscn" id="9_rdg5b"]
 [ext_resource type="PackedScene" uid="uid://cy6qck4q6st7r" path="res://Scenes/Rat.tscn" id="10_vhve3"]
 

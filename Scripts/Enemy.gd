@@ -45,6 +45,6 @@ func move(x, y):
 	motion = Vector2.ZERO
 
 func trace1():
-	await turn_right()
-	await turn_down()
+	turn_right()
+	turn_down()
 	
