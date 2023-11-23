@@ -16,13 +16,13 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_k83pa")
+"texture": ExtResource("9_kf0c6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_1lo1r")
+"texture": ExtResource("10_5jgcx")
 }],
 "loop": true,
-"name": &"costumer1",
+"name": &"bigodon",
 "speed": 5.0
 }, {
 "frames": [{
@@ -33,7 +33,18 @@ animations = [{
 "texture": ExtResource("4_tw2te")
 }],
 "loop": true,
-"name": &"costumer2",
+"name": &"bone",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_k83pa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1lo1r")
+}],
+"loop": true,
+"name": &"cartola",
 "speed": 5.0
 }, {
 "frames": [{
@@ -44,7 +55,7 @@ animations = [{
 "texture": ExtResource("6_fjkpl")
 }],
 "loop": true,
-"name": &"costumer3",
+"name": &"laco",
 "speed": 5.0
 }, {
 "frames": [{
@@ -55,18 +66,7 @@ animations = [{
 "texture": ExtResource("8_4w7as")
 }],
 "loop": true,
-"name": &"costumer4",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("9_kf0c6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_5jgcx")
-}],
-"loop": true,
-"name": &"costumer5",
+"name": &"paulin",
 "speed": 5.0
 }]
 
@@ -80,8 +80,7 @@ script = ExtResource("1_ooi05")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wmxvq")
-animation = &"costumer3"
-frame_progress = 0.84503
+animation = &"bigodon"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
