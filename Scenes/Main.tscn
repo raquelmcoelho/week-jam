@@ -15,21 +15,21 @@
 
 [sub_resource type="Curve2D" id="Curve2D_wv745"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1225, 27, 0, 0, 0, 0, 1217, 443, 0, 0, 0, 0, 860, 453, 0, 0, 0, 0, 852, 396, 0, 0, 0, 0, 401, 397)
+"points": PackedVector2Array(0, 0, 0, 0, 1118, 21, 0, 0, 0, 0, 1122, 455, 0, 0, 0, 0, 860, 453, 0, 0, 0, 0, 852, 396, 0, 0, 0, 0, 401, 397)
 }
 point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_p5h4d"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1061.47, -75.8312, 0, 0, 0, 0, 1064.49, 278.016, 0, 0, 0, 0, 1237.81, 278.016)
+"points": PackedVector2Array(0, 0, 0, 0, 1224.71, 285.989, 0, 0, 0, 0, 1144.09, 283.996, 0, 0, 0, 0, 1144.09, 400.616, 0, 0, 0, 0, 956.671, 401.613, 0, 0, 0, 0, 962.717, 643.823)
 }
-point_count = 3
+point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_wiryk"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 947, -38, 0, 0, 0, 0, 945, 253, 0, 0, 0, 0, 726, 235, 0, 0, 0, 0, 721, 635)
+"points": PackedVector2Array(0, 0, 0, 0, 1100, 620, 0, 0, 0, 0, 1094, 271, 0, 0, 0, 0, 1026, 273, 0, 0, 0, 0, 747, 279, 0, 0, 0, 0, 741, 643)
 }
-point_count = 4
+point_count = 5
 
 [node name="Main" type="Node"]
 script = ExtResource("2")
@@ -45,7 +45,7 @@ position = Vector2(-509, -35)
 curve = SubResource("Curve2D_wv745")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="enemies/Path2D1"]
-position = Vector2(1225, 27)
+position = Vector2(1118, 21)
 rotates = false
 loop = false
 
@@ -55,7 +55,7 @@ scale = Vector2(0.992405, 1.00326)
 curve = SubResource("Curve2D_p5h4d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="enemies/Path2D2"]
-position = Vector2(1061.47, -75.8312)
+position = Vector2(1224.71, 285.989)
 rotates = false
 loop = false
 
@@ -63,7 +63,7 @@ loop = false
 curve = SubResource("Curve2D_wiryk")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="enemies/Path2D3"]
-position = Vector2(947, -38)
+position = Vector2(1100, 620)
 rotates = false
 loop = false
 
@@ -123,7 +123,7 @@ autostart = true
 [node name="others" type="Node2D" parent="."]
 
 [node name="Trash" parent="others" instance=ExtResource("11_3vor6")]
-position = Vector2(814, 63)
+position = Vector2(532, 48)
 
 [connection signal="timeout" from="enemies/EnemyTimer" to="." method="_on_enemy_timer_timeout"]
 [connection signal="finished" from="sound/Background" to="." method="_on_audio_stream_player_2d_finished"]
