@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cgl5igvuaa1wh" path="res://Scenes/Papi.tscn" id="6_nihsa"]
 [ext_resource type="PackedScene" uid="uid://cshuu7j0vxe2r" path="res://Scenes/Tonhao.tscn" id="7_61vq5"]
 [ext_resource type="PackedScene" uid="uid://bnlk76341c6dc" path="res://Scenes/WashingStation.tscn" id="7_ly4hi"]
-[ext_resource type="PackedScene" uid="uid://q86tgpy1ebjp" path="res://Scenes/Hud.tscn" id="9_mkq2c"]
+[ext_resource type="PackedScene" uid="uid://ltuprfh77nkm" path="res://Scenes/Hud.tscn" id="9_mkq2c"]
 [ext_resource type="PackedScene" uid="uid://b0rqvdvija3f" path="res://Scenes/Coin.tscn" id="10_073ps"]
 [ext_resource type="AudioStream" uid="uid://bap52hmjns3jw" path="res://Sounds/pressure.mp3" id="11_2vogo"]
 [ext_resource type="PackedScene" uid="uid://6i31l4ktxdus" path="res://Scenes/Trash.tscn" id="11_3vor6"]
@@ -123,7 +123,7 @@ position = Vector2(0, 200)
 metadata/_edit_use_anchors_ = true
 
 [node name="Coin" parent="hud" instance=ExtResource("10_073ps")]
-position = Vector2(981, 28)
+position = Vector2(1150, -100)
 
 [node name="sound" type="Node2D" parent="."]
 position = Vector2(0, 200)
@@ -137,10 +137,7 @@ autoplay = true
 position = Vector2(0, 200)
 
 [node name="Trash" parent="others" instance=ExtResource("11_3vor6")]
-position = Vector2(814, 63)
-
-[node name="Trash2" parent="others" instance=ExtResource("11_3vor6")]
-position = Vector2(532, 48)
+position = Vector2(655, 30)
 
 [node name="CreationTimer" type="Timer" parent="."]
 wait_time = 0.05
@@ -151,11 +148,12 @@ autostart = true
 position = Vector2(0, 200)
 
 [node name="CustomerTimer" type="Timer" parent="."]
+wait_time = 3.0
 autostart = true
 
 [node name="Background" type="AnimatedSprite2D" parent="."]
 z_index = -1
-position = Vector2(600, 399)
+position = Vector2(600, 400)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_gke6l")
 

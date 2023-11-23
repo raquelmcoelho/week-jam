@@ -1,23 +1,15 @@
 extends CharacterBody2D
 
-var position_in_line = 0;
+var customer_position
 var order = ""
 var options = ["pasta", "sandwich", "soup"]
-var skins = [
-	"cartola", "laco", "paulin", "bone", "bigodon"
-]
+var skins = ["cartola", "laco", "paulin", "bone", "bigodon"]
 
 func _ready():
 	$AnimatedSprite2D.play(skins[randi_range(0,4)])
 	order = options[randi_range(0,2)]
+	ajust_position(customer_position)
 
-func _physics_process(_delta):
-	adjust_position_line()
-
-func adjust_position_line():
-	var place_offset = 80
-	var screen_size = get_viewport().get_visible_rect().size
-	var x_position = 0.7 * screen_size.x + (position_in_line * place_offset)
-	var y_position = 0.3 * screen_size.y
-	self.position = Vector2(x_position, y_position)
-	
+func ajust_position(new_position):
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "position", new_position, 2).set_ease(Tween.EASE_OUT)

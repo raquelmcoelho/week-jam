@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cso3takfjcfbv"]
 
 [ext_resource type="FontFile" uid="uid://e72bgarhntsx" path="res://Font/PixelifySans-Regular.ttf" id="1_xs7db"]
-[ext_resource type="Script" path="res://Scenes/Guide.gd" id="2_2drgw"]
+[ext_resource type="Script" path="res://Scripts/Guide.gd" id="2_2drgw"]
 [ext_resource type="PackedScene" uid="uid://cshuu7j0vxe2r" path="res://Scenes/Tonhao.tscn" id="3_61id2"]
 
 [node name="Guide" type="Control"]
