@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcdsqw45mg7di"]
+[gd_scene load_steps=7 format=3 uid="uid://cs8aykm1ys6u3"]
 
 [ext_resource type="Script" path="res://Scripts/Barrel.gd" id="1_0qr27"]
 [ext_resource type="Texture2D" uid="uid://cgyvrl1eby5se" path="res://Assets/Sprites/background/barrel_pasta.png" id="1_ge3l3"]

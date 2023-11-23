@@ -31,7 +31,7 @@ func _on_input_event(_viewport, _event, _shape_idx):
 		dropped()
 
 func dropped():
-	if is_inside_dropable:
+	if is_inside_dropable and station_ref:
 		if not station_ref.empty:
 			adjust_position(150, station_ref)
 		elif "food".is_subsequence_of(sprite_str) and station_ref.station_action == "cooking":
