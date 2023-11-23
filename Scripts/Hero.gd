@@ -22,6 +22,10 @@ func _physics_process(_delta):
 		$AnimatedSprite2D.set_speed_scale(2.5)
 	else:
 		$AnimatedSprite2D.set_speed_scale(1)
+	if velocity.x < 0:
+		$AnimatedSprite2D.flip_h = true
+	elif velocity.x > 0:
+		$AnimatedSprite2D.flip_h = false
 	get_input()
 	move_and_slide()
 
