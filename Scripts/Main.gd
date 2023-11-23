@@ -83,6 +83,6 @@ func die():
 		if(lifes[i].is_alive):
 			lifes[i].kill()
 			return
-	print("game over")
+	get_tree().change_scene_to_file("res://Scenes/Game_over.tscn")
 	
 
