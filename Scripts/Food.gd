@@ -5,6 +5,7 @@ var sprite_str
 var dragging: bool = false
 var is_inside_dropable: bool = false
 var is_at_trash: bool = false
+var forbidden
 var station_ref
 var on_station
 
@@ -12,6 +13,7 @@ func _ready():
 	self.z_index = 1
 	$AnimatedSprite2D.play(sprite_str)
 	if "ingredient".is_subsequence_of(sprite_str):
+		Main.is_dragging = true
 		dragging = true
 
 func _process(_delta: float) -> void:
@@ -41,16 +43,15 @@ func dropped():
 			attach_station()
 		else:
 			adjust_position(150, station_ref)
-
 	if on_station != null:
 		on_station.station_full = false
 		on_station.object_above_station = false
 		on_station = null
 		station_ref = null
-		
 	if is_at_trash:
 		queue_free()
-		
+	if forbidden:
+		adjust_position(-90, forbidden)
 
 func attach_station():
 	station_ref.ingredient = self

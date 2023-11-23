@@ -90,7 +90,7 @@ animations = [{
 radius = 10.5
 height = 21.0
 
-[node name="Food" type="Area2D"]
+[node name="Food" type="Area2D" groups=["food"]]
 scale = Vector2(2, 2)
 script = ExtResource("1_1boul")
 

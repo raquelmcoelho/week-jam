@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bnlk76341c6dc" path="res://Scenes/WashingStation.tscn" id="7_ly4hi"]
 [ext_resource type="PackedScene" uid="uid://cy6qck4q6st7r" path="res://Scenes/Rat.tscn" id="10_vhve3"]
 [ext_resource type="AudioStream" uid="uid://bap52hmjns3jw" path="res://Sounds/pressure.mp3" id="11_2vogo"]
-[ext_resource type="PackedScene" uid="uid://d0qepdlhm643n" path="res://Scenes/Trash.tscn" id="11_3vor6"]
+[ext_resource type="PackedScene" path="res://Scenes/Trash.tscn" id="11_3vor6"]
 
 [sub_resource type="Curve2D" id="Curve2D_wv745"]
 _data = {
