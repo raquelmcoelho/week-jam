@@ -16,123 +16,29 @@
 
 [sub_resource type="Curve2D" id="Curve2D_wv745"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1118, 21, 0, 0, 0, 0, 1122, 455, 0, 0, 0, 0, 860, 453, 0, 0, 0, 0, 852, 396, 0, 0, 0, 0, 401, 397)
+"points": PackedVector2Array(0, 0, 0, 0, 1203, 93, 0, 0, 0, 0, 1108, 93, 0, 0, 0, 0, 1122, 455, 0, 0, 0, 0, 860, 453, 0, 0, 0, 0, 852, 396, 0, 0, 0, 0, 401, 397)
 }
-point_count = 5
+point_count = 6
 
 [sub_resource type="Curve2D" id="Curve2D_p5h4d"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1224.71, 285.989, 0, 0, 0, 0, 1144.09, 283.996, 0, 0, 0, 0, 1144.09, 400.616, 0, 0, 0, 0, 956.671, 401.613, 0, 0, 0, 0, 962.717, 643.823)
+"points": PackedVector2Array(0, 0, 0, 0, 1224.71, 285.989, 0, 0, 0, 0, 1144.09, 283.996, 0, 0, 0, 0, 1144.09, 400.616, 0, 0, 0, 0, 956.671, 401.613, 0, 0, 0, 0, 952.64, 696.651)
 }
 point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_wiryk"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1100, 620, 0, 0, 0, 0, 1094, 271, 0, 0, 0, 0, 1026, 273, 0, 0, 0, 0, 747, 279, 0, 0, 0, 0, 741, 643)
+"points": PackedVector2Array(0, 0, 0, 0, 1230, 222, 0, 0, 0, 0, 1020, 222, 0, 0, 0, 0, 1022, 633, 0, 0, 0, 0, 582, 640, 0, 0, 0, 0, 568, 691)
 }
 point_count = 5
 
 [node name="Main" type="Node"]
 script = ExtResource("2")
 
-[node name="enemies" type="Node2D" parent="."]
-position = Vector2(27, 144)
-
-[node name="EnemyTimer" type="Timer" parent="enemies"]
-wait_time = 1.279
-autostart = true
-
-[node name="Path2D1" type="Path2D" parent="enemies"]
-position = Vector2(-509, -35)
-curve = SubResource("Curve2D_wv745")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="enemies/Path2D1"]
-position = Vector2(1118, 21)
-rotates = false
-loop = false
-
-[node name="Path2D2" type="Path2D" parent="enemies"]
-position = Vector2(14.595, -8.92182)
-scale = Vector2(0.992405, 1.00326)
-curve = SubResource("Curve2D_p5h4d")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="enemies/Path2D2"]
-position = Vector2(1224.71, 285.989)
-rotates = false
-loop = false
-
-[node name="Path2D3" type="Path2D" parent="enemies"]
-curve = SubResource("Curve2D_wiryk")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="enemies/Path2D3"]
-position = Vector2(1100, 620)
-rotates = false
-loop = false
-
-[node name="players" type="Node2D" parent="."]
-position = Vector2(27, 144)
-
-[node name="Papi" parent="players" instance=ExtResource("6_nihsa")]
-position = Vector2(163, 192)
-
-[node name="Tonhao" parent="players" instance=ExtResource("7_61vq5")]
-position = Vector2(271, 191)
-
-[node name="Pope" parent="players" instance=ExtResource("3_g64tc")]
-position = Vector2(63, 193)
-
-[node name="Mango" parent="players" instance=ExtResource("3_2y6ee")]
-position = Vector2(464, 195)
-
-[node name="stations" type="Node2D" parent="."]
-position = Vector2(27, 144)
-
-[node name="WashingStation" parent="stations" instance=ExtResource("7_ly4hi")]
-position = Vector2(440, 540)
-
-[node name="CookingStation" parent="stations" instance=ExtResource("5_foikj")]
-position = Vector2(60, 540)
-
-[node name="ChoppingStation" parent="stations" instance=ExtResource("4_j3oar")]
-position = Vector2(250, 540)
-
-[node name="WashingStation2" parent="stations" instance=ExtResource("7_ly4hi")]
-position = Vector2(440, 320)
-
-[node name="CookingStation2" parent="stations" instance=ExtResource("5_foikj")]
-position = Vector2(60, 320)
-
-[node name="ChoppingStation2" parent="stations" instance=ExtResource("4_j3oar")]
-position = Vector2(250, 320)
-
-[node name="hud" type="Node2D" parent="."]
-position = Vector2(27, 144)
-
-[node name="Hud" parent="hud" instance=ExtResource("9_mkq2c")]
-metadata/_edit_use_anchors_ = true
-
-[node name="Coin" parent="hud" instance=ExtResource("10_073ps")]
-position = Vector2(1030, -119)
-scale = Vector2(2.2, 2.2)
-
-[node name="sound" type="Node2D" parent="."]
-position = Vector2(27, 144)
-
-[node name="Background" type="AudioStreamPlayer2D" parent="sound"]
-stream = ExtResource("11_2vogo")
-volume_db = -10.0
-autoplay = true
-
 [node name="CreationTimer" type="Timer" parent="."]
 wait_time = 0.05
 one_shot = true
 autostart = true
-
-[node name="others" type="Node2D" parent="."]
-position = Vector2(27, 144)
-
-[node name="Trash" parent="others" instance=ExtResource("11_3vor6")]
-position = Vector2(532, 48)
 
 [node name="CustomerTimer" type="Timer" parent="."]
 wait_time = 3.0
@@ -144,7 +50,89 @@ offset_right = 1200.0
 offset_bottom = 800.0
 texture = ExtResource("13_xjfva")
 
-[connection signal="timeout" from="enemies/EnemyTimer" to="." method="_on_enemy_timer_timeout"]
-[connection signal="finished" from="sound/Background" to="." method="_on_audio_stream_player_2d_finished"]
+[node name="Papi" parent="." instance=ExtResource("6_nihsa")]
+position = Vector2(185, 317)
+
+[node name="Tonhao" parent="." instance=ExtResource("7_61vq5")]
+position = Vector2(293, 316)
+
+[node name="Pope" parent="." instance=ExtResource("3_g64tc")]
+position = Vector2(85, 318)
+
+[node name="Mango" parent="." instance=ExtResource("3_2y6ee")]
+position = Vector2(486, 320)
+
+[node name="EnemyTimer" type="Timer" parent="."]
+wait_time = 1.279
+autostart = true
+
+[node name="Path2D1" type="Path2D" parent="."]
+position = Vector2(-482, 109)
+curve = SubResource("Curve2D_wv745")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D1"]
+position = Vector2(1203, 93)
+rotates = false
+loop = false
+
+[node name="Path2D2" type="Path2D" parent="."]
+position = Vector2(41.595, 135.078)
+scale = Vector2(0.992405, 1.00326)
+curve = SubResource("Curve2D_p5h4d")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
+position = Vector2(1224.71, 285.989)
+rotates = false
+loop = false
+
+[node name="Path2D3" type="Path2D" parent="."]
+position = Vector2(27, 144)
+curve = SubResource("Curve2D_wiryk")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
+position = Vector2(1230, 222)
+rotates = false
+loop = false
+
+[node name="ChoppingStation2" parent="." instance=ExtResource("4_j3oar")]
+position = Vector2(272, 445)
+
+[node name="CookingStation2" parent="." instance=ExtResource("5_foikj")]
+position = Vector2(82, 445)
+
+[node name="WashingStation2" parent="." instance=ExtResource("7_ly4hi")]
+position = Vector2(462, 445)
+
+[node name="ChoppingStation" parent="." instance=ExtResource("4_j3oar")]
+position = Vector2(272, 665)
+
+[node name="CookingStation" parent="." instance=ExtResource("5_foikj")]
+position = Vector2(82, 665)
+
+[node name="WashingStation" parent="." instance=ExtResource("7_ly4hi")]
+position = Vector2(462, 665)
+
+[node name="Hud" parent="." instance=ExtResource("9_mkq2c")]
+offset_left = 49.0
+offset_top = 269.0
+offset_right = 49.0
+offset_bottom = 269.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Coin" parent="." instance=ExtResource("10_073ps")]
+position = Vector2(1057, 25)
+scale = Vector2(2.2, 2.2)
+
+[node name="Background" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(49, 269)
+stream = ExtResource("11_2vogo")
+volume_db = -10.0
+autoplay = true
+
+[node name="Trash" parent="." instance=ExtResource("11_3vor6")]
+position = Vector2(581, 317)
+
 [connection signal="timeout" from="CreationTimer" to="." method="_on_creation_timer_timeout"]
 [connection signal="timeout" from="CustomerTimer" to="." method="_on_customer_timer_timeout"]
+[connection signal="timeout" from="EnemyTimer" to="." method="_on_enemy_timer_timeout"]
+[connection signal="finished" from="Background" to="." method="_on_audio_stream_player_2d_finished"]
