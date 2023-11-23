@@ -39,7 +39,7 @@ func interacts_with_stations():
 		on_station = station_ref
 		if on_station.station_action == "cooking":
 			self.z_index = -1
-			on_station.do()
+		on_station.do()
 		on_station.station_full = true
 		on_station.object_above_station = false
 		adjust_player(on_station.offset_value, on_station)
@@ -50,9 +50,8 @@ func interacts_with_stations():
 func finish_station():
 	adjust_player(150, station_ref)
 	on_station.station_full = false
-	if on_station.station_action == "cooking":
-		self.z_index = 1
-		on_station.done()
+	self.z_index = 1
+	on_station.done()
 	on_station = null
 	$AnimatedSprite2D.play("idle")
 	$CollisionShape2D.disabled = false

@@ -3,6 +3,7 @@ class_name Enemy
 
 @onready var path_follow = get_parent()
 
+var pre_progress
 var speed = 500
 var move_direction = 0
 
@@ -14,7 +15,11 @@ func _process(_delta):
 
 func MovementLoop(delta):
 	var prepos = path_follow.get_global_position()
-	path_follow.set_progress(path_follow.get_progress() + speed * delta)
+	var progress = path_follow.get_progress()
+	if pre_progress == progress:
+		queue_free()
+	pre_progress = progress
+	path_follow.set_progress(progress + speed * delta)
 	var pos = path_follow.get_global_position()
 	move_direction = (pos.angle_to_point(prepos) / 3.14) * 180
 
@@ -36,4 +41,4 @@ func AnimationLoop():
 func die():
 	# emitir som de morte
 	Main.coins += Main.bonus
-	#queue_free()
+	queue_free()

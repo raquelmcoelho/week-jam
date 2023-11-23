@@ -32,7 +32,6 @@ func _on_input_event(_viewport, _event, _shape_idx):
 func interacts_with_stations():
 	if is_inside_dropable:
 		adjust_position(200, station_ref)
-
 	if on_station != null:
 		on_station.station_full = false
 		on_station.object_above_station = false
@@ -42,7 +41,7 @@ func interacts_with_stations():
 func adjust_position(offset_value, object):
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "position", Vector2(object.position.x, object.position.y - offset_value) , 0.2).set_ease(Tween.EASE_OUT)
-	
+
 func _on_body_entered(body):
 	if body.is_in_group('station'):
 		is_inside_dropable = true
