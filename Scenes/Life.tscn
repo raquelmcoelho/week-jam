@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn11m14yeo0gj"]
+
+[ext_resource type="Script" path="res://Scripts/Life.gd" id="1_lexde"]
+[ext_resource type="Texture2D" uid="uid://b63rmnnsvje6w" path="res://Assets/Sprites/UI/heart/heart-no.png" id="1_lr2pq"]
+[ext_resource type="Texture2D" uid="uid://mnrblqe6kb0f" path="res://Assets/Sprites/UI/heart/heart-yes.png" id="2_ccdh4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s7uhj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lr2pq")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ccdh4")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Life" type="Node2D"]
+script = ExtResource("1_lexde")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_s7uhj")
+animation = &"Idle"

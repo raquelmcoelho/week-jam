@@ -5,10 +5,12 @@ var rat_scene = load("res://Scenes/Rat.tscn")
 var food_scene = load("res://Scenes/Food.tscn")
 var costumer_scene = load("res://Scenes/Costumer.tscn")
 var barrel_scene = load("res://Scenes/Barrel.tscn")
+var life_scene = load("res://Scenes/Life.tscn")
 
 var line = []
 var bonus = 10
 var coins = 0
+var lifes = []
 var is_dragging = false
 
 func receive_money():
@@ -23,7 +25,7 @@ func spawn_enemy():
 		rat_spawn_location.add_child(rat)
 	else:
 		rat.queue_free()
-	$enemies/EnemyTimer.wait_time = float(randi_range(20, 30))
+	$enemies/EnemyTimer.wait_time = float(randi_range(20,30))
 	$enemies/EnemyTimer.start()
 
 
@@ -60,7 +62,23 @@ func _on_enemy_timer_timeout():
 
 func _on_creation_timer_timeout():
 	spawn_clients()
+	spawn_lifes()
 	spawn_barrel("pasta", Vector2(50,30))
 	spawn_barrel("sandwich", Vector2(120,30))
 	spawn_barrel("soup", Vector2(190,30))
+	
+func spawn_lifes():
+	for i in range(3):
+		var life = life_scene.instantiate()
+		life.position = Vector2(1100 + i * 35, 25)
+		lifes.append(life)
+		add_child(life)
+
+func die():
+	for i in range(2,0,-1):
+		if(lifes[i].is_alive):
+			lifes[i].kill()
+			return
+	print("game over")
+	
 
