@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4exkq4t2wenf"
-path="res://.godot/imported/angry.png-05e9110369b04daa53e2a115fa238f48.ctex"
+uid="uid://b53msd0ry85m6"
+path="res://.godot/imported/ingredients_ready-3.png-ac8fc8ee7db73677b220d42aa64682f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/UI/baloon_response/angry.png"
-dest_files=["res://.godot/imported/angry.png-05e9110369b04daa53e2a115fa238f48.ctex"]
+source_file="res://Assets/Sprites/UI/food/ingredients_ready-3.png"
+dest_files=["res://.godot/imported/ingredients_ready-3.png-ac8fc8ee7db73677b220d42aa64682f4.ctex"]
 
 [params]
 

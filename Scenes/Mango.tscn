@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cg5pkqyd8hmo2" path="res://Assets/Sprites/Mango/Cooking/chef_cooking-1.png" id="5_t0w0b"]
 [ext_resource type="Texture2D" uid="uid://f2csfycju1aa" path="res://Assets/Sprites/Mango/Idle/chef_idle-0.png" id="6_blidv"]
 [ext_resource type="Texture2D" uid="uid://cpfrhj33drq3w" path="res://Assets/Sprites/Mango/Idle/chef_idle-1.png" id="7_nx3d4"]
-[ext_resource type="Texture2D" uid="uid://iniwqdy0xwu6" path="res://Assets/Sprites/Mango/Washing/chef_washing-0.png" id="8_vvuth"]
-[ext_resource type="Texture2D" uid="uid://dk1ao3b0n85od" path="res://Assets/Sprites/Mango/Washing/chef_washing-1.png" id="9_qqwy3"]
+[ext_resource type="Texture2D" uid="uid://crbwilul8w44r" path="res://Assets/Sprites/Mango/Washing/chef_washing-0.png" id="8_vvuth"]
+[ext_resource type="Texture2D" uid="uid://b6t3uutt2rbw1" path="res://Assets/Sprites/Mango/Washing/chef_washing-1.png" id="9_qqwy3"]
 [ext_resource type="PackedScene" uid="uid://bhljwpn6s2gu0" path="res://Scenes/Progress.tscn" id="10_j0o2l"]
 
 [sub_resource type="CapsuleShape2D" id="2"]

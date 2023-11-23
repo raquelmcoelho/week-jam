@@ -25,7 +25,6 @@ func _on_Player_input_event(_viewport, _event, _shape_idx):
 	elif Input.is_action_just_released("click"):
 		Main.is_dragging = false
 		dragging = false
-
 		interacts_with_stations()
 
 func interacts_with_stations():
@@ -42,7 +41,7 @@ func interacts_with_stations():
 		on_station.player_above_station = false
 		_adjust_player(on_station.offset_value, on_station)
 		$AnimatedSprite2D.play(on_station.station_action)
-		$Progress.run = true
+		$Progress.start_timer()
 
 func _adjust_player(offset_value, object):
 	var tween = get_tree().create_tween()

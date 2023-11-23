@@ -1,20 +1,13 @@
 extends Area2D
 class_name Progress
 
-var run = false
-var timer = Timer.new()
-
 func _ready():
-	$AnimatedSprite2D.play("stop")
-	#timer.connect("timeout",self,"delete")
-	timer.wait_time = 6
-	timer.one_shot = true
-	add_child(timer)
-	timer.start()
+	self.visible = false
 
-func _process(_delta):
-	if run:
-		$AnimatedSprite2D.play("run")
+func start_timer():
+	self.visible = true
+	$Timer.start()
+	$AnimatedSprite2D.play("run")
 
-func delete():
-	queue_free()
+func _on_timer_timeout():
+	self.visible = false
