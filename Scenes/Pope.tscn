@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://ccxm33epmvuly"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_3qpb3"]
-[ext_resource type="Texture2D" uid="uid://c7l3504uhubyy" path="res://Assets/Sprites/Pope/Chopping/pope_chopping_0.png" id="2_cb1rb"]
-[ext_resource type="Texture2D" uid="uid://bhfb58h00uqlw" path="res://Assets/Sprites/Pope/Chopping/pope_chopping_1.png" id="3_djrxv"]
+[ext_resource type="Texture2D" uid="uid://cx4he1r05q72i" path="res://Assets/Sprites/Pope/Chopping/pope_chopping-0.png" id="2_11k8h"]
+[ext_resource type="Texture2D" uid="uid://boykjmltylh5o" path="res://Assets/Sprites/Pope/Chopping/pope_chopping-1.png" id="3_780sj"]
 [ext_resource type="Texture2D" uid="uid://w5rgb0s65ywq" path="res://Assets/Sprites/Pope/Cooking/pope_cooking-0.png" id="4_a2ise"]
 [ext_resource type="Texture2D" uid="uid://dew304bq2wk2y" path="res://Assets/Sprites/Pope/Cooking/pope_cooking-1.png" id="5_5viix"]
 [ext_resource type="Texture2D" uid="uid://mtocqpixerxm" path="res://Assets/Sprites/Pope/Idle/pope_idle-0.png" id="6_3yg8e"]
@@ -19,10 +19,10 @@ height = 48.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_cb1rb")
+"texture": ExtResource("2_11k8h")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_djrxv")
+"texture": ExtResource("3_780sj")
 }],
 "loop": true,
 "name": &"chopping",
@@ -73,7 +73,7 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("5")
-animation = &"idle"
+animation = &"chopping"
 
 [node name="Progress" parent="." instance=ExtResource("10_nwo63")]
 position = Vector2(0, 11)
