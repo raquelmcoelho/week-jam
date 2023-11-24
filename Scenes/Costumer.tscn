@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dj73otyatp13s"]
+[gd_scene load_steps=25 format=3 uid="uid://dj73otyatp13s"]
 
 [ext_resource type="Texture2D" uid="uid://dqi54ph5e30mn" path="res://Assets/Sprites/costumers/costumer-0.png" id="1_k83pa"]
 [ext_resource type="Script" path="res://Scripts/Costumer.gd" id="1_ooi05"]
@@ -11,6 +11,14 @@
 [ext_resource type="Texture2D" uid="uid://c0oywdfuifunx" path="res://Assets/Sprites/costumers/costumer-7.png" id="8_4w7as"]
 [ext_resource type="Texture2D" uid="uid://ddy1tvvbdeof5" path="res://Assets/Sprites/costumers/costumer-8.png" id="9_kf0c6"]
 [ext_resource type="Texture2D" uid="uid://bhr0jdyt4ass6" path="res://Assets/Sprites/costumers/costumer-9.png" id="10_5jgcx"]
+[ext_resource type="Texture2D" uid="uid://drrbob0ejwvw5" path="res://Assets/Sprites/UI/order/order-0.png" id="12_n5h7p"]
+[ext_resource type="Texture2D" uid="uid://caksji4v2nowp" path="res://Assets/Sprites/UI/order/order-1.png" id="13_8ryhl"]
+[ext_resource type="Texture2D" uid="uid://h8yx3dlmslxj" path="res://Assets/Sprites/UI/food/pasta.png" id="14_jhw7h"]
+[ext_resource type="Texture2D" uid="uid://d2owvbb1wnkwg" path="res://Assets/Sprites/UI/food/sandwich.png" id="15_lbpa4"]
+[ext_resource type="Texture2D" uid="uid://dewhsmwccvchx" path="res://Assets/Sprites/UI/food/soup.png" id="16_qqmsf"]
+[ext_resource type="Texture2D" uid="uid://c247qboo7xr8m" path="res://Assets/Sprites/UI/costumer_timer/costumer_timer-0.png" id="17_nyxi6"]
+[ext_resource type="Texture2D" uid="uid://5teoklwdgh4" path="res://Assets/Sprites/UI/costumer_timer/costumer_timer-2.png" id="18_xb1m8"]
+[ext_resource type="Texture2D" uid="uid://xo8dy4tiw4p7" path="res://Assets/Sprites/UI/costumer_timer/costumer_timer-1.png" id="19_trueu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wmxvq"]
 animations = [{
@@ -74,7 +82,75 @@ animations = [{
 radius = 18.0
 height = 44.0
 
-[node name="Costumer" type="CharacterBody2D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_04pcp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_n5h7p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_8ryhl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ra2n0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_jhw7h")
+}],
+"loop": true,
+"name": &"pasta",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_lbpa4")
+}],
+"loop": true,
+"name": &"sandwich",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_qqmsf")
+}],
+"loop": true,
+"name": &"soup",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sivms"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_nyxi6")
+}],
+"loop": true,
+"name": &"green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_xb1m8")
+}],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_trueu")
+}],
+"loop": true,
+"name": &"yellow",
+"speed": 5.0
+}]
+
+[node name="Costumer" type="CharacterBody2D" groups=["costumer"]]
 scale = Vector2(2, 2)
 script = ExtResource("1_ooi05")
 
@@ -86,3 +162,37 @@ flip_h = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 11)
 shape = SubResource("CapsuleShape2D_p6uea")
+
+[node name="OrderBaloon" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(45, -15)
+sprite_frames = SubResource("SpriteFrames_04pcp")
+frame_progress = 0.738279
+flip_h = true
+
+[node name="Order" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(45, -15)
+sprite_frames = SubResource("SpriteFrames_ra2n0")
+animation = &"pasta"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 7.0
+autostart = true
+
+[node name="TimerSprite" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-18.5, -9)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_sivms")
+animation = &"yellow"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 11)
+shape = SubResource("CapsuleShape2D_p6uea")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

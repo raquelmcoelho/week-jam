@@ -9,6 +9,7 @@ var life_scene = load("res://Scenes/Life.tscn")
 var plate_scene = load("res://Scenes/Plate.tscn")
 
 var line = []
+var line_positions = [Vector2(855, 120), Vector2(935, 120), Vector2(1015, 120), Vector2(1095, 120)]
 var spots_positions = [Vector2(855, 270), Vector2(860, 360), Vector2(865, 450)]
 var spots_num = 3
 var bonus = 10
@@ -20,14 +21,12 @@ var is_dragging = false
 
 func _ready():
 	create_coins()
-	
 
-func spawn_plate(station):
+func spawn_plate(_station):
 	var plate = plate_scene.instantiate()
 	plate.position = Vector2(600,400)
 	# plate.on_station = station
 	add_child(plate)
-	
 
 func spawn_coins():
 	for coin in coins_animation:
@@ -73,12 +72,29 @@ func spawn_barrel(sprite, position):
 	add_child(barrel)
 
 func spawn_clients():
+	print(len(line))
 	if spots_num != 0:
 		var costumer = costumer_scene.instantiate()
 		costumer.position = Vector2(1150, 0)
 		costumer.customer_position = spots_positions[spots_num-1]
-		add_child(costumer)
+		costumer.order_something()
+		costumer.costumer_spot = spots_num-1
 		spots_num -= 1
+		add_child(costumer)
+	elif len(line) < 4:
+		var costumer = costumer_scene.instantiate()
+		costumer.position = Vector2(1150, 0)
+		costumer.customer_position = line_positions[len(line)]
+		add_child(costumer)
+		line.append(costumer)
+
+func costumer_out(costumer_spot):
+	if len(line) > 0:
+		var costumer = line.pop_front()
+		print(costumer)
+		costumer.ajust_position(spots_positions[costumer_spot])
+		for cost in line:
+			cost.ajust_position(line.find(cost))
 
 func spawn_lifes():
 	for i in range(3):
@@ -114,4 +130,3 @@ func die():
 			return
 	get_tree().change_scene_to_file("res://Scenes/Game_over.tscn")
 	
-
