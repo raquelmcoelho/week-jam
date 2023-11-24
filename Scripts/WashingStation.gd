@@ -5,6 +5,8 @@ var station_full = false
 var station_action = "washing"
 var offset_value = 60
 var empty: bool = true
+var plate
+var offset_plate = -25 
 
 func _process(_delta):
 	$Filter.visible = object_above_station and not station_full
@@ -15,10 +17,9 @@ func do():
 
 func done():
 	$AudioStreamPlayer2D.stop()
-	self.station_full = true
-	$AnimatedSprite2D.play("idle")
 	self.station_full = false
 	self.empty = true
-	var sprite = "dirty_dish"
 	Main.spawn_coins()
+	plate.queue_free()
+	plate = null
 	$AnimatedSprite2D.play("idle")

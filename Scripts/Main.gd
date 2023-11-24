@@ -6,6 +6,7 @@ var food_scene = load("res://Scenes/Food.tscn")
 var costumer_scene = load("res://Scenes/Costumer.tscn")
 var barrel_scene = load("res://Scenes/Barrel.tscn")
 var life_scene = load("res://Scenes/Life.tscn")
+var plate_scene = load("res://Scenes/Plate.tscn")
 
 var line = []
 var spots_positions = [Vector2(855, 270), Vector2(860, 360), Vector2(865, 450)]
@@ -19,6 +20,14 @@ var is_dragging = false
 
 func _ready():
 	create_coins()
+	
+
+func spawn_plate(station):
+	var plate = plate_scene.instantiate()
+	plate.position = Vector2(600,400)
+	# plate.on_station = station
+	add_child(plate)
+	
 
 func spawn_coins():
 	for coin in coins_animation:
@@ -26,6 +35,7 @@ func spawn_coins():
 		var tween = get_tree().create_tween().set_parallel(true)
 		tween.tween_property(coin, "position", Vector2(1100, -10) , 1).set_ease(Tween.EASE_OUT)
 		tween.play()
+		coin.sound()
 	Main.coins += Main.bonus
 
 
