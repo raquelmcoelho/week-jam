@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpnjkx60iyknu"]
+[gd_scene load_steps=9 format=3 uid="uid://bcwbqj2jno46a"]
 
 [ext_resource type="FontFile" uid="uid://e72bgarhntsx" path="res://Font/PixelifySans-Regular.ttf" id="1_ac765"]
 [ext_resource type="Script" path="res://Scenes/Game_over.gd" id="1_dhyrg"]
 [ext_resource type="Texture2D" uid="uid://cb5vqrea06vr5" path="res://Assets/Sprites/background/background.png" id="2_028vb"]
 [ext_resource type="Texture2D" uid="uid://dd67snxafbj7e" path="res://Assets/Sprites/Mango/Game_over/game_over-0.png" id="2_ps1ye"]
 [ext_resource type="Texture2D" uid="uid://b8ewvqwthomh2" path="res://Assets/Sprites/Mango/Game_over/game_over-1.png" id="3_8liyy"]
+[ext_resource type="AudioStream" uid="uid://lbwdtsf0w4mk" path="res://Sounds/game_over.mp3" id="6_y5lea"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t6joy"]
 animations = [{
@@ -83,6 +84,11 @@ z_index = -1
 position = Vector2(600, 400)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_mk4li")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_y5lea")
+volume_db = 8.0
+autoplay = true
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Leave" to="." method="_on_leave_pressed"]

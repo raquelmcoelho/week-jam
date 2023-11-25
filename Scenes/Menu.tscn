@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b5pxvm1x282br"]
+[gd_scene load_steps=18 format=3 uid="uid://b5pxvm1x282br"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_hrrpa"]
 [ext_resource type="FontFile" uid="uid://e72bgarhntsx" path="res://Font/PixelifySans-Regular.ttf" id="2_3qx6m"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bg6gi3eft6f61" path="res://Assets/Sprites/UI/work_menu/work_menu-5.png" id="9_fmywv"]
 [ext_resource type="Texture2D" uid="uid://cwbqi6pp715ve" path="res://Assets/Sprites/UI/work_menu/work_menu-2.png" id="10_ex4rt"]
 [ext_resource type="Texture2D" uid="uid://g8o4l81exulp" path="res://Assets/Sprites/UI/work_menu/work_menu-3.png" id="11_mg7dr"]
+[ext_resource type="AudioStream" uid="uid://dvgisojpjfhwo" path="res://Sounds/musica-Underwater-Piano-Red-Copyright-Free_.wav" id="14_07gd5"]
 
 [sub_resource type="Curve2D" id="Curve2D_jl66f"]
 _data = {
@@ -167,6 +168,10 @@ z_index = -1
 position = Vector2(600, 400)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_e8eu2")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_07gd5")
+autoplay = true
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Leave" to="." method="_on_leave_pressed"]

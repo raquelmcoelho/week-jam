@@ -50,7 +50,7 @@ func spawn_enemy():
 		rat_spawn_location.add_child(rat)
 	else:
 		rat.queue_free()
-	$EnemyTimer.wait_time = float(randi_range(20,30))
+	$EnemyTimer.wait_time = float(randi_range(10,20))
 	$EnemyTimer.start()
 
 
