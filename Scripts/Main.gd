@@ -1,12 +1,12 @@
 extends Node
 
-var coin_scene = load("res://Scenes/Coin.tscn")
-var rat_scene = load("res://Scenes/Rat.tscn")
-var food_scene = load("res://Scenes/Food.tscn")
-var costumer_scene = load("res://Scenes/Costumer.tscn")
-var barrel_scene = load("res://Scenes/Barrel.tscn")
-var life_scene = load("res://Scenes/Life.tscn")
-var plate_scene = load("res://Scenes/Plate.tscn")
+var coin_scene : PackedScene = preload("res://Scenes/Coin.tscn")
+var rat_scene : PackedScene = preload("res://Scenes/Rat.tscn")
+var food_scene : PackedScene = preload("res://Scenes/Food.tscn")
+var costumer_scene : PackedScene = preload("res://Scenes/Costumer.tscn")
+var barrel_scene : PackedScene = preload("res://Scenes/Barrel.tscn")
+var life_scene : PackedScene = preload("res://Scenes/Life.tscn")
+var plate_scene : PackedScene = preload("res://Scenes/Plate.tscn")
 
 var line = []
 var line_positions = [Vector2(855, 120), Vector2(935, 120), Vector2(1015, 120), Vector2(1095, 120)]
@@ -18,6 +18,8 @@ var lifes = []
 var is_dragging = false
 
 @onready var coins_animation = []
+
+signal game_over
 
 func _ready():
 	create_coins()
@@ -39,7 +41,8 @@ func spawn_coins():
 
 
 func spawn_enemy():
-	var rat = rat_scene.instantiate()
+	var rat : Enemy = rat_scene.instantiate()
+	rat.connect("scaped", Callable(self, "die"))
 	print("Path2D%s/PathFollow2D" % [randi_range(1, 3)])
 	var rat_spawn_location = get_node("Path2D%s/PathFollow2D" % [randi_range(1, 3)])
 	if(not len(rat_spawn_location.get_children())):
@@ -74,7 +77,8 @@ func spawn_barrel(sprite, position):
 func spawn_clients():
 	print(len(line))
 	if spots_num != 0:
-		var costumer = costumer_scene.instantiate()
+		var costumer : Costumer = costumer_scene.instantiate()
+		costumer.connect("costumer_gave_up", Callable(self, "die"))
 		costumer.position = Vector2(1150, 0)
 		costumer.customer_position = spots_positions[spots_num-1]
 		costumer.order_something()
@@ -82,7 +86,8 @@ func spawn_clients():
 		spots_num -= 1
 		add_child(costumer)
 	elif len(line) < 4:
-		var costumer = costumer_scene.instantiate()
+		var costumer : Costumer = costumer_scene.instantiate()
+		costumer.connect("costumer_gave_up", Callable(self, "die"))
 		costumer.position = Vector2(1150, 0)
 		costumer.customer_position = line_positions[len(line)]
 		add_child(costumer)
@@ -123,7 +128,7 @@ func _on_creation_timer_timeout():
 func _on_customer_timer_timeout():
 	spawn_clients()
 
-func die():
+func die(thing):
 	for i in range(2,0,-1):
 		if(lifes[i].is_alive):
 			lifes[i].kill()
