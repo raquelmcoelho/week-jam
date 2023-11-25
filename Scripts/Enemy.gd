@@ -7,8 +7,6 @@ var pre_progress
 var speed = 300
 var move_direction = 0
 
-signal scaped(rat)
-
 func _physics_process(delta):
 	MovementLoop(delta)
 
@@ -19,7 +17,6 @@ func MovementLoop(delta):
 	var prepos = path_follow.get_global_position()
 	var progress = path_follow.get_progress()
 	if pre_progress == progress:
-		emit_signal("scaped", self)
 		queue_free()
 	pre_progress = progress
 	path_follow.set_progress(progress + speed * delta)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ca67iebth04pv"]
+[gd_scene load_steps=19 format=3 uid="uid://ca67iebth04pv"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://cxqn0oe1ro2jr" path="res://Scenes/Mango.tscn" id="3_2y6ee"]
@@ -28,9 +28,15 @@ point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_wiryk"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1230, 222, 0, 0, 0, 0, 1020, 222, 0, 0, 0, 0, 1022, 633, 0, 0, 0, 0, 582, 640, 0, 0, 0, 0, 568, 691)
+"points": PackedVector2Array(0, 0, 0, 0, 886, 696, 0, 0, 0, 0, 888, 476, 0, 0, 0, 0, 1129, 474, 0, 0, 0, 0, 1127, 606, 0, 0, 0, 0, 933, 604, 0, 0, 0, 0, 941, 426, 0, 0, 0, 0, 1109, 420, 0, 0, 0, 0, 1121, 248, 0, 0, 0, 0, 1010, 248, 0, 0, 0, 0, 1011, 103, 0, 0, 0, 0, 1085, 105, 0, 0, 0, 0, 1088, 674)
 }
-point_count = 5
+point_count = 12
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysox7"]
+size = Vector2(729, 170)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4sukn"]
+size = Vector2(800, 20)
 
 [node name="Main" type="Node"]
 script = ExtResource("2")
@@ -60,7 +66,7 @@ position = Vector2(293, 316)
 position = Vector2(85, 318)
 
 [node name="Mango" parent="." instance=ExtResource("3_2y6ee")]
-position = Vector2(486, 320)
+position = Vector2(565, 288)
 
 [node name="EnemyTimer" type="Timer" parent="."]
 wait_time = 1.279
@@ -90,7 +96,7 @@ position = Vector2(27, 144)
 curve = SubResource("Curve2D_wiryk")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
-position = Vector2(1230, 222)
+position = Vector2(886, 696)
 rotates = false
 loop = false
 
@@ -130,7 +136,32 @@ volume_db = -10.0
 autoplay = true
 
 [node name="Trash" parent="." instance=ExtResource("11_3vor6")]
-position = Vector2(581, 317)
+position = Vector2(682, 248)
+
+[node name="UpperWall" type="StaticBody2D" parent="."]
+position = Vector2(364, 100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpperWall"]
+shape = SubResource("RectangleShape2D_ysox7")
+
+[node name="BottomWall" type="StaticBody2D" parent="."]
+position = Vector2(130, 867)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall"]
+position = Vector2(269, -56)
+shape = SubResource("RectangleShape2D_4sukn")
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+position = Vector2(-126, 506)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftWall"]
+polygon = PackedVector2Array(122, -318, 77, -318, 80, -56, -35, -58, -33, 47, 80, 47, 80, 301, 124, 301, 121, 34, -11, 33, -14, -44, 123, -44)
+
+[node name="BalconyWall" type="StaticBody2D" parent="."]
+position = Vector2(826, 452)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BalconyWall"]
+polygon = PackedVector2Array(-97, -301, -21, -301, 12, 231, -69, 231)
 
 [connection signal="timeout" from="CreationTimer" to="." method="_on_creation_timer_timeout"]
 [connection signal="timeout" from="CustomerTimer" to="." method="_on_customer_timer_timeout"]

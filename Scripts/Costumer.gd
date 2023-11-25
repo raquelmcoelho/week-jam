@@ -8,7 +8,7 @@ var options = ["pasta", "sandwich", "soup"]
 var skins = ["cartola", "laco", "paulin", "bone", "bigodon"]
 var angry = "idle"
 
-signal costumer_gave_up(costumer)
+signal costumer_gave_up()
 
 func _ready():
 	$AnimatedSprite2D.play(skins[randi_range(0,4)])
@@ -43,7 +43,7 @@ func _on_timer_timeout():
 		Main.costumer_out(costumer_spot)
 		angry = "die"
 		$TimerSprite.visible = false
-		emit_signal("costumer_gave_up", self)
+		emit_signal("costumer_gave_up")
 		ajust_position(Vector2(900, 900))
 	else:
 		queue_free()
