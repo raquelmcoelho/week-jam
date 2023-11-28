@@ -78,10 +78,6 @@ func update_costumers():
 		if spots_ocuppied[i] == 0:
 			spot_index = i
 			break;
-
-	print("index: ", spot_index)
-	print("line: ", len(line))
-
 	if len(line) > 0 and spot_index != -1:
 		spots_ocuppied[spot_index] = 1
 		var costumer = line.pop_front()
@@ -153,3 +149,7 @@ func lose_life():
 			lifes[i].kill()
 			return
 	get_tree().change_scene_to_file("res://Scenes/Game_over.tscn")
+
+
+func _on_background_finished():
+	$Background.play()

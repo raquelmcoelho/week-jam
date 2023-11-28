@@ -165,3 +165,4 @@ polygon = PackedVector2Array(-97, -301, -21, -301, 12, 231, -69, 231)
 [connection signal="timeout" from="CreationTimer" to="." method="_on_creation_timer_timeout"]
 [connection signal="timeout" from="CustomerTimer" to="." method="_on_customer_timer_timeout"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_enemy_timer_timeout"]
+[connection signal="finished" from="Background" to="." method="_on_background_finished"]
