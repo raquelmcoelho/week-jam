@@ -29,9 +29,6 @@ func _on_Player_input_event(_viewport, _event, _shape_idx):
 		dropped()
 
 func dropped():
-	print("\nstation full: ", station_ref.station_full)
-	print("station ref: ", station_ref != on_station)
-	print("station empty: ", station_ref.empty)
 	if not is_inside_dropable:
 		$AnimatedSprite2D.play("idle")
 		if on_station != null:

@@ -51,8 +51,7 @@ func _on_timer_timeout():
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group('food') and order == area.sprite_str:
-		Main.is_dragging = false
-		area.queue_free()
+		area.destroy()
 		emit_signal("costumer_left", costumer_spot)
 		angry = "die"
 		$TimerSprite.visible = false

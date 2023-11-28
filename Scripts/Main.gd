@@ -8,16 +8,16 @@ var barrel_scene : PackedScene = preload("res://Scenes/Barrel.tscn")
 var life_scene : PackedScene = preload("res://Scenes/Life.tscn")
 var plate_scene : PackedScene = preload("res://Scenes/Plate.tscn")
 
-var line = []
 var line_positions = [Vector2(855, 120), Vector2(935, 120), Vector2(1015, 120), Vector2(1095, 120)]
 var spots_positions = [Vector2(865, 450), Vector2(860, 360), Vector2(855, 270)]
 var spots_ocuppied = [0, 0, 0]
+var line = []
+var costumer_spawn_time = 0
 var bonus = 10
 var coins = 0
 var lifes = []
 var is_dragging = false
-
-@onready var coins_animation = []
+var coins_animation = []
 
 signal game_over
 
@@ -72,15 +72,34 @@ func spawn_barrel(sprite, position):
 	barrel.position = position
 	add_child(barrel)
 
-func spawn_clients():
+func update_costumers():
 	var spot_index = -1
 	for i in len(spots_ocuppied):
 		if spots_ocuppied[i] == 0:
-			spots_ocuppied[i] = 1
 			spot_index = i
 			break;
 
+	print("index: ", spot_index)
+	print("line: ", len(line))
+
+	if len(line) > 0 and spot_index != -1:
+		spots_ocuppied[spot_index] = 1
+		var costumer = line.pop_front()
+		costumer.costumer_spot = spot_index
+		costumer.ajust_position(spots_positions[spot_index])
+		costumer.order_something()
+		for i in range(len(line)):
+			line[i].ajust_position(line_positions[i])
+	else:
+		if costumer_spawn_time == 4:
+			costumer_spawn_time = 0
+			spawn_costumer(spot_index)
+		else:
+			costumer_spawn_time += 1
+
+func spawn_costumer(spot_index):
 	if spot_index != -1:
+		spots_ocuppied[spot_index] = 1
 		var costumer : Costumer = costumer_scene.instantiate()
 		costumer.connect("costumer_gave_up", Callable(self, "lose_life"))
 		costumer.connect("costumer_left", Callable(self, "costumer_out"))
@@ -100,12 +119,6 @@ func spawn_clients():
 
 func costumer_out(costumer_spot):
 	spots_ocuppied[costumer_spot] = 0
-	if len(line) > 0:
-		var costumer = line.pop_front()
-		costumer.ajust_position(spots_positions[costumer_spot])
-		costumer.order_something()
-		for i in range(len(line)):
-			line[i].ajust_position(line_positions[i])
 
 func spawn_lifes():
 	for i in range(3):
@@ -132,7 +145,7 @@ func _on_creation_timer_timeout():
 	spawn_barrel("soup", Vector2(190,175))
 
 func _on_customer_timer_timeout():
-	spawn_clients()
+	update_costumers()
 
 func lose_life():
 	for i in range(2,0,-1):
