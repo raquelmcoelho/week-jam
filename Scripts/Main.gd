@@ -10,8 +10,8 @@ var plate_scene : PackedScene = preload("res://Scenes/Plate.tscn")
 
 var line = []
 var line_positions = [Vector2(855, 120), Vector2(935, 120), Vector2(1015, 120), Vector2(1095, 120)]
-var spots_positions = [Vector2(855, 270), Vector2(860, 360), Vector2(865, 450)]
-var spots_num = 3
+var spots_positions = [Vector2(865, 450), Vector2(860, 360), Vector2(855, 270)]
+var spots_ocuppied = [0, 0, 0]
 var bonus = 10
 var coins = 0
 var lifes = []
@@ -30,9 +30,9 @@ func spawn_plate(_station):
 	# plate.on_station = station
 	add_child(plate)
 
-func spawn_coins():
+func spawn_coins(coin_position):
 	for coin in coins_animation:
-		coin.position = Vector2(600 + randi_range(-100,100),400)
+		coin.position = Vector2(coin_position.x + randi_range(-50,50),coin_position.y + randi_range(-50,50))
 		var tween = get_tree().create_tween().set_parallel(true)
 		tween.tween_property(coin, "position", Vector2(1100, -10) , 1).set_ease(Tween.EASE_OUT)
 		tween.play()
@@ -73,31 +73,39 @@ func spawn_barrel(sprite, position):
 	add_child(barrel)
 
 func spawn_clients():
-	print(len(line))
-	if spots_num != 0:
+	var spot_index = -1
+	for i in len(spots_ocuppied):
+		if spots_ocuppied[i] == 0:
+			spots_ocuppied[i] = 1
+			spot_index = i
+			break;
+
+	if spot_index != -1:
 		var costumer : Costumer = costumer_scene.instantiate()
 		costumer.connect("costumer_gave_up", Callable(self, "lose_life"))
+		costumer.connect("costumer_left", Callable(self, "costumer_out"))
 		costumer.position = Vector2(1150, 0)
-		costumer.customer_position = spots_positions[spots_num-1]
+		costumer.customer_position = spots_positions[spot_index]
 		costumer.order_something()
-		costumer.costumer_spot = spots_num-1
-		spots_num -= 1
+		costumer.costumer_spot = spot_index
 		add_child(costumer)
 	elif len(line) < 4:
 		var costumer : Costumer = costumer_scene.instantiate()
 		costumer.connect("costumer_gave_up", Callable(self, "lose_life"))
+		costumer.connect("costumer_left", Callable(self, "costumer_out"))
 		costumer.position = Vector2(1150, 0)
 		costumer.customer_position = line_positions[len(line)]
 		add_child(costumer)
 		line.append(costumer)
 
 func costumer_out(costumer_spot):
+	spots_ocuppied[costumer_spot] = 0
 	if len(line) > 0:
 		var costumer = line.pop_front()
-		print(costumer)
 		costumer.ajust_position(spots_positions[costumer_spot])
-		for cost in line:
-			cost.ajust_position(line.find(cost))
+		costumer.order_something()
+		for i in range(len(line)):
+			line[i].ajust_position(line_positions[i])
 
 func spawn_lifes():
 	for i in range(3):
@@ -132,4 +140,3 @@ func lose_life():
 			lifes[i].kill()
 			return
 	get_tree().change_scene_to_file("res://Scenes/Game_over.tscn")
-	

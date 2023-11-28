@@ -9,6 +9,7 @@ var skins = ["cartola", "laco", "paulin", "bone", "bigodon"]
 var angry = "idle"
 
 signal costumer_gave_up()
+signal costumer_left(spot)
 
 func _ready():
 	$AnimatedSprite2D.play(skins[randi_range(0,4)])
@@ -40,9 +41,9 @@ func _on_timer_timeout():
 		$TimerSprite.play(angry)
 		$TimerSprite.visible = true
 	elif angry == "red":
-		Main.costumer_out(costumer_spot)
 		angry = "die"
 		$TimerSprite.visible = false
+		emit_signal("costumer_left", costumer_spot)
 		emit_signal("costumer_gave_up")
 		ajust_position(Vector2(900, 900))
 	else:
@@ -50,17 +51,16 @@ func _on_timer_timeout():
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group('food') and order == area.sprite_str:
+		Main.is_dragging = false
 		area.queue_free()
-		Main.costumer_out(costumer_spot)
+		emit_signal("costumer_left", costumer_spot)
 		angry = "die"
 		$TimerSprite.visible = false
 		ajust_position(Vector2(900, 900))
-		Main.spawn_coins()
+		Main.spawn_coins(self.position)
 	elif area.is_in_group('food'):
 		area.forbidden = self
 
 func _on_area_2d_area_exited(area):
-	if area.is_in_group('food') and order == area.sprite_str:
-		area.is_at_trash = false
-	elif area.is_in_group('food') and area.forbidden == self:
+	if area.is_in_group('food') and area.forbidden == self:
 		area.forbidden = null

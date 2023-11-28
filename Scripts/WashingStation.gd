@@ -19,7 +19,7 @@ func done():
 	$AudioStreamPlayer2D.stop()
 	self.station_full = false
 	self.empty = true
-	Main.spawn_coins()
+	Main.spawn_coins(self.position)
 	plate.queue_free()
 	plate = null
 	$AnimatedSprite2D.play("idle")

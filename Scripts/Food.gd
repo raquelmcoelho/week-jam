@@ -79,7 +79,6 @@ func _on_body_exited(body):
 		body.object_above_station = false
 
 func _on_mouse_entered():
-	print("oiiui")
 	if not Main.is_dragging:
 		scale = Vector2(2.1, 2.1)
 

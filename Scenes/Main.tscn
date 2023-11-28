@@ -47,7 +47,7 @@ one_shot = true
 autostart = true
 
 [node name="CustomerTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 4.0
 autostart = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -166,4 +166,3 @@ polygon = PackedVector2Array(-97, -301, -21, -301, 12, 231, -69, 231)
 [connection signal="timeout" from="CreationTimer" to="." method="_on_creation_timer_timeout"]
 [connection signal="timeout" from="CustomerTimer" to="." method="_on_customer_timer_timeout"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_enemy_timer_timeout"]
-[connection signal="finished" from="Background" to="." method="_on_audio_stream_player_2d_finished"]

@@ -29,6 +29,9 @@ func _on_Player_input_event(_viewport, _event, _shape_idx):
 		dropped()
 
 func dropped():
+	print("\nstation full: ", station_ref.station_full)
+	print("station ref: ", station_ref != on_station)
+	print("station empty: ", station_ref.empty)
 	if not is_inside_dropable:
 		$AnimatedSprite2D.play("idle")
 		if on_station != null:
@@ -65,9 +68,8 @@ func adjust_position(offset_value, object):
 	
 func _on_body_entered(body):
 	if body.is_in_group('enemy'):
-		print("rato")
+		Main.spawn_coins(body.get_position_delta())
 		body.die()
-		Main.spawn_coins()
 	elif body.is_in_group('station'):
 		is_inside_dropable = true
 		body.object_above_station = true
