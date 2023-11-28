@@ -26,7 +26,7 @@ func done():
 		sprite = "pasta"
 	else:
 		sprite = "sandwich"
-	Main.spawn_food(self, sprite)
+	Global.spawn_food(self, sprite, get_parent())
 	$AnimatedSprite2D.play("idle")
 	ingredient.queue_free()
 	ingredient = null

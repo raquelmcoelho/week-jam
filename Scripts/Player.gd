@@ -20,11 +20,11 @@ func follow_mouse():
 
 func _on_Player_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_pressed("click"):
-		if not Main.is_dragging:
-			Main.is_dragging = true
+		if not Global.is_dragging:
+			Global.is_dragging = true
 			dragging = true
 	elif Input.is_action_just_released("click"):
-		Main.is_dragging = false
+		Global.is_dragging = false
 		dragging = false
 		dropped()
 
@@ -65,7 +65,7 @@ func adjust_position(offset_value, object):
 	
 func _on_body_entered(body):
 	if body.is_in_group('enemy'):
-		Main.spawn_coins(body.get_position_delta())
+		Global.spawn_coins(body.get_position_delta(), get_parent())
 		body.die()
 	elif body.is_in_group('station'):
 		is_inside_dropable = true
@@ -78,9 +78,9 @@ func _on_body_exited(body):
 		body.object_above_station = false
 
 func _on_mouse_entered():
-	if not Main.is_dragging:
+	if not Global.is_dragging:
 		scale = Vector2(2.1, 2.1)
 
 func _on_mouse_exited():
-	if not Main.is_dragging:
+	if not Global.is_dragging:
 		scale = Vector2(2, 2)

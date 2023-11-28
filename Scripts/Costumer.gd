@@ -56,7 +56,7 @@ func _on_area_2d_area_entered(area):
 		angry = "die"
 		$TimerSprite.visible = false
 		ajust_position(Vector2(900, 900))
-		Main.spawn_coins(self.position)
+		Global.spawn_coins(self.position, get_parent())
 	elif area.is_in_group('food'):
 		area.forbidden = self
 

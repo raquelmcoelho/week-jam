@@ -124,7 +124,7 @@ offset_right = 49.0
 offset_bottom = 269.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Coin" parent="." instance=ExtResource("10_073ps")]
+[node name="CoinFixed" parent="." instance=ExtResource("10_073ps")]
 position = Vector2(1057, 25)
 scale = Vector2(2.2, 2.2)
 

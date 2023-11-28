@@ -8,4 +8,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	$CanvasLayer/Label.text = "MOEDAS: " + str(Main.coins)
+	$CanvasLayer/Label.text = "MOEDAS: " + str(Global.coins)

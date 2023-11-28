@@ -7,7 +7,7 @@ var offset_value = 60
 var offset_ingredient = -25
 var ingredient
 var empty: bool = true
-
+	
 func _process(_delta):
 	$Filter.visible = object_above_station and not station_full
 
@@ -25,7 +25,7 @@ func done():
 		sprite = "food_pasta"
 	else:
 		sprite = "food_sandwich"
-	Main.spawn_food(self, sprite)
+	Global.spawn_food(self, sprite, get_parent())
 	$AnimatedSprite2D.play("idle")
 	ingredient.queue_free()
 	ingredient = null

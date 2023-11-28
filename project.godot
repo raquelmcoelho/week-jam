@@ -16,8 +16,7 @@ config/features=PackedStringArray("4.1")
 config/icon="res://icon.png"
 
 [autoload]
-
-Main="*res://Scripts/Main.gd"
+Global="*res://Scripts/Globals.gd"
 
 [display]
 

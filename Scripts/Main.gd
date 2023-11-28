@@ -1,8 +1,6 @@
 extends Node
 
-var coin_scene : PackedScene = preload("res://Scenes/Coin.tscn")
 var rat_scene : PackedScene = preload("res://Scenes/Rat.tscn")
-var food_scene : PackedScene = preload("res://Scenes/Food.tscn")
 var costumer_scene : PackedScene = preload("res://Scenes/Costumer.tscn")
 var barrel_scene : PackedScene = preload("res://Scenes/Barrel.tscn")
 var life_scene : PackedScene = preload("res://Scenes/Life.tscn")
@@ -13,31 +11,18 @@ var spots_positions = [Vector2(865, 450), Vector2(860, 360), Vector2(855, 270)]
 var spots_ocuppied = [0, 0, 0]
 var line = []
 var costumer_spawn_time = 0
-var bonus = 10
-var coins = 0
 var lifes = []
-var is_dragging = false
-var coins_animation = []
 
 signal game_over
 
 func _ready():
-	create_coins()
-
+	print("main ready id: ", self)
+	
 func spawn_plate(_station):
 	var plate = plate_scene.instantiate()
 	plate.position = Vector2(600,400)
 	# plate.on_station = station
 	add_child(plate)
-
-func spawn_coins(coin_position):
-	for coin in coins_animation:
-		coin.position = Vector2(coin_position.x + randi_range(-50,50),coin_position.y + randi_range(-50,50))
-		var tween = get_tree().create_tween().set_parallel(true)
-		tween.tween_property(coin, "position", Vector2(1100, -10) , 1).set_ease(Tween.EASE_OUT)
-		tween.play()
-		coin.sound()
-	Main.coins += Main.bonus
 
 
 func spawn_enemy():
@@ -50,21 +35,6 @@ func spawn_enemy():
 		rat.queue_free()
 	$EnemyTimer.wait_time = float(randi_range(10,20))
 	$EnemyTimer.start()
-
-
-func spawn_food(station, sprite):
-	var food = food_scene.instantiate()
-	food.sprite_str = sprite
-	food.position.x = station.position.x + 47
-	food.position.y = station.position.y - 30
-	food.on_station = station
-	add_child(food)
-
-func spawn_ingredient(sprite, position):
-	var food = food_scene.instantiate()
-	food.sprite_str = sprite
-	food.position = position
-	add_child(food)
 
 func spawn_barrel(sprite, position):
 	var barrel = barrel_scene.instantiate()
@@ -123,14 +93,6 @@ func spawn_lifes():
 		lifes.append(life)
 		add_child(life)
 
-func create_coins():
-	coins_animation = []
-	for i in range(3):
-		var coin = coin_scene.instantiate()
-		coin.position = Vector2(1100,-10)
-		coins_animation.append(coin)
-		add_child(coin)
-
 func _on_enemy_timer_timeout():
 	spawn_enemy()
 
@@ -148,6 +110,7 @@ func lose_life():
 		if(lifes[i].is_alive):
 			lifes[i].kill()
 			return
+	emit_signal("game_over")
 	get_tree().change_scene_to_file("res://Scenes/Game_over.tscn")
 
 
