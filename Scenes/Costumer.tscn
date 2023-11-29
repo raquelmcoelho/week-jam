@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dj73otyatp13s"]
+[gd_scene load_steps=26 format=3 uid="uid://dj73otyatp13s"]
 
 [ext_resource type="Texture2D" uid="uid://dqi54ph5e30mn" path="res://Assets/Sprites/costumers/costumer-0.png" id="1_k83pa"]
 [ext_resource type="Script" path="res://Scripts/Costumer.gd" id="1_ooi05"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://c247qboo7xr8m" path="res://Assets/Sprites/UI/costumer_timer/costumer_timer-0.png" id="17_nyxi6"]
 [ext_resource type="Texture2D" uid="uid://5teoklwdgh4" path="res://Assets/Sprites/UI/costumer_timer/costumer_timer-2.png" id="18_xb1m8"]
 [ext_resource type="Texture2D" uid="uid://xo8dy4tiw4p7" path="res://Assets/Sprites/UI/costumer_timer/costumer_timer-1.png" id="19_trueu"]
+[ext_resource type="AudioStream" uid="uid://qj355tcsq0np" path="res://Sounds/sad_client.mp3" id="20_gjtam"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wmxvq"]
 animations = [{
@@ -192,6 +193,10 @@ animation = &"yellow"
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1, 11)
 shape = SubResource("CapsuleShape2D_p6uea")
+
+[node name="sad" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_gjtam")
+volume_db = 10.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -42,6 +42,7 @@ func _on_timer_timeout():
 		$TimerSprite.visible = true
 	elif angry == "red":
 		angry = "die"
+		$sad.play()
 		$TimerSprite.visible = false
 		emit_signal("costumer_left", costumer_spot)
 		emit_signal("costumer_gave_up")
