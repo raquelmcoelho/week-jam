@@ -3,8 +3,11 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	if(Global.coins > Global.record):
+		Global.record =  Global.coins
+	Global.coins = 0
+	$Record.text = "record: " + str(Global.record)
+	
 
 
 func _on_start_pressed():

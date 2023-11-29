@@ -45,19 +45,30 @@ metadata/_edit_lock_ = true
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 395.0
-offset_top = 105.0
+offset_top = 57.0
 offset_right = 837.0
-offset_bottom = 230.0
+offset_bottom = 182.0
 theme_override_fonts/normal_font = ExtResource("1_ac765")
 theme_override_font_sizes/normal_font_size = 81
 text = "Fim de jogo"
 
+[node name="Record" type="Label" parent="."]
+layout_mode = 0
+offset_left = 395.0
+offset_top = 170.0
+offset_right = 832.0
+offset_bottom = 247.0
+theme_override_fonts/font = ExtResource("1_ac765")
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Start" type="Button" parent="."]
 layout_mode = 0
 offset_left = 507.0
-offset_top = 556.0
+offset_top = 578.0
 offset_right = 699.0
-offset_bottom = 611.0
+offset_bottom = 633.0
 theme_override_fonts/font = ExtResource("1_ac765")
 theme_override_font_sizes/font_size = 21
 text = "Jogar denovo"
@@ -65,20 +76,21 @@ text = "Jogar denovo"
 [node name="Leave" type="Button" parent="."]
 layout_mode = 0
 offset_left = 507.0
-offset_top = 631.0
+offset_top = 652.0
 offset_right = 699.0
-offset_bottom = 687.0
+offset_bottom = 708.0
 theme_override_fonts/font = ExtResource("1_ac765")
 theme_override_font_sizes/font_size = 21
 text = "Sair"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(600, 372)
+position = Vector2(600, 420)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_t6joy")
 autoplay = "default"
 
 [node name="Background" type="AnimatedSprite2D" parent="."]
+visible = false
 modulate = Color(0.490196, 0.490196, 0.490196, 1)
 z_index = -1
 position = Vector2(600, 400)

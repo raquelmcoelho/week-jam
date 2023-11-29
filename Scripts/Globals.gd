@@ -5,6 +5,7 @@ var coin_scene : PackedScene = preload("res://Scenes/Coin.tscn")
 var food_scene : PackedScene = preload("res://Scenes/Food.tscn")
 
 var is_dragging = false
+var record = 0
 var coins = 0
 var bonus = 10
 var coins_animation = []

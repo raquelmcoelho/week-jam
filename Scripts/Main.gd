@@ -13,8 +13,6 @@ var line = []
 var costumer_spawn_time = 0
 var lifes = []
 
-signal game_over
-
 func _ready():
 	print("main ready id: ", self)
 	
@@ -110,7 +108,6 @@ func lose_life():
 		if(lifes[i].is_alive):
 			lifes[i].kill()
 			return
-	emit_signal("game_over")
 	get_tree().change_scene_to_file("res://Scenes/Game_over.tscn")
 
 
