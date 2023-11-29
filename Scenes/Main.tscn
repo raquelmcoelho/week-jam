@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ca67iebth04pv"]
+[gd_scene load_steps=20 format=3 uid="uid://ca67iebth04pv"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://cxqn0oe1ro2jr" path="res://Scenes/Mango.tscn" id="3_2y6ee"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://bap52hmjns3jw" path="res://Sounds/pressure.mp3" id="11_2vogo"]
 [ext_resource type="PackedScene" uid="uid://6i31l4ktxdus" path="res://Scenes/Trash.tscn" id="11_3vor6"]
 [ext_resource type="Texture2D" uid="uid://cb5vqrea06vr5" path="res://Assets/Sprites/background/background.png" id="13_xjfva"]
+[ext_resource type="AudioStream" uid="uid://dap300xhpproo" path="res://Sounds/som_moeda_8bit.wav" id="14_wowrl"]
 
 [sub_resource type="Curve2D" id="Curve2D_wv745"]
 _data = {
@@ -161,6 +162,10 @@ position = Vector2(826, 452)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BalconyWall"]
 polygon = PackedVector2Array(-97, -301, -21, -301, 12, 231, -69, 231)
+
+[node name="CoinSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_wowrl")
+volume_db = 5.0
 
 [connection signal="timeout" from="CreationTimer" to="." method="_on_creation_timer_timeout"]
 [connection signal="timeout" from="CustomerTimer" to="." method="_on_customer_timer_timeout"]

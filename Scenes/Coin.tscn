@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b0rqvdvija3f"]
+[gd_scene load_steps=7 format=3 uid="uid://b0rqvdvija3f"]
 
 [ext_resource type="Script" path="res://Scripts/Coin.gd" id="1_cyidh"]
 [ext_resource type="Texture2D" uid="uid://buu5hc410202v" path="res://Assets/Sprites/UI/coin/coin-0.png" id="1_h54uj"]
 [ext_resource type="Texture2D" uid="uid://d1dleoar3xonw" path="res://Assets/Sprites/UI/coin/coin-1.png" id="2_6y6cp"]
 [ext_resource type="Texture2D" uid="uid://b6n3r8f1j343x" path="res://Assets/Sprites/UI/coin/coin-2.png" id="3_cqa6g"]
-[ext_resource type="AudioStream" uid="uid://dap300xhpproo" path="res://Sounds/som_moeda_8bit.wav" id="5_fxhwj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7w3dw"]
 animations = [{
@@ -38,7 +37,3 @@ frame_progress = 0.279955
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_x7348")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_fxhwj")
-volume_db = -15.698

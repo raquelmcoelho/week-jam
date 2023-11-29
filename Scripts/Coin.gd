@@ -16,5 +16,3 @@ func jump():
 	# 3 objetos coins que diminuem o eixo y e dão fade out até a opacidade ser 0
 	# quando atingido o 0 deletar objeto
 
-func sound():
-	$AudioStreamPlayer2D.play()

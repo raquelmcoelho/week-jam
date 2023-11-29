@@ -13,30 +13,32 @@ var coins_animation = []
 
 
 func _ready():
-	create_coins()
+	pass
 	
 func create_coins():
 	coins_animation = []
 	print("creating coins id: ", self)
 	for i in range(3):
-		var coin = coin_scene.instantiate()
+		var coin : Coin = coin_scene.instantiate()
+		print("coin criada ", coin)
+		coin.name = "CreatedCoin"
 		coin.position = Vector2(1100,-10)
 		coins_animation.append(coin)
 	# print(coins_animation, self)
 
 func spawn_coins(coin_position, obj):
-	print("spawning coins id: ", obj)
-	# print(coins_animation, self)
+	var has_coins = obj.has_node("CreatedCoin")
+	
+	if(!has_coins):
+		create_coins()
 	for coin in coins_animation:
-		print(coin)
-		while(obj.find_child("Coin")): # TODO: change name key to search, this isn't working
-			print("findind existing coins", obj.remove_child("Coin"))
-		obj.add_child(coin)
+		if(!has_coins):
+			obj.call_deferred("add_child", coin)
 		coin.position = Vector2(coin_position.x + randi_range(-50,50),coin_position.y + randi_range(-50,50))
 		var tween = get_tree().create_tween().set_parallel(true)
 		tween.tween_property(coin, "position", Vector2(1100, -10) , 1).set_ease(Tween.EASE_OUT)
 		tween.play()
-		coin.sound()
+		obj.coin_sound()
 		
 	Global.coins += Global.bonus
 
@@ -59,4 +61,4 @@ func spawn_plate(position, obj):
 	var plate : Plate = plate_scene.instantiate()
 	plate.position.x = position.x - 60
 	plate.position.y = position.y
-	obj.add_child(plate)
+	obj.call_deferred("add_child", plate)

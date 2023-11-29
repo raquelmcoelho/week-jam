@@ -106,3 +106,6 @@ func lose_life():
 
 func _on_background_finished():
 	$Background.play()
+
+func coin_sound():
+	$CoinSound.play()
