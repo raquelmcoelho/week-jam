@@ -4,7 +4,6 @@ var rat_scene : PackedScene = preload("res://Scenes/Rat.tscn")
 var costumer_scene : PackedScene = preload("res://Scenes/Costumer.tscn")
 var barrel_scene : PackedScene = preload("res://Scenes/Barrel.tscn")
 var life_scene : PackedScene = preload("res://Scenes/Life.tscn")
-var plate_scene : PackedScene = preload("res://Scenes/Plate.tscn")
 
 var line_positions = [Vector2(855, 120), Vector2(935, 120), Vector2(1015, 120), Vector2(1095, 120)]
 var spots_positions = [Vector2(865, 450), Vector2(860, 360), Vector2(855, 270)]
@@ -16,12 +15,6 @@ var lifes = []
 func _ready():
 	print("main ready id: ", self)
 	
-func spawn_plate(_station):
-	var plate = plate_scene.instantiate()
-	plate.position = Vector2(600,400)
-	# plate.on_station = station
-	add_child(plate)
-
 
 func spawn_enemy():
 	var rat : Enemy = rat_scene.instantiate()

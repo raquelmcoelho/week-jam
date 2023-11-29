@@ -73,3 +73,10 @@ func _on_mouse_entered():
 func _on_mouse_exited():
 	if not Global.is_dragging:
 		scale = Vector2(2, 2)
+
+func destroy():
+	Global.is_dragging = false
+	if on_station != null:
+		on_station.station_full = false
+		on_station.object_above_station = false
+	self.queue_free()

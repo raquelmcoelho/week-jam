@@ -3,6 +3,7 @@ class_name Globals
 
 var coin_scene : PackedScene = preload("res://Scenes/Coin.tscn")
 var food_scene : PackedScene = preload("res://Scenes/Food.tscn")
+var plate_scene : PackedScene = preload("res://Scenes/Plate.tscn")
 
 var is_dragging = false
 var record = 0
@@ -53,3 +54,9 @@ func spawn_ingredient(sprite, position, obj):
 	food.sprite_str = sprite
 	food.position = position
 	obj.add_child(food)
+
+func spawn_plate(position, obj):
+	var plate : Plate = plate_scene.instantiate()
+	plate.position.x = position.x - 60
+	plate.position.y = position.y
+	obj.add_child(plate)
