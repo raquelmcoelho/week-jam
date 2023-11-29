@@ -90,7 +90,6 @@ sprite_frames = SubResource("SpriteFrames_t6joy")
 autoplay = "default"
 
 [node name="Background" type="AnimatedSprite2D" parent="."]
-visible = false
 modulate = Color(0.490196, 0.490196, 0.490196, 1)
 z_index = -1
 position = Vector2(600, 400)
