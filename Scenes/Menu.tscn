@@ -1,14 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://b5pxvm1x282br"]
+[gd_scene load_steps=17 format=3 uid="uid://b5pxvm1x282br"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_hrrpa"]
 [ext_resource type="FontFile" uid="uid://e72bgarhntsx" path="res://Font/PixelifySans-Regular.ttf" id="2_3qx6m"]
-[ext_resource type="PackedScene" uid="uid://cxqn0oe1ro2jr" path="res://Scenes/Mango.tscn" id="3_7q1ou"]
-[ext_resource type="Script" path="res://Scripts/MangoMenu.gd" id="4_jfmjf"]
-[ext_resource type="PackedScene" uid="uid://cy6qck4q6st7r" path="res://Scenes/Rat.tscn" id="5_lgsuy"]
-[ext_resource type="Texture2D" uid="uid://wndx7tjiv0b8" path="res://Assets/Sprites/UI/work_menu/work_menu-0.png" id="6_24prg"]
-[ext_resource type="Texture2D" uid="uid://c4k2xmutiykhj" path="res://Assets/Sprites/UI/logo.png" id="6_cgcg5"]
+[ext_resource type="PackedScene" uid="uid://cxqn0oe1ro2jr" path="res://Objects/Mango.tscn" id="3_7q1ou"]
+[ext_resource type="PackedScene" uid="uid://cy6qck4q6st7r" path="res://Objects/Rat.tscn" id="5_lgsuy"]
+[ext_resource type="Texture2D" uid="uid://4iacjf7hslsu" path="res://Assets/Sprites/UI/work_menu/work_menu-0.png" id="6_24prg"]
+[ext_resource type="Texture2D" uid="uid://ynukmpeovhqk" path="res://Assets/Sprites/UI/logo.png" id="6_cgcg5"]
 [ext_resource type="Texture2D" uid="uid://cb5vqrea06vr5" path="res://Assets/Sprites/background/background.png" id="6_ineqa"]
-[ext_resource type="Texture2D" uid="uid://dds72sgrtgx8j" path="res://Assets/Sprites/UI/work_menu/work_menu-1.png" id="7_rt62l"]
+[ext_resource type="Texture2D" uid="uid://bbge5fn2fyd80" path="res://Assets/Sprites/UI/work_menu/work_menu-1.png" id="7_rt62l"]
 [ext_resource type="Texture2D" uid="uid://bmufiuru78i46" path="res://Assets/Sprites/UI/work_menu/work_menu-4.png" id="8_jqk4i"]
 [ext_resource type="Texture2D" uid="uid://bg6gi3eft6f61" path="res://Assets/Sprites/UI/work_menu/work_menu-5.png" id="9_fmywv"]
 [ext_resource type="Texture2D" uid="uid://cwbqi6pp715ve" path="res://Assets/Sprites/UI/work_menu/work_menu-2.png" id="10_ex4rt"]
@@ -124,8 +123,8 @@ rotates = false
 position = Vector2(0, -46)
 
 [node name="Mango" parent="." instance=ExtResource("3_7q1ou")]
-position = Vector2(953, 597)
-script = ExtResource("4_jfmjf")
+position = Vector2(953, 590)
+script = null
 
 [node name="Papimenu" type="AnimatedSprite2D" parent="."]
 position = Vector2(106, 463)
@@ -152,13 +151,13 @@ animation = &"tonhaomenu"
 autoplay = "tonhaomenu"
 frame_progress = 0.749693
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="TituloDropshadow" type="Sprite2D" parent="."]
 modulate = Color(0.294118, 0.176471, 0.168627, 1)
 position = Vector2(592, 268)
 scale = Vector2(2, 2)
 texture = ExtResource("6_cgcg5")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Titulo" type="Sprite2D" parent="."]
 position = Vector2(584, 260)
 scale = Vector2(2, 2)
 texture = ExtResource("6_cgcg5")

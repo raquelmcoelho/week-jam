@@ -1,15 +1,15 @@
 extends CharacterBody2D
-class_name Costumer
+class_name Customer
 
 var customer_position
-var costumer_spot
+var customer_spot
 var order = ""
 var options = ["pasta", "sandwich", "soup"]
 var skins = ["cartola", "laco", "paulin", "bone", "bigodon"]
 var angry = "idle"
 
-signal costumer_gave_up()
-signal costumer_left(spot)
+signal customer_gave_up()
+signal customer_left(spot)
 
 func _ready():
 	$AnimatedSprite2D.play(skins[randi_range(0,4)])
@@ -44,8 +44,8 @@ func _on_timer_timeout():
 		angry = "die"
 		$sad.play()
 		$TimerSprite.visible = false
-		emit_signal("costumer_left", costumer_spot)
-		emit_signal("costumer_gave_up")
+		emit_signal("customer_left", customer_spot)
+		emit_signal("customer_gave_up")
 		ajust_position(Vector2(900, 900))
 	else:
 		queue_free()
@@ -53,7 +53,7 @@ func _on_timer_timeout():
 func _on_area_2d_area_entered(area):
 	if area.is_in_group('food') and order == area.sprite_str:
 		area.destroy()
-		emit_signal("costumer_left", costumer_spot)
+		emit_signal("customer_left", customer_spot)
 		angry = "die"
 		$TimerSprite.visible = false
 		ajust_position(Vector2(900, 900))

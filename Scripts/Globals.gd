@@ -1,9 +1,9 @@
 extends Node
 class_name Globals
 
-var coin_scene : PackedScene = preload("res://Scenes/Coin.tscn")
-var food_scene : PackedScene = preload("res://Scenes/Food.tscn")
-var plate_scene : PackedScene = preload("res://Scenes/Plate.tscn")
+var coin_scene : PackedScene = preload("res://Objects/Coin.tscn")
+var food_scene : PackedScene = preload("res://Objects/Food.tscn")
+var plate_scene : PackedScene = preload("res://Objects/Plate.tscn")
 
 var is_dragging = false
 var record = 0

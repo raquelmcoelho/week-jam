@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bcwbqj2jno46a"]
 
+[ext_resource type="Script" path="res://Scripts/Game_over.gd" id="1_0o7hp"]
 [ext_resource type="FontFile" uid="uid://e72bgarhntsx" path="res://Font/PixelifySans-Regular.ttf" id="1_ac765"]
-[ext_resource type="Script" path="res://Scenes/Game_over.gd" id="1_dhyrg"]
 [ext_resource type="Texture2D" uid="uid://cb5vqrea06vr5" path="res://Assets/Sprites/background/background.png" id="2_028vb"]
 [ext_resource type="Texture2D" uid="uid://dd67snxafbj7e" path="res://Assets/Sprites/Mango/Game_over/game_over-0.png" id="2_ps1ye"]
 [ext_resource type="Texture2D" uid="uid://b8ewvqwthomh2" path="res://Assets/Sprites/Mango/Game_over/game_over-1.png" id="3_8liyy"]
@@ -39,7 +39,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_dhyrg")
+script = ExtResource("1_0o7hp")
 metadata/_edit_lock_ = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
@@ -88,6 +88,7 @@ position = Vector2(600, 420)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_t6joy")
 autoplay = "default"
+frame_progress = 0.729102
 
 [node name="Background" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.490196, 0.490196, 0.490196, 1)

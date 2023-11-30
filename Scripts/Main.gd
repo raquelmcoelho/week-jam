@@ -1,15 +1,15 @@
 extends Node
 
-var rat_scene : PackedScene = preload("res://Scenes/Rat.tscn")
-var costumer_scene : PackedScene = preload("res://Scenes/Costumer.tscn")
-var barrel_scene : PackedScene = preload("res://Scenes/Barrel.tscn")
-var life_scene : PackedScene = preload("res://Scenes/Life.tscn")
+var rat_scene : PackedScene = preload("res://Objects/Rat.tscn")
+var customer_scene : PackedScene = preload("res://Objects/Customer.tscn")
+var barrel_scene : PackedScene = preload("res://Objects/Barrel.tscn")
+var life_scene : PackedScene = preload("res://Objects/Life.tscn")
 
 var line_positions = [Vector2(855, 120), Vector2(935, 120), Vector2(1015, 120), Vector2(1095, 120)]
 var spots_positions = [Vector2(865, 450), Vector2(860, 360), Vector2(855, 270)]
 var spots_ocuppied = [0, 0, 0]
 var line = []
-var costumer_spawn_time = 0
+var customer_spawn_time = 0
 var lifes = []
 
 func _ready():
@@ -33,7 +33,7 @@ func spawn_barrel(sprite, position):
 	barrel.position = position
 	add_child(barrel)
 
-func update_costumers():
+func update_customers():
 	var spot_index = -1
 	for i in len(spots_ocuppied):
 		if spots_ocuppied[i] == 0:
@@ -41,41 +41,41 @@ func update_costumers():
 			break;
 	if len(line) > 0 and spot_index != -1:
 		spots_ocuppied[spot_index] = 1
-		var costumer = line.pop_front()
-		costumer.costumer_spot = spot_index
-		costumer.ajust_position(spots_positions[spot_index])
-		costumer.order_something()
+		var customer = line.pop_front()
+		customer.customer_spot = spot_index
+		customer.ajust_position(spots_positions[spot_index])
+		customer.order_something()
 		for i in range(len(line)):
 			line[i].ajust_position(line_positions[i])
 	else:
-		if costumer_spawn_time == 4:
-			costumer_spawn_time = 0
-			spawn_costumer(spot_index)
+		if customer_spawn_time == 4:
+			customer_spawn_time = 0
+			spawn_customer(spot_index)
 		else:
-			costumer_spawn_time += 1
+			customer_spawn_time += 1
 
-func spawn_costumer(spot_index):
+func spawn_customer(spot_index):
 	if spot_index != -1:
 		spots_ocuppied[spot_index] = 1
-		var costumer : Costumer = costumer_scene.instantiate()
-		costumer.connect("costumer_gave_up", Callable(self, "lose_life"))
-		costumer.connect("costumer_left", Callable(self, "costumer_out"))
-		costumer.position = Vector2(1150, 0)
-		costumer.customer_position = spots_positions[spot_index]
-		costumer.order_something()
-		costumer.costumer_spot = spot_index
-		add_child(costumer)
+		var customer : Customer = customer_scene.instantiate()
+		customer.connect("customer_gave_up", Callable(self, "lose_life"))
+		customer.connect("customer_left", Callable(self, "customer_out"))
+		customer.position = Vector2(1150, 0)
+		customer.customer_position = spots_positions[spot_index]
+		customer.order_something()
+		customer.customer_spot = spot_index
+		add_child(customer)
 	elif len(line) < 4:
-		var costumer : Costumer = costumer_scene.instantiate()
-		costumer.connect("costumer_gave_up", Callable(self, "lose_life"))
-		costumer.connect("costumer_left", Callable(self, "costumer_out"))
-		costumer.position = Vector2(1150, 0)
-		costumer.customer_position = line_positions[len(line)]
-		add_child(costumer)
-		line.append(costumer)
+		var customer : Customer = customer_scene.instantiate()
+		customer.connect("customer_gave_up", Callable(self, "lose_life"))
+		customer.connect("customer_left", Callable(self, "customer_out"))
+		customer.position = Vector2(1150, 0)
+		customer.customer_position = line_positions[len(line)]
+		add_child(customer)
+		line.append(customer)
 
-func costumer_out(costumer_spot):
-	spots_ocuppied[costumer_spot] = 0
+func customer_out(customer_spot):
+	spots_ocuppied[customer_spot] = 0
 
 func spawn_lifes():
 	for i in range(3):
@@ -94,7 +94,7 @@ func _on_creation_timer_timeout():
 	spawn_barrel("soup", Vector2(190,175))
 
 func _on_customer_timer_timeout():
-	update_costumers()
+	update_customers()
 
 func lose_life():
 	for i in range(2,0,-1):
