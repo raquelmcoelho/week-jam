@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://cgl5igvuaa1wh"]
+[gd_scene load_steps=14 format=3 uid="uid://cgl5igvuaa1wh"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_t7sda"]
 [ext_resource type="Texture2D" uid="uid://bs8mnsb4kvqgv" path="res://Assets/Sprites/Papi/Chopping/papi_chopping-0.png" id="2_a7nft"]
+[ext_resource type="Texture2D" uid="uid://cm53osw6fm8x4" path="res://Assets/Sprites/shadow.png" id="2_sh31v"]
 [ext_resource type="Texture2D" uid="uid://bcapjvyk3206t" path="res://Assets/Sprites/Papi/Chopping/papi_chopping-1.png" id="3_whskj"]
 [ext_resource type="Texture2D" uid="uid://cgfmmf5lu35oh" path="res://Assets/Sprites/Papi/Cooking/papi_cooking-0.png" id="4_wec3l"]
 [ext_resource type="Texture2D" uid="uid://dt01xb23mhvvh" path="res://Assets/Sprites/Papi/Cooking/papi_cooking-1.png" id="5_5a652"]
@@ -9,11 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://8cfoh0wd6gu6" path="res://Assets/Sprites/Papi/Idle/papi_idle-1.png" id="7_lp0wx"]
 [ext_resource type="Texture2D" uid="uid://cmkqqfjhj20l1" path="res://Assets/Sprites/Papi/Washing/papi_washing-0.png" id="8_0oade"]
 [ext_resource type="Texture2D" uid="uid://cwsaj4imwakmh" path="res://Assets/Sprites/Papi/Washing/papi_washing-1.png" id="9_py7kw"]
-[ext_resource type="PackedScene" uid="uid://bhljwpn6s2gu0" path="res://Scenes/Progress.tscn" id="10_dpxr4"]
-
-[sub_resource type="CapsuleShape2D" id="2"]
-radius = 18.5
-height = 46.0
+[ext_resource type="PackedScene" uid="uid://bhljwpn6s2gu0" path="res://Objects/Progress.tscn" id="10_dpxr4"]
 
 [sub_resource type="SpriteFrames" id="5"]
 animations = [{
@@ -62,21 +59,30 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fkklx"]
+radius = 22.5
+height = 52.0
+
 [node name="Papi" type="Area2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_t7sda")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 12)
-shape = SubResource("2")
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
+[node name="Sombra" type="Sprite2D" parent="."]
+position = Vector2(0, 32)
+scale = Vector2(0.561404, 0.727268)
+texture = ExtResource("2_sh31v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("5")
 animation = &"idle"
 
 [node name="Progress" parent="." instance=ExtResource("10_dpxr4")]
-position = Vector2(0, 13)
+position = Vector2(0, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 6.5)
+shape = SubResource("CapsuleShape2D_fkklx")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

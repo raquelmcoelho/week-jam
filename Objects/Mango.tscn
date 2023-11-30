@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://cxqn0oe1ro2jr"]
+[gd_scene load_steps=18 format=3 uid="uid://cxqn0oe1ro2jr"]
 
 [ext_resource type="Script" path="res://Scripts/Hero.gd" id="1_sa7p8"]
 [ext_resource type="Texture2D" uid="uid://dhg0taco5x1pq" path="res://Assets/Sprites/Mango/Chopping/chef_chopping-0.png" id="2_4acd3"]
+[ext_resource type="Texture2D" uid="uid://cm53osw6fm8x4" path="res://Assets/Sprites/shadow.png" id="2_g5oqp"]
 [ext_resource type="Texture2D" uid="uid://d0fyiuwuopc7a" path="res://Assets/Sprites/Mango/Chopping/chef_chopping-1.png" id="3_hhn7d"]
 [ext_resource type="Texture2D" uid="uid://mr5u53l5rgw3" path="res://Assets/Sprites/Mango/Cooking/chef_cooking-0.png" id="4_rhhka"]
 [ext_resource type="Texture2D" uid="uid://cg5pkqyd8hmo2" path="res://Assets/Sprites/Mango/Cooking/chef_cooking-1.png" id="5_bh7dx"]
@@ -12,10 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://cbxbjs3uni2b2" path="res://Assets/Sprites/Mango/Washing/chef_washing-0.png" id="10_v15dx"]
 [ext_resource type="Texture2D" uid="uid://bi5hplkgbse8s" path="res://Assets/Sprites/Mango/Washing/chef_washing-1.png" id="11_15qx7"]
 [ext_resource type="PackedScene" uid="uid://bhljwpn6s2gu0" path="res://Objects/Progress.tscn" id="12_lx42q"]
-
-[sub_resource type="CapsuleShape2D" id="2"]
-radius = 18.5
-height = 69.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c3i54"]
 load_path = "res://.godot/imported/chef_menu-0.png-804105ee03ec0a603a4f98344eec1c82.ctex"
@@ -87,19 +84,27 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="2"]
+radius = 17.5
+height = 35.0
+
 [node name="Mango" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_sa7p8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 1)
-shape = SubResource("2")
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
+[node name="Sombra" type="Sprite2D" parent="."]
+position = Vector2(0, 32)
+scale = Vector2(0.561404, 0.727268)
+texture = ExtResource("2_g5oqp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("5")
-animation = &"menu"
-frame_progress = 0.408947
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 17)
+shape = SubResource("2")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Progress" parent="." instance=ExtResource("12_lx42q")]
 position = Vector2(0, -12)

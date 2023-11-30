@@ -87,17 +87,16 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kkgth"]
-radius = 10.5
-height = 21.0
+radius = 20.5
+height = 41.0
 
 [node name="Food" type="Area2D" groups=["food"]]
 scale = Vector2(2, 2)
 script = ExtResource("1_1boul")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_cbjju")
-animation = &"soup"
+animation = &"food_soup"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_kkgth")

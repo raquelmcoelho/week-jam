@@ -1,17 +1,17 @@
 [gd_scene load_steps=20 format=3 uid="uid://ca67iebth04pv"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="2"]
-[ext_resource type="PackedScene" uid="uid://cxqn0oe1ro2jr" path="res://Scenes/Mango.tscn" id="3_2y6ee"]
-[ext_resource type="PackedScene" uid="uid://ccxm33epmvuly" path="res://Scenes/Pope.tscn" id="3_g64tc"]
-[ext_resource type="PackedScene" uid="uid://chwffanio3ppv" path="res://Scenes/ChoppingStation.tscn" id="4_j3oar"]
-[ext_resource type="PackedScene" uid="uid://dbnh577s8cf0x" path="res://Scenes/CookingStation.tscn" id="5_foikj"]
-[ext_resource type="PackedScene" uid="uid://cgl5igvuaa1wh" path="res://Scenes/Papi.tscn" id="6_nihsa"]
-[ext_resource type="PackedScene" uid="uid://cshuu7j0vxe2r" path="res://Scenes/Tonhao.tscn" id="7_61vq5"]
-[ext_resource type="PackedScene" uid="uid://bnlk76341c6dc" path="res://Scenes/WashingStation.tscn" id="7_ly4hi"]
-[ext_resource type="PackedScene" uid="uid://q86tgpy1ebjp" path="res://Scenes/Hud.tscn" id="9_mkq2c"]
-[ext_resource type="PackedScene" uid="uid://b0rqvdvija3f" path="res://Scenes/Coin.tscn" id="10_073ps"]
+[ext_resource type="PackedScene" uid="uid://cxqn0oe1ro2jr" path="res://Objects/Mango.tscn" id="3_2y6ee"]
+[ext_resource type="PackedScene" uid="uid://ccxm33epmvuly" path="res://Objects/Pope.tscn" id="3_g64tc"]
+[ext_resource type="PackedScene" uid="uid://chwffanio3ppv" path="res://Objects/ChoppingStation.tscn" id="4_j3oar"]
+[ext_resource type="PackedScene" uid="uid://dbnh577s8cf0x" path="res://Objects/CookingStation.tscn" id="5_foikj"]
+[ext_resource type="PackedScene" uid="uid://cgl5igvuaa1wh" path="res://Objects/Papi.tscn" id="6_nihsa"]
+[ext_resource type="PackedScene" uid="uid://cshuu7j0vxe2r" path="res://Objects/Tonhao.tscn" id="7_61vq5"]
+[ext_resource type="PackedScene" uid="uid://bnlk76341c6dc" path="res://Objects/WashingStation.tscn" id="7_ly4hi"]
+[ext_resource type="PackedScene" uid="uid://q86tgpy1ebjp" path="res://Objects/Hud.tscn" id="9_mkq2c"]
+[ext_resource type="PackedScene" uid="uid://b0rqvdvija3f" path="res://Objects/Coin.tscn" id="10_073ps"]
 [ext_resource type="AudioStream" uid="uid://bap52hmjns3jw" path="res://Sounds/pressure.mp3" id="11_2vogo"]
-[ext_resource type="PackedScene" uid="uid://6i31l4ktxdus" path="res://Scenes/Trash.tscn" id="11_3vor6"]
+[ext_resource type="PackedScene" uid="uid://6i31l4ktxdus" path="res://Objects/Trash.tscn" id="11_3vor6"]
 [ext_resource type="Texture2D" uid="uid://cb5vqrea06vr5" path="res://Assets/Sprites/background/background.png" id="13_xjfva"]
 [ext_resource type="AudioStream" uid="uid://dap300xhpproo" path="res://Sounds/som_moeda_8bit.wav" id="14_wowrl"]
 
@@ -57,10 +57,10 @@ offset_bottom = 800.0
 texture = ExtResource("13_xjfva")
 
 [node name="Papi" parent="." instance=ExtResource("6_nihsa")]
-position = Vector2(185, 317)
+position = Vector2(193, 368)
 
 [node name="Tonhao" parent="." instance=ExtResource("7_61vq5")]
-position = Vector2(293, 316)
+position = Vector2(172, 433)
 
 [node name="Pope" parent="." instance=ExtResource("3_g64tc")]
 position = Vector2(85, 318)
@@ -101,22 +101,22 @@ rotates = false
 loop = false
 
 [node name="ChoppingStation2" parent="." instance=ExtResource("4_j3oar")]
-position = Vector2(272, 445)
+position = Vector2(70, 445)
 
 [node name="CookingStation2" parent="." instance=ExtResource("5_foikj")]
-position = Vector2(82, 445)
+position = Vector2(270, 445)
 
 [node name="WashingStation2" parent="." instance=ExtResource("7_ly4hi")]
-position = Vector2(462, 445)
+position = Vector2(470, 445)
 
 [node name="ChoppingStation" parent="." instance=ExtResource("4_j3oar")]
-position = Vector2(272, 665)
+position = Vector2(70, 665)
 
 [node name="CookingStation" parent="." instance=ExtResource("5_foikj")]
-position = Vector2(82, 665)
+position = Vector2(270, 665)
 
 [node name="WashingStation" parent="." instance=ExtResource("7_ly4hi")]
-position = Vector2(462, 665)
+position = Vector2(470, 665)
 
 [node name="Hud" parent="." instance=ExtResource("9_mkq2c")]
 offset_left = 49.0

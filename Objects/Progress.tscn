@@ -31,7 +31,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 1.0
+"speed": 2.0
 }]
 
 [node name="Progress" type="Node2D"]
@@ -42,7 +42,7 @@ sprite_frames = SubResource("SpriteFrames_iw64b")
 animation = &"run"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.2
+wait_time = 3.0
 one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

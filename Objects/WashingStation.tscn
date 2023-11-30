@@ -4,9 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://cenla8u7pnf33" path="res://Assets/Sprites/Work_spots/washing_table.png" id="2_ksboy"]
 [ext_resource type="AudioStream" uid="uid://c2k4k8nsr8h4r" path="res://Sounds/som_esponja_lavando.wav" id="3_ibwen"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_831ek"]
-size = Vector2(52, 33)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_u0bht"]
 animations = [{
 "frames": [{
@@ -18,17 +15,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_831ek"]
+size = Vector2(52, 33)
+
 [node name="WashingStation" type="StaticBody2D" groups=["station"]]
 scale = Vector2(2, 2)
 script = ExtResource("1_h87rk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6.5)
-shape = SubResource("RectangleShape2D_831ek")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_u0bht")
 animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_831ek")
 
 [node name="Filter" type="ColorRect" parent="."]
 offset_left = -26.0

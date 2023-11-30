@@ -14,8 +14,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r16ht"]
-size = Vector2(20, 10)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tyco1"]
+radius = 20.5
+height = 41.0
 
 [node name="Plate" type="Area2D"]
 scale = Vector2(2, 2)
@@ -26,7 +27,7 @@ sprite_frames = SubResource("SpriteFrames_4ii0x")
 animation = &"dirty"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_r16ht")
+shape = SubResource("CapsuleShape2D_tyco1")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
