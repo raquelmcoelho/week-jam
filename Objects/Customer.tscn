@@ -1,25 +1,25 @@
 [gd_scene load_steps=27 format=3 uid="uid://dj73otyatp13s"]
 
 [ext_resource type="Script" path="res://Scripts/Customer.gd" id="1_ahv4p"]
-[ext_resource type="Texture2D" uid="uid://bki2p7asrfhna" path="res://Assets/Sprites/customers/customer-8.png" id="2_n4vlv"]
+[ext_resource type="Texture2D" uid="uid://c84w5khphin70" path="res://Assets/Sprites/customers/customer-8.png" id="2_n4vlv"]
 [ext_resource type="Texture2D" uid="uid://cm53osw6fm8x4" path="res://Assets/Sprites/shadow.png" id="2_o3ogl"]
-[ext_resource type="Texture2D" uid="uid://bnelm6qa3ig6i" path="res://Assets/Sprites/customers/customer-9.png" id="3_5ayww"]
-[ext_resource type="Texture2D" uid="uid://dsb1wvn03yaxe" path="res://Assets/Sprites/customers/customer-2.png" id="4_77wcs"]
-[ext_resource type="Texture2D" uid="uid://dt1vy4pq7xegc" path="res://Assets/Sprites/customers/customer-3.png" id="5_rmfja"]
-[ext_resource type="Texture2D" uid="uid://bbal06msw4c6e" path="res://Assets/Sprites/customers/customer-0.png" id="6_oax7y"]
-[ext_resource type="Texture2D" uid="uid://behtd25by7ytn" path="res://Assets/Sprites/customers/customer-1.png" id="7_h2b5e"]
-[ext_resource type="Texture2D" uid="uid://l5vfe1qvfcj2" path="res://Assets/Sprites/customers/customer-4.png" id="8_2ae1i"]
-[ext_resource type="Texture2D" uid="uid://fon6ei81bnjq" path="res://Assets/Sprites/customers/customer-5.png" id="9_dnp2v"]
-[ext_resource type="Texture2D" uid="uid://gm8ypjew5pc1" path="res://Assets/Sprites/customers/customer-6.png" id="10_mltm4"]
-[ext_resource type="Texture2D" uid="uid://dshlq6e02iqqy" path="res://Assets/Sprites/customers/customer-7.png" id="11_oc3or"]
+[ext_resource type="Texture2D" uid="uid://bjdnd41ecdvn" path="res://Assets/Sprites/customers/customer-9.png" id="3_5ayww"]
+[ext_resource type="Texture2D" uid="uid://bsjtrf5wssrl1" path="res://Assets/Sprites/customers/customer-2.png" id="4_77wcs"]
+[ext_resource type="Texture2D" uid="uid://cmpeagt6feumw" path="res://Assets/Sprites/customers/customer-3.png" id="5_rmfja"]
+[ext_resource type="Texture2D" uid="uid://bqkqp7a5v5u0r" path="res://Assets/Sprites/customers/customer-0.png" id="6_oax7y"]
+[ext_resource type="Texture2D" uid="uid://c4knsbdoeysrf" path="res://Assets/Sprites/customers/customer-1.png" id="7_h2b5e"]
+[ext_resource type="Texture2D" uid="uid://dcbcmvfj3rhac" path="res://Assets/Sprites/customers/customer-4.png" id="8_2ae1i"]
+[ext_resource type="Texture2D" uid="uid://d3v6f56lbxoyl" path="res://Assets/Sprites/customers/customer-5.png" id="9_dnp2v"]
+[ext_resource type="Texture2D" uid="uid://be3w0faiy6xvt" path="res://Assets/Sprites/customers/customer-6.png" id="10_mltm4"]
+[ext_resource type="Texture2D" uid="uid://hm4q4ywka4vh" path="res://Assets/Sprites/customers/customer-7.png" id="11_oc3or"]
 [ext_resource type="Texture2D" uid="uid://drrbob0ejwvw5" path="res://Assets/Sprites/UI/order/order-0.png" id="12_n5h7p"]
 [ext_resource type="Texture2D" uid="uid://caksji4v2nowp" path="res://Assets/Sprites/UI/order/order-1.png" id="13_8ryhl"]
 [ext_resource type="Texture2D" uid="uid://h8yx3dlmslxj" path="res://Assets/Sprites/UI/food/pasta.png" id="14_jhw7h"]
 [ext_resource type="Texture2D" uid="uid://d2owvbb1wnkwg" path="res://Assets/Sprites/UI/food/sandwich.png" id="15_lbpa4"]
 [ext_resource type="Texture2D" uid="uid://dewhsmwccvchx" path="res://Assets/Sprites/UI/food/soup.png" id="16_qqmsf"]
-[ext_resource type="Texture2D" uid="uid://b3xlkvgs0li3u" path="res://Assets/Sprites/UI/customer_timer/customer_timer-0.png" id="17_fxb30"]
-[ext_resource type="Texture2D" uid="uid://y53vpxpigre6" path="res://Assets/Sprites/UI/customer_timer/customer_timer-2.png" id="18_alhhg"]
-[ext_resource type="Texture2D" uid="uid://c8e6yuhcfi3sm" path="res://Assets/Sprites/UI/customer_timer/customer_timer-1.png" id="19_v4i54"]
+[ext_resource type="Texture2D" uid="uid://o5mbtxjwlune" path="res://Assets/Sprites/UI/customer_timer/customer_timer-0.png" id="17_fxb30"]
+[ext_resource type="Texture2D" uid="uid://di8ybi3j7xqhq" path="res://Assets/Sprites/UI/customer_timer/customer_timer-2.png" id="18_alhhg"]
+[ext_resource type="Texture2D" uid="uid://ve7fsf5n8k4m" path="res://Assets/Sprites/UI/customer_timer/customer_timer-1.png" id="19_v4i54"]
 [ext_resource type="AudioStream" uid="uid://qj355tcsq0np" path="res://Sounds/sad_client.mp3" id="20_gjtam"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wmxvq"]
@@ -184,7 +184,7 @@ sprite_frames = SubResource("SpriteFrames_ra2n0")
 animation = &"pasta"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 7.0
 autostart = true
 
 [node name="TimerSprite" type="AnimatedSprite2D" parent="."]

@@ -5,13 +5,14 @@ extends Control
 func _ready():
 	if(Global.coins > Global.record):
 		Global.record =  Global.coins
-	Global.coins = 0
 	$Record.text = "record: " + str(Global.record)
+	$Record.text += "\natual: " + str(Global.coins)
+	Global.coins = 0
 	
 
 
 func _on_start_pressed():
-	get_tree().change_scene_to_file("res://Scenes/Main.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Menu.tscn")
 
 func _on_leave_pressed():
 	get_tree().quit()

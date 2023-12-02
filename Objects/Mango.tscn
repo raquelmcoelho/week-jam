@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxqn0oe1ro2jr"]
+[gd_scene load_steps=16 format=3 uid="uid://cxqn0oe1ro2jr"]
 
 [ext_resource type="Script" path="res://Scripts/Hero.gd" id="1_sa7p8"]
 [ext_resource type="Texture2D" uid="uid://dhg0taco5x1pq" path="res://Assets/Sprites/Mango/Chopping/chef_chopping-0.png" id="2_4acd3"]
@@ -8,17 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://cg5pkqyd8hmo2" path="res://Assets/Sprites/Mango/Cooking/chef_cooking-1.png" id="5_bh7dx"]
 [ext_resource type="Texture2D" uid="uid://f2csfycju1aa" path="res://Assets/Sprites/Mango/Idle/chef_idle-0.png" id="6_i08it"]
 [ext_resource type="Texture2D" uid="uid://cpfrhj33drq3w" path="res://Assets/Sprites/Mango/Idle/chef_idle-1.png" id="7_j5t73"]
-[ext_resource type="Texture2D" uid="uid://s1wgcwxql7xg" path="res://Assets/Sprites/Mango/Menu/chef_menu-4.png" id="8_mtfti"]
-[ext_resource type="Texture2D" uid="uid://d2ebkjl4gdfq0" path="res://Assets/Sprites/Mango/Menu/chef_menu-5.png" id="9_lqa0h"]
+[ext_resource type="Texture2D" uid="uid://o5hfjpd3sxe4" path="res://Assets/Sprites/Mango/Menu/chef_menu-4.png" id="8_mtfti"]
+[ext_resource type="Texture2D" uid="uid://4oewl6m5i8lf" path="res://Assets/Sprites/Mango/Menu/chef_menu-2.png" id="10_4w2oy"]
 [ext_resource type="Texture2D" uid="uid://cbxbjs3uni2b2" path="res://Assets/Sprites/Mango/Washing/chef_washing-0.png" id="10_v15dx"]
 [ext_resource type="Texture2D" uid="uid://bi5hplkgbse8s" path="res://Assets/Sprites/Mango/Washing/chef_washing-1.png" id="11_15qx7"]
 [ext_resource type="PackedScene" uid="uid://bhljwpn6s2gu0" path="res://Objects/Progress.tscn" id="12_lx42q"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c3i54"]
-load_path = "res://.godot/imported/chef_menu-0.png-804105ee03ec0a603a4f98344eec1c82.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lkwqa"]
-load_path = "res://.godot/imported/chef_menu-1.png-70d341030bae0f091067311ba79a260d.ctex"
 
 [sub_resource type="SpriteFrames" id="5"]
 animations = [{
@@ -56,17 +50,11 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_c3i54")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_lkwqa")
-}, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("8_mtfti")
 }, {
-"duration": 1.0,
-"texture": ExtResource("9_lqa0h")
+"duration": 2.0,
+"texture": ExtResource("10_4w2oy")
 }],
 "loop": true,
 "name": &"menu",
@@ -99,7 +87,8 @@ texture = ExtResource("2_g5oqp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("5")
-animation = &"idle"
+animation = &"menu"
+frame_progress = 0.382197
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 17)

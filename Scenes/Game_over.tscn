@@ -74,6 +74,7 @@ theme_override_font_sizes/font_size = 21
 text = "Jogar denovo"
 
 [node name="Leave" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 507.0
 offset_top = 652.0
