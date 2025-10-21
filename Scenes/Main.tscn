@@ -1,10 +1,14 @@
-[gd_scene load_steps=20 format=3 uid="uid://ca67iebth04pv"]
+[gd_scene load_steps=27 format=3 uid="uid://ca67iebth04pv"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="2"]
-[ext_resource type="PackedScene" uid="uid://cxqn0oe1ro2jr" path="res://Objects/Mango.tscn" id="3_2y6ee"]
 [ext_resource type="PackedScene" uid="uid://ccxm33epmvuly" path="res://Objects/Pope.tscn" id="3_g64tc"]
+[ext_resource type="PackedScene" uid="uid://cs8aykm1ys6u3" path="res://Objects/Barrel.tscn" id="3_je05o"]
+[ext_resource type="Texture2D" uid="uid://cgyvrl1eby5se" path="res://Assets/Sprites/background/barrel_pasta.png" id="4_f5qtd"]
 [ext_resource type="PackedScene" uid="uid://chwffanio3ppv" path="res://Objects/ChoppingStation.tscn" id="4_j3oar"]
+[ext_resource type="Texture2D" uid="uid://mr1yevt50u48" path="res://Assets/Sprites/background/barrel_sandwich.png" id="5_djsmq"]
 [ext_resource type="PackedScene" uid="uid://dbnh577s8cf0x" path="res://Objects/CookingStation.tscn" id="5_foikj"]
+[ext_resource type="Texture2D" uid="uid://bnxxrltva8ra1" path="res://Assets/Sprites/background/barrel_soup.png" id="6_0r1jw"]
+[ext_resource type="PackedScene" uid="uid://brs3ai3i5peag" path="res://Objects/MangoClick.tscn" id="6_jbe6q"]
 [ext_resource type="PackedScene" uid="uid://cgl5igvuaa1wh" path="res://Objects/Papi.tscn" id="6_nihsa"]
 [ext_resource type="PackedScene" uid="uid://cshuu7j0vxe2r" path="res://Objects/Tonhao.tscn" id="7_61vq5"]
 [ext_resource type="PackedScene" uid="uid://bnlk76341c6dc" path="res://Objects/WashingStation.tscn" id="7_ly4hi"]
@@ -14,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://6i31l4ktxdus" path="res://Objects/Trash.tscn" id="11_3vor6"]
 [ext_resource type="Texture2D" uid="uid://cb5vqrea06vr5" path="res://Assets/Sprites/background/background.png" id="13_xjfva"]
 [ext_resource type="AudioStream" uid="uid://dap300xhpproo" path="res://Sounds/som_moeda_8bit.wav" id="14_wowrl"]
+[ext_resource type="FontFile" uid="uid://e72bgarhntsx" path="res://Font/PixelifySans-Regular.ttf" id="18_2g40p"]
+[ext_resource type="AudioStream" uid="uid://b7sucqea73h5t" path="res://Sounds/ui-pausa.mp3" id="19_1p1io"]
 
 [sub_resource type="Curve2D" id="Curve2D_wv745"]
 _data = {
@@ -39,6 +45,22 @@ size = Vector2(729, 170)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4sukn"]
 size = Vector2(800, 20)
 
+[sub_resource type="GDScript" id="GDScript_4e6bd"]
+script/source = "extends RichTextLabel
+
+func _on_timer_timeout():
+	visible = !visible
+
+func _input(_event):
+	if Input.is_action_just_pressed(\"pause\"):
+		get_tree().paused = !get_tree().paused
+		visible = !visible
+		if get_tree().paused == true:
+			$PauseSound.playing = true
+	if get_tree().paused == false:
+		visible = false
+"
+
 [node name="Main" type="Node"]
 script = ExtResource("2")
 
@@ -51,22 +73,36 @@ autostart = true
 autostart = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
-z_index = -2
 offset_right = 1200.0
 offset_bottom = 800.0
 texture = ExtResource("13_xjfva")
 
-[node name="Papi" parent="." instance=ExtResource("6_nihsa")]
-position = Vector2(193, 368)
+[node name="PastaBarrel" parent="." instance=ExtResource("3_je05o")]
+position = Vector2(50, 225)
+sprite = ExtResource("4_f5qtd")
+sprite_str = "pasta"
 
-[node name="Tonhao" parent="." instance=ExtResource("7_61vq5")]
-position = Vector2(172, 433)
+[node name="SdwchBarrel" parent="." instance=ExtResource("3_je05o")]
+position = Vector2(130, 200)
+sprite = ExtResource("5_djsmq")
+sprite_str = "sandwich"
+
+[node name="SoupBarrel" parent="." instance=ExtResource("3_je05o")]
+position = Vector2(210, 175)
+sprite = ExtResource("6_0r1jw")
+sprite_str = "soup"
+
+[node name="Papi" parent="." instance=ExtResource("6_nihsa")]
+position = Vector2(230, 316)
 
 [node name="Pope" parent="." instance=ExtResource("3_g64tc")]
 position = Vector2(85, 318)
 
-[node name="Mango" parent="." instance=ExtResource("3_2y6ee")]
-position = Vector2(565, 288)
+[node name="Tonhao" parent="." instance=ExtResource("7_61vq5")]
+position = Vector2(172, 433)
+
+[node name="MangoClick" parent="." instance=ExtResource("6_jbe6q")]
+position = Vector2(559, 308)
 
 [node name="EnemyTimer" type="Timer" parent="."]
 wait_time = 1.279
@@ -104,6 +140,7 @@ loop = false
 position = Vector2(70, 445)
 
 [node name="CookingStation2" parent="." instance=ExtResource("5_foikj")]
+z_index = 1
 position = Vector2(270, 445)
 
 [node name="WashingStation2" parent="." instance=ExtResource("7_ly4hi")]
@@ -113,6 +150,7 @@ position = Vector2(470, 445)
 position = Vector2(70, 665)
 
 [node name="CookingStation" parent="." instance=ExtResource("5_foikj")]
+z_index = 1
 position = Vector2(270, 665)
 
 [node name="WashingStation" parent="." instance=ExtResource("7_ly4hi")]
@@ -163,6 +201,38 @@ position = Vector2(826, 452)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BalconyWall"]
 polygon = PackedVector2Array(-97, -301, -21, -301, 12, 231, -69, 231)
 
+[node name="PauseText" type="RichTextLabel" parent="."]
+process_mode = 3
+visible = false
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -31.5
+offset_right = 105.0
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/normal_font = ExtResource("18_2g40p")
+theme_override_font_sizes/normal_font_size = 50
+text = "PAUSADO"
+script = SubResource("GDScript_4e6bd")
+
+[node name="Timer" type="Timer" parent="PauseText"]
+process_mode = 2
+wait_time = 0.5
+autostart = true
+
+[node name="PauseSound" type="AudioStreamPlayer2D" parent="PauseText"]
+process_mode = 2
+stream = ExtResource("19_1p1io")
+volume_db = 5.0
+
 [node name="CoinSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_wowrl")
 volume_db = 5.0
@@ -171,3 +241,4 @@ volume_db = 5.0
 [connection signal="timeout" from="CustomerTimer" to="." method="_on_customer_timer_timeout"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_enemy_timer_timeout"]
 [connection signal="finished" from="Background" to="." method="_on_background_finished"]
+[connection signal="timeout" from="PauseText/Timer" to="PauseText" method="_on_timer_timeout"]

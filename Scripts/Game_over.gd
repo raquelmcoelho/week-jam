@@ -5,7 +5,7 @@ extends Control
 func _ready():
 	if(Global.coins > Global.record):
 		Global.record =  Global.coins
-	$Record.text = "record: " + str(Global.record)
+	$Record.text = "recorde: " + str(Global.record)
 	$Record.text += "\natual: " + str(Global.coins)
 	Global.coins = 0
 	

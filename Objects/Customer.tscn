@@ -184,7 +184,7 @@ sprite_frames = SubResource("SpriteFrames_ra2n0")
 animation = &"pasta"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 7.0
+wait_time = 12.0
 autostart = true
 
 [node name="TimerSprite" type="AnimatedSprite2D" parent="."]
@@ -192,7 +192,7 @@ visible = false
 position = Vector2(-18.5, -9)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_sivms")
-animation = &"yellow"
+animation = &"red"
 
 [node name="Area2D" type="Area2D" parent="."]
 

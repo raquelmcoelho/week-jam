@@ -1,6 +1,8 @@
 extends Node
 class_name Globals
 
+var difficulty = false
+
 var coin_scene : PackedScene = preload("res://Objects/Coin.tscn")
 var food_scene : PackedScene = preload("res://Objects/Food.tscn")
 var plate_scene : PackedScene = preload("res://Objects/Plate.tscn")

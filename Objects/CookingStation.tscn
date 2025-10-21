@@ -29,7 +29,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_831ek"]
-size = Vector2(52, 33)
+size = Vector2(52.5, 33.5)
 
 [node name="CookingStation" type="StaticBody2D" groups=["station"]]
 scale = Vector2(2, 2)
@@ -41,7 +41,7 @@ animation = &"idle"
 frame_progress = 0.218111
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6.5)
+position = Vector2(-0.25, 6.25)
 shape = SubResource("RectangleShape2D_831ek")
 
 [node name="Filter" type="ColorRect" parent="."]

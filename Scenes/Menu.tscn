@@ -14,9 +14,20 @@
 [ext_resource type="Texture2D" uid="uid://g8o4l81exulp" path="res://Assets/Sprites/UI/work_menu/work_menu-3.png" id="11_mg7dr"]
 [ext_resource type="AudioStream" uid="uid://dvgisojpjfhwo" path="res://Sounds/musica-Underwater-Piano-Red-Copyright-Free_.wav" id="14_07gd5"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_e8eu2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ineqa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="Curve2D" id="Curve2D_jl66f"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1054, 226, 0.231148, -1.63251, -0.231148, 1.63251, 1055, 503, -1.00295, -2.74496, 1.00295, 2.74496, 790, 505, -2.10194, -3.20797, 2.10194, 3.20797, 791, 226, 0, 0, 0, 0, 1054, 226)
+"points": PackedVector2Array(0, 0, 0, 0, 1099, 425, 97.511, 0.418217, -97.511, -0.418217, 965, 540, 1.95705, 66.5327, -1.95705, -66.5327, 821, 409, -114.216, -23.6113, 114.216, 23.6113, 992, 270, 0, 0, 0, 0, 1099, 425)
 }
 point_count = 5
 
@@ -56,17 +67,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_e8eu2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_ineqa")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -81,50 +81,92 @@ grow_vertical = 2
 script = ExtResource("1_hrrpa")
 metadata/_edit_lock_ = true
 
+[node name="Background" type="AnimatedSprite2D" parent="."]
+position = Vector2(600, 400)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_e8eu2")
+
+[node name="Difficulty" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 535.0
+offset_top = 482.0
+offset_right = 682.0
+offset_bottom = 539.0
+color = Color(0, 0, 0, 0.454902)
+
+[node name="Label" type="Label" parent="Difficulty"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 1.0
+offset_right = 130.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("2_3qx6m")
+theme_override_font_sizes/font_size = 21
+text = "Dificuldade:
+Moderado"
+horizontal_alignment = 1
+
+[node name="Difficulty" type="Button" parent="Difficulty"]
+layout_mode = 0
+offset_left = -24.0
+offset_right = -3.0
+offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("2_3qx6m")
+theme_override_font_sizes/font_size = 21
+text = "<"
+
+[node name="Difficulty2" type="Button" parent="Difficulty"]
+layout_mode = 0
+offset_left = 150.0
+offset_right = 171.0
+offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("2_3qx6m")
+theme_override_font_sizes/font_size = 21
+text = ">"
+
 [node name="Start" type="Button" parent="."]
 layout_mode = 0
 offset_left = 512.0
-offset_top = 519.0
+offset_top = 548.0
 offset_right = 704.0
-offset_bottom = 574.0
+offset_bottom = 603.0
 theme_override_fonts/font = ExtResource("2_3qx6m")
 theme_override_font_sizes/font_size = 21
 text = "Começar"
 
-[node name="Leave" type="Button" parent="."]
-visible = false
+[node name="Instructions" type="Button" parent="."]
 layout_mode = 0
 offset_left = 512.0
-offset_top = 648.0
+offset_top = 612.0
 offset_right = 704.0
-offset_bottom = 704.0
-theme_override_fonts/font = ExtResource("2_3qx6m")
-theme_override_font_sizes/font_size = 21
-text = "Sair"
-
-[node name="Instruction" type="Button" parent="."]
-layout_mode = 0
-offset_left = 512.0
-offset_top = 583.0
-offset_right = 704.0
-offset_bottom = 638.0
+offset_bottom = 667.0
 theme_override_fonts/font = ExtResource("2_3qx6m")
 theme_override_font_sizes/font_size = 21
 text = "Como Jogar"
 
-[node name="Path2D2" type="Path2D" parent="."]
-position = Vector2(25, 228)
+[node name="Credits" type="Button" parent="."]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 677.0
+offset_right = 704.0
+offset_bottom = 733.0
+theme_override_fonts/font = ExtResource("2_3qx6m")
+theme_override_font_sizes/font_size = 21
+text = "Créditos"
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(42, 208)
 curve = SubResource("Curve2D_jl66f")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
-position = Vector2(1054, 226)
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(1099, 425)
 rotates = false
 
-[node name="Rat" parent="Path2D2/PathFollow2D" instance=ExtResource("5_lgsuy")]
+[node name="Rat" parent="Path2D/PathFollow2D" instance=ExtResource("5_lgsuy")]
 position = Vector2(0, -46)
 
 [node name="Mango" parent="." instance=ExtResource("3_7q1ou")]
-position = Vector2(953, 590)
+position = Vector2(1003, 590)
 script = null
 
 [node name="Papimenu" type="AnimatedSprite2D" parent="."]
@@ -163,16 +205,12 @@ position = Vector2(584, 260)
 scale = Vector2(2, 2)
 texture = ExtResource("6_cgcg5")
 
-[node name="Background" type="AnimatedSprite2D" parent="."]
-z_index = -1
-position = Vector2(600, 400)
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_e8eu2")
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_07gd5")
 autoplay = true
 
+[connection signal="pressed" from="Difficulty/Difficulty" to="." method="_on_difficulty_pressed"]
+[connection signal="pressed" from="Difficulty/Difficulty2" to="." method="_on_difficulty_pressed"]
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Leave" to="." method="_on_leave_pressed"]
-[connection signal="pressed" from="Instruction" to="." method="_on_instruction_pressed"]
+[connection signal="pressed" from="Instructions" to="." method="_on_instruction_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]

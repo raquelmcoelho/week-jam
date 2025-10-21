@@ -3,7 +3,7 @@ class_name Food
 
 var sprite_str
 var dragging: bool = false
-var is_inside_dropable: bool = false
+var is_inside_droppable: bool = false
 var is_at_trash: bool = false
 var forbidden
 var station_ref
@@ -34,7 +34,7 @@ func _on_input_event(_viewport, _event, _shape_idx):
 		dropped()
 
 func dropped():
-	if is_inside_dropable and station_ref:
+	if is_inside_droppable and station_ref:
 		if not station_ref.empty:
 			adjust_position(150, station_ref)
 		elif "food".is_subsequence_of(sprite_str) and station_ref.station_action == "cooking":
@@ -67,7 +67,7 @@ func _on_body_entered(body):
 	if body.is_in_group('trash'):
 		is_at_trash = true
 	elif body.is_in_group('station'):
-		is_inside_dropable = true
+		is_inside_droppable = true
 		body.object_above_station = true
 		station_ref = body
 
@@ -75,7 +75,7 @@ func _on_body_exited(body):
 	if body.is_in_group('trash'):
 		is_at_trash = false
 	elif body.is_in_group('station'):
-		is_inside_dropable = false
+		is_inside_droppable = false
 		body.object_above_station = false
 
 func _on_mouse_entered():

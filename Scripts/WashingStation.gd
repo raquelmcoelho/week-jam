@@ -13,7 +13,6 @@ func _process(_delta):
 
 func do():
 	$AudioStreamPlayer2D.play()
-	pass
 
 func done():
 	$AudioStreamPlayer2D.stop()

@@ -3,7 +3,7 @@ extends CharacterBody2D
 var speed = 350
 
 var dragging: bool = false
-var is_inside_dropable: bool = false
+var is_inside_droppable: bool = false
 var on_station
 
 func _ready():
@@ -37,13 +37,13 @@ func interact():
 		if body.is_in_group('enemy'):
 			body.die()
 		elif body.is_in_group('station'):
-			is_inside_dropable = true
+			is_inside_droppable = true
 			on_station = body
 
-	if not is_inside_dropable:
+	if not is_inside_droppable:
 		return
 	elif on_station.station_full or on_station.empty:
-		is_inside_dropable = false
+		is_inside_droppable = false
 		adjust_player(120, on_station)
 		on_station = null
 	else:
@@ -61,7 +61,7 @@ func finish_station():
 	on_station.station_full = false
 	self.z_index = 1
 	on_station.done()
-	is_inside_dropable = false
+	is_inside_droppable = false
 	on_station = null
 	$AnimatedSprite2D.play("idle")
 	$CollisionShape2D.disabled = false

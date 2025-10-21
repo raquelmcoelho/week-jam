@@ -1,10 +1,10 @@
 extends Area2D
 
-var sprite_str
+@export var sprite = CompressedTexture2D
+@export var sprite_str: String
 
 func _ready():
-	self.z_index = 1
-	$AnimatedSprite2D.play(sprite_str)
+	$Sprite2D.texture = sprite
 
 func _on_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_pressed("click") and not Global.is_dragging:

@@ -12,10 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://y4ui51el0y8o" path="res://Assets/Sprites/Tonhao/Idle/tonhao_idle-1.png" id="7_qwec6"]
 [ext_resource type="PackedScene" uid="uid://bhljwpn6s2gu0" path="res://Objects/Progress.tscn" id="10_8ww1g"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_104um"]
-radius = 22.5
-height = 52.0
-
 [sub_resource type="SpriteFrames" id="5"]
 animations = [{
 "frames": [{
@@ -63,6 +59,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_104um"]
+radius = 19.5
+height = 55.0
+
 [node name="Tonhao" type="Area2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_vxgqu")
@@ -72,17 +72,17 @@ position = Vector2(0, 32)
 scale = Vector2(0.561404, 0.727268)
 texture = ExtResource("2_tutl2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 6.5)
-shape = SubResource("CapsuleShape2D_104um")
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("5")
 animation = &"idle"
 
 [node name="Progress" parent="." instance=ExtResource("10_8ww1g")]
 position = Vector2(0, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 8.5)
+shape = SubResource("CapsuleShape2D_104um")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

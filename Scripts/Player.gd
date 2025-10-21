@@ -2,7 +2,7 @@ extends Area2D
 class_name Player
 
 var dragging: bool = false
-var is_inside_dropable: bool = false
+var is_inside_droppable: bool = false
 var station_ref
 var on_station
 var forbidden
@@ -29,7 +29,7 @@ func _on_Player_input_event(_viewport, _event, _shape_idx):
 		dropped()
 
 func dropped():
-	if not is_inside_dropable:
+	if not is_inside_droppable:
 		$AnimatedSprite2D.play("idle")
 		if on_station != null:
 			on_station.station_full = false
@@ -38,8 +38,7 @@ func dropped():
 		adjust_position(150, station_ref)
 	else:
 		on_station = station_ref
-		if on_station.station_action == "cooking":
-			self.z_index = -1
+		$Sombra.visible = false
 		on_station.do()
 		on_station.station_full = true
 		on_station.object_above_station = false
@@ -51,6 +50,7 @@ func dropped():
 		adjust_position(-90, forbidden)
 
 func finish_station():
+	$Sombra.visible = true
 	adjust_position(120, station_ref)
 	on_station.station_full = false
 	self.z_index = 1
@@ -68,13 +68,13 @@ func _on_body_entered(body):
 		Global.spawn_coins(body.get_position_delta(), get_parent())
 		body.die()
 	elif body.is_in_group('station'):
-		is_inside_dropable = true
+		is_inside_droppable = true
 		body.object_above_station = true
 		station_ref = body
 
 func _on_body_exited(body):
 	if body.is_in_group('station'):
-		is_inside_dropable = false
+		is_inside_droppable = false
 		body.object_above_station = false
 
 func _on_mouse_entered():
