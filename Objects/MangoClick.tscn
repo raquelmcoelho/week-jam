@@ -1,0 +1,91 @@
+[gd_scene load_steps=14 format=3 uid="uid://brs3ai3i5peag"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_xnayc"]
+[ext_resource type="Texture2D" uid="uid://cm53osw6fm8x4" path="res://Assets/Sprites/shadow.png" id="2_b3flg"]
+[ext_resource type="Texture2D" uid="uid://dhg0taco5x1pq" path="res://Assets/Sprites/Mango/Chopping/chef_chopping-0.png" id="3_cajqa"]
+[ext_resource type="Texture2D" uid="uid://d0fyiuwuopc7a" path="res://Assets/Sprites/Mango/Chopping/chef_chopping-1.png" id="4_sk0l8"]
+[ext_resource type="Texture2D" uid="uid://mr5u53l5rgw3" path="res://Assets/Sprites/Mango/Cooking/chef_cooking-0.png" id="5_t6tvb"]
+[ext_resource type="Texture2D" uid="uid://cg5pkqyd8hmo2" path="res://Assets/Sprites/Mango/Cooking/chef_cooking-1.png" id="6_0abn8"]
+[ext_resource type="Texture2D" uid="uid://f2csfycju1aa" path="res://Assets/Sprites/Mango/Idle/chef_idle-0.png" id="7_3554g"]
+[ext_resource type="Texture2D" uid="uid://cpfrhj33drq3w" path="res://Assets/Sprites/Mango/Idle/chef_idle-1.png" id="8_ka471"]
+[ext_resource type="Texture2D" uid="uid://cbxbjs3uni2b2" path="res://Assets/Sprites/Mango/Washing/chef_washing-0.png" id="9_0yfv7"]
+[ext_resource type="Texture2D" uid="uid://bi5hplkgbse8s" path="res://Assets/Sprites/Mango/Washing/chef_washing-1.png" id="10_mm8o1"]
+[ext_resource type="PackedScene" uid="uid://bhljwpn6s2gu0" path="res://Objects/Progress.tscn" id="11_15yv0"]
+
+[sub_resource type="SpriteFrames" id="5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_cajqa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_sk0l8")
+}],
+"loop": true,
+"name": &"chopping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_t6tvb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0abn8")
+}],
+"loop": true,
+"name": &"cooking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_3554g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ka471")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_0yfv7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mm8o1")
+}],
+"loop": true,
+"name": &"washing",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_104um"]
+radius = 19.5
+height = 55.0
+
+[node name="MangoClick" type="Area2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_xnayc")
+
+[node name="Sombra" type="Sprite2D" parent="."]
+position = Vector2(0, 32)
+scale = Vector2(0.561404, 0.727268)
+texture = ExtResource("2_b3flg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("5")
+animation = &"idle"
+
+[node name="Progress" parent="." instance=ExtResource("11_15yv0")]
+position = Vector2(0, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 8.5)
+shape = SubResource("CapsuleShape2D_104um")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="input_event" from="." to="." method="_on_Player_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

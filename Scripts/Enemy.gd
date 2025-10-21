@@ -24,18 +24,15 @@ func MovementLoop(delta):
 	move_direction = (pos.angle_to_point(prepos) / 3.14) * 180
 
 func AnimationLoop():
-	var animation = "back"
-	var flip = false
+	var animation = "down"
 	if move_direction < -135 or move_direction >= 135:
-		animation = "side"
-		flip = true
+		animation = "right"
 	elif move_direction < 135 and move_direction >= 45:
-		animation = "back"
+		animation = "up"
 	elif move_direction < 45 and move_direction >= -45:
-		animation = "side"
+		animation = "left"
 	elif move_direction < -45 and move_direction >= -135:
-		animation = "front"
-	$AnimatedSprite2D.flip_h = flip
+		animation = "down"
 	$AnimatedSprite2D.play(animation)
 
 func die():

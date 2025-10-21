@@ -7,14 +7,19 @@ var life_scene : PackedScene = preload("res://Objects/Life.tscn")
 
 var line_positions = [Vector2(855, 120), Vector2(935, 120), Vector2(1015, 120), Vector2(1095, 120)]
 var spots_positions = [Vector2(865, 450), Vector2(860, 360), Vector2(855, 270)]
-var spots_ocuppied = [0, 0, 0]
+var spots_occupied = [0, 0, 0]
 var line = []
 var customer_spawn_time = 0
-var lifes = []
+var customer_spawntime_limit : int
+var lives = []
 
 func _ready():
 	print("main ready id: ", self)
 	
+	if Global.difficulty:
+		customer_spawntime_limit = 4
+	else:
+		customer_spawntime_limit = 5
 
 func spawn_enemy():
 	var rat : Enemy = rat_scene.instantiate()
@@ -35,12 +40,12 @@ func spawn_barrel(sprite, position):
 
 func update_customers():
 	var spot_index = -1
-	for i in len(spots_ocuppied):
-		if spots_ocuppied[i] == 0:
+	for i in len(spots_occupied):
+		if spots_occupied[i] == 0:
 			spot_index = i
 			break;
 	if len(line) > 0 and spot_index != -1:
-		spots_ocuppied[spot_index] = 1
+		spots_occupied[spot_index] = 1
 		var customer = line.pop_front()
 		customer.customer_spot = spot_index
 		customer.ajust_position(spots_positions[spot_index])
@@ -48,7 +53,7 @@ func update_customers():
 		for i in range(len(line)):
 			line[i].ajust_position(line_positions[i])
 	else:
-		if customer_spawn_time == 4:
+		if customer_spawn_time == customer_spawntime_limit:
 			customer_spawn_time = 0
 			spawn_customer(spot_index)
 		else:
@@ -56,7 +61,7 @@ func update_customers():
 
 func spawn_customer(spot_index):
 	if spot_index != -1:
-		spots_ocuppied[spot_index] = 1
+		spots_occupied[spot_index] = 1
 		var customer : Customer = customer_scene.instantiate()
 		customer.connect("customer_gave_up", Callable(self, "lose_life"))
 		customer.connect("customer_left", Callable(self, "customer_out"))
@@ -75,31 +80,28 @@ func spawn_customer(spot_index):
 		line.append(customer)
 
 func customer_out(customer_spot):
-	spots_ocuppied[customer_spot] = 0
+	spots_occupied[customer_spot] = 0
 
-func spawn_lifes():
+func spawn_lives():
 	for i in range(3):
 		var life = life_scene.instantiate()
 		life.position = Vector2(1100 + i * 35, 25)
-		lifes.append(life)
+		lives.append(life)
 		add_child(life)
 
 func _on_enemy_timer_timeout():
 	spawn_enemy()
 
 func _on_creation_timer_timeout():
-	spawn_lifes()
-	spawn_barrel("pasta", Vector2(50,225))
-	spawn_barrel("sandwich", Vector2(120,200))
-	spawn_barrel("soup", Vector2(190,175))
+	spawn_lives()
 
 func _on_customer_timer_timeout():
 	update_customers()
 
 func lose_life():
 	for i in range(2,0,-1):
-		if(lifes[i].is_alive):
-			lifes[i].kill()
+		if(lives[i].is_alive):
+			lives[i].kill()
 			return
 	get_tree().change_scene_to_file("res://Scenes/Game_over.tscn")
 
